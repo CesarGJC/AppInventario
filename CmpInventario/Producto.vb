@@ -46,4 +46,5 @@
         End Try
     End Sub
     'esto es de prueba
+    'esto es una prueba x2
 End Class
