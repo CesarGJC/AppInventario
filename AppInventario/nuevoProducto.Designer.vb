@@ -30,6 +30,7 @@ Partial Class nuevoProducto
         Me.txtCat = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnCancelar = New System.Windows.Forms.Button()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -98,18 +99,29 @@ Partial Class nuevoProducto
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(274, 236)
+        Me.Button1.Location = New System.Drawing.Point(356, 254)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(98, 39)
         Me.Button1.TabIndex = 6
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'btnCancelar
+        '
+        Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCancelar.Location = New System.Drawing.Point(201, 254)
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(98, 39)
+        Me.btnCancelar.TabIndex = 7
+        Me.btnCancelar.Text = "Cancelar"
+        Me.btnCancelar.UseVisualStyleBackColor = True
+        '
         'nuevoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(609, 404)
+        Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.txtCat)
         Me.Controls.Add(Me.Label3)
@@ -135,4 +147,5 @@ Partial Class nuevoProducto
     Friend WithEvents txtCat As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnCancelar As Button
 End Class

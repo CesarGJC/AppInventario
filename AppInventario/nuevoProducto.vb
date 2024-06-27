@@ -6,18 +6,16 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim objPro As New CmpInventario.Producto
+        Try
+            objPro.Crear(txtNombre.Text, txtPrecio.Text, txtCat.Text)
+            MsgBox("Producto Registrado Correctamente")
+            Close()
+        Catch ex As Exception
 
-        If String.IsNullOrWhiteSpace(txtNombre.Text) Then
-            If objPro.Crear(txtNombre.Text, txtPrecio.Text, txtCat.Text) Then
-                MsgBox("Producto Registrado Correctamente")
-                Close()
-            Else
-                MsgBox("Error al guardar Producto!")
+        End Try
+    End Sub
 
-            End If
-        Else
-            objPro.Editar(txtNombre.Text, txtPrecio.Text, txtCat.Text)
-            MsgBox("Se ha editado los datos del Producto correctamente")
-        End If
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
     End Sub
 End Class

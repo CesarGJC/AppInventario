@@ -3226,12 +3226,9 @@ Namespace BDTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ci", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Ci", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "DELETE FROM [dbo].[Clientes] WHERE (([Ci] = @Original_Ci)"
+            Me._commandCollection(4).CommandText = "DELETE FROM [dbo].[Clientes] WHERE [Ci] = @Original_Ci"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ci", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Ci", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Apellido", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Apellido", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefono", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefono", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3280,7 +3277,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal Cliente As String) As BD.ClientesDataTable
+        Public Overloads Overridable Function GetDataBy1(ByVal Cliente As String) As BD.ClientesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
             If (Cliente Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Cliente")
@@ -3556,27 +3553,12 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
-        Public Overloads Overridable Function EliminarCliente(ByVal Original_Ci As String, ByVal Original_Nombre As String, ByVal Original_Apellido As String, ByVal Original_Telefono As String) As Integer
+        Public Overloads Overridable Function EliminarCliente(ByVal Original_Ci As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Original_Ci Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Ci")
             Else
                 command.Parameters(0).Value = CType(Original_Ci,String)
-            End If
-            If (Original_Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nombre")
-            Else
-                command.Parameters(1).Value = CType(Original_Nombre,String)
-            End If
-            If (Original_Apellido Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Apellido")
-            Else
-                command.Parameters(2).Value = CType(Original_Apellido,String)
-            End If
-            If (Original_Telefono Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Telefono")
-            Else
-                command.Parameters(3).Value = CType(Original_Telefono,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5417,14 +5399,9 @@ Namespace BDTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[TProducto] WHERE (([ProductoID] = @Original_ProductoID) "
+            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[TProducto] WHERE [ProductoID] = @Original_ProductoID"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrecioCom", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5507,7 +5484,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy(ByVal Producto As String) As BD.TProductoDataTable
+        Public Overloads Overridable Function GetDataBy2(ByVal Producto As String) As BD.TProductoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (Producto Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Producto")
@@ -5797,37 +5774,12 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
-        Public Overloads Overridable Function EliminarProducto(ByVal Original_ProductoID As String, ByVal Original_Nombre As String, ByVal Original_PrecioCom As String, ByVal Original_categoria As String, ByVal IsNull_cantidad As Global.System.Nullable(Of Integer), ByVal Original_cantidad As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function EliminarProducto(ByVal Original_ProductoID As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
             If (Original_ProductoID Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductoID")
             Else
                 command.Parameters(0).Value = CType(Original_ProductoID,String)
-            End If
-            If (Original_Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nombre")
-            Else
-                command.Parameters(1).Value = CType(Original_Nombre,String)
-            End If
-            If (Original_PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_PrecioCom")
-            Else
-                command.Parameters(2).Value = CType(Original_PrecioCom,String)
-            End If
-            If (Original_categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_categoria")
-            Else
-                command.Parameters(3).Value = CType(Original_categoria,String)
-            End If
-            If (IsNull_cantidad.HasValue = true) Then
-                command.Parameters(4).Value = CType(IsNull_cantidad.Value,Integer)
-            Else
-                command.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_cantidad.HasValue = true) Then
-                command.Parameters(5).Value = CType(Original_cantidad.Value,Integer)
-            Else
-                command.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _

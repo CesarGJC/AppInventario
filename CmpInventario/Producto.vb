@@ -45,6 +45,14 @@
 
         End Try
     End Sub
+    Public Sub EliminarProducto(ci As String)
+        Try
+            Dim adap As New BDTableAdapters.TProductoTableAdapter
+            adap.EliminarProducto(ci)
+        Catch ex As Exception
+
+        End Try
+    End Sub
     'esto es de prueba
     'esto es una prueba x2
 End Class
