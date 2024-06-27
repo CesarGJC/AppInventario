@@ -3217,19 +3217,13 @@ Namespace BDTableAdapters
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cliente", Global.System.Data.SqlDbType.NVarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "UPDATE [dbo].[Clientes] SET [Ci] = @Ci, [Nombre] = @Nombre, [Apellido] = @Apellid"& _ 
-                "o, [Telefono] = @Telefono WHERE (([Ci] = @Original_Ci) AND ([Nombre] = @Original"& _ 
-                "_Nombre) AND ([Apellido] = @Original_Apellido) AND ([Telefono] = @Original_Telef"& _ 
-                "ono));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Ci, Nombre, Apellido, Telefono FROM Clientes WHERE (Ci = @Ci)"
+            Me._commandCollection(3).CommandText = "UPDATE [dbo].[Clientes] "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"Nombre = @Nombre, Apellido = @Apellido, Telefono "& _ 
+                "= @Telefono "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Ci = @Ci "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ci", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Ci", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Apellido", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Apellido", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefono", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefono", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Ci", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Ci", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Apellido", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Apellido", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Telefono", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefono", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Ci", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Ci", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "DELETE FROM [dbo].[Clientes] WHERE (([Ci] = @Original_Ci)"
@@ -3520,47 +3514,27 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function EditarCliente(ByVal Ci As String, ByVal Nombre As String, ByVal Apellido As String, ByVal Telefono As String, ByVal Original_Ci As String, ByVal Original_Nombre As String, ByVal Original_Apellido As String, ByVal Original_Telefono As String) As Integer
+        Public Overloads Overridable Function EditarCliente(ByVal Nombre As String, ByVal Apellido As String, ByVal Telefono As String, ByVal Ci As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
-            If (Ci Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Ci")
-            Else
-                command.Parameters(0).Value = CType(Ci,String)
-            End If
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                command.Parameters(1).Value = CType(Nombre,String)
+                command.Parameters(0).Value = CType(Nombre,String)
             End If
             If (Apellido Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Apellido")
             Else
-                command.Parameters(2).Value = CType(Apellido,String)
+                command.Parameters(1).Value = CType(Apellido,String)
             End If
             If (Telefono Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Telefono")
             Else
-                command.Parameters(3).Value = CType(Telefono,String)
+                command.Parameters(2).Value = CType(Telefono,String)
             End If
-            If (Original_Ci Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Ci")
+            If (Ci Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Ci")
             Else
-                command.Parameters(4).Value = CType(Original_Ci,String)
-            End If
-            If (Original_Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nombre")
-            Else
-                command.Parameters(5).Value = CType(Original_Nombre,String)
-            End If
-            If (Original_Apellido Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Apellido")
-            Else
-                command.Parameters(6).Value = CType(Original_Apellido,String)
-            End If
-            If (Original_Telefono Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Telefono")
-            Else
-                command.Parameters(7).Value = CType(Original_Telefono,String)
+                command.Parameters(3).Value = CType(Ci,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5786,7 +5760,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function Editar(ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String) As Integer
+        Public Overloads Overridable Function EditarProducto(ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")

@@ -30,7 +30,7 @@
         Try
             Dim Adap As New BDTableAdapters.TProductoTableAdapter
 
-            Adap.InsertQuery(nombre, precioC, Categoria)
+            Adap.AgregarProducto(nombre, precioC, Categoria)
             Return 1
         Catch ex As Exception
             Return 0
@@ -40,7 +40,7 @@
     Public Sub Editar(nombre As String, precioC As String, Categoria As String)
         Try
             Dim adap As New BDTableAdapters.TProductoTableAdapter
-            adap.Editar(nombre, precioC, Categoria)
+            adap.EditarProducto(nombre, precioC, Categoria)
         Catch ex As Exception
 
         End Try

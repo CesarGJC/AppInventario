@@ -70,6 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BD.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BD.vb">
+      <DependentUpon>BD.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Class1.vb" />
     <Compile Include="Cliente.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
