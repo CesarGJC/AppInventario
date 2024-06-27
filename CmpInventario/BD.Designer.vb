@@ -27,15 +27,15 @@ Partial Public Class BD
     
     Private tableClientes As ClientesDataTable
     
-    Private tableVentas As VentasDataTable
-    
-    Private tableCompra As CompraDataTable
+    Private tableTProducto As TProductoDataTable
     
     Private tableTProvedor As TProvedorDataTable
     
+    Private tableCompra As CompraDataTable
+    
     Private tableUsuario As UsuarioDataTable
     
-    Private tableTProducto As TProductoDataTable
+    Private tableVentas As VentasDataTable
     
     Private relationFK_Compra_TProvedor As Global.System.Data.DataRelation
     
@@ -73,20 +73,20 @@ Partial Public Class BD
             If (Not (ds.Tables("Clientes")) Is Nothing) Then
                 MyBase.Tables.Add(New ClientesDataTable(ds.Tables("Clientes")))
             End If
-            If (Not (ds.Tables("Ventas")) Is Nothing) Then
-                MyBase.Tables.Add(New VentasDataTable(ds.Tables("Ventas")))
-            End If
-            If (Not (ds.Tables("Compra")) Is Nothing) Then
-                MyBase.Tables.Add(New CompraDataTable(ds.Tables("Compra")))
+            If (Not (ds.Tables("TProducto")) Is Nothing) Then
+                MyBase.Tables.Add(New TProductoDataTable(ds.Tables("TProducto")))
             End If
             If (Not (ds.Tables("TProvedor")) Is Nothing) Then
                 MyBase.Tables.Add(New TProvedorDataTable(ds.Tables("TProvedor")))
             End If
+            If (Not (ds.Tables("Compra")) Is Nothing) Then
+                MyBase.Tables.Add(New CompraDataTable(ds.Tables("Compra")))
+            End If
             If (Not (ds.Tables("Usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New UsuarioDataTable(ds.Tables("Usuario")))
             End If
-            If (Not (ds.Tables("TProducto")) Is Nothing) Then
-                MyBase.Tables.Add(New TProductoDataTable(ds.Tables("TProducto")))
+            If (Not (ds.Tables("Ventas")) Is Nothing) Then
+                MyBase.Tables.Add(New VentasDataTable(ds.Tables("Ventas")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -119,19 +119,9 @@ Partial Public Class BD
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Ventas() As VentasDataTable
+    Public ReadOnly Property TProducto() As TProductoDataTable
         Get
-            Return Me.tableVentas
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Compra() As CompraDataTable
-        Get
-            Return Me.tableCompra
+            Return Me.tableTProducto
         End Get
     End Property
     
@@ -149,6 +139,16 @@ Partial Public Class BD
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Compra() As CompraDataTable
+        Get
+            Return Me.tableCompra
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
     Public ReadOnly Property Usuario() As UsuarioDataTable
         Get
             Return Me.tableUsuario
@@ -159,9 +159,9 @@ Partial Public Class BD
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property TProducto() As TProductoDataTable
+    Public ReadOnly Property Ventas() As VentasDataTable
         Get
-            Return Me.tableTProducto
+            Return Me.tableVentas
         End Get
     End Property
     
@@ -235,20 +235,20 @@ Partial Public Class BD
             If (Not (ds.Tables("Clientes")) Is Nothing) Then
                 MyBase.Tables.Add(New ClientesDataTable(ds.Tables("Clientes")))
             End If
-            If (Not (ds.Tables("Ventas")) Is Nothing) Then
-                MyBase.Tables.Add(New VentasDataTable(ds.Tables("Ventas")))
-            End If
-            If (Not (ds.Tables("Compra")) Is Nothing) Then
-                MyBase.Tables.Add(New CompraDataTable(ds.Tables("Compra")))
+            If (Not (ds.Tables("TProducto")) Is Nothing) Then
+                MyBase.Tables.Add(New TProductoDataTable(ds.Tables("TProducto")))
             End If
             If (Not (ds.Tables("TProvedor")) Is Nothing) Then
                 MyBase.Tables.Add(New TProvedorDataTable(ds.Tables("TProvedor")))
             End If
+            If (Not (ds.Tables("Compra")) Is Nothing) Then
+                MyBase.Tables.Add(New CompraDataTable(ds.Tables("Compra")))
+            End If
             If (Not (ds.Tables("Usuario")) Is Nothing) Then
                 MyBase.Tables.Add(New UsuarioDataTable(ds.Tables("Usuario")))
             End If
-            If (Not (ds.Tables("TProducto")) Is Nothing) Then
-                MyBase.Tables.Add(New TProductoDataTable(ds.Tables("TProducto")))
+            If (Not (ds.Tables("Ventas")) Is Nothing) Then
+                MyBase.Tables.Add(New VentasDataTable(ds.Tables("Ventas")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -288,16 +288,10 @@ Partial Public Class BD
                 Me.tableClientes.InitVars
             End If
         End If
-        Me.tableVentas = CType(MyBase.Tables("Ventas"),VentasDataTable)
+        Me.tableTProducto = CType(MyBase.Tables("TProducto"),TProductoDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableVentas) Is Nothing) Then
-                Me.tableVentas.InitVars
-            End If
-        End If
-        Me.tableCompra = CType(MyBase.Tables("Compra"),CompraDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableCompra) Is Nothing) Then
-                Me.tableCompra.InitVars
+            If (Not (Me.tableTProducto) Is Nothing) Then
+                Me.tableTProducto.InitVars
             End If
         End If
         Me.tableTProvedor = CType(MyBase.Tables("TProvedor"),TProvedorDataTable)
@@ -306,16 +300,22 @@ Partial Public Class BD
                 Me.tableTProvedor.InitVars
             End If
         End If
+        Me.tableCompra = CType(MyBase.Tables("Compra"),CompraDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableCompra) Is Nothing) Then
+                Me.tableCompra.InitVars
+            End If
+        End If
         Me.tableUsuario = CType(MyBase.Tables("Usuario"),UsuarioDataTable)
         If (initTable = true) Then
             If (Not (Me.tableUsuario) Is Nothing) Then
                 Me.tableUsuario.InitVars
             End If
         End If
-        Me.tableTProducto = CType(MyBase.Tables("TProducto"),TProductoDataTable)
+        Me.tableVentas = CType(MyBase.Tables("Ventas"),VentasDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableTProducto) Is Nothing) Then
-                Me.tableTProducto.InitVars
+            If (Not (Me.tableVentas) Is Nothing) Then
+                Me.tableVentas.InitVars
             End If
         End If
         Me.relationFK_Compra_TProvedor = Me.Relations("FK_Compra_TProvedor")
@@ -332,19 +332,19 @@ Partial Public Class BD
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableClientes = New ClientesDataTable()
         MyBase.Tables.Add(Me.tableClientes)
-        Me.tableVentas = New VentasDataTable()
-        MyBase.Tables.Add(Me.tableVentas)
-        Me.tableCompra = New CompraDataTable()
-        MyBase.Tables.Add(Me.tableCompra)
-        Me.tableTProvedor = New TProvedorDataTable()
-        MyBase.Tables.Add(Me.tableTProvedor)
-        Me.tableUsuario = New UsuarioDataTable()
-        MyBase.Tables.Add(Me.tableUsuario)
         Me.tableTProducto = New TProductoDataTable()
         MyBase.Tables.Add(Me.tableTProducto)
-        Me.relationFK_Compra_TProvedor = New Global.System.Data.DataRelation("FK_Compra_TProvedor", New Global.System.Data.DataColumn() {Me.tableTProvedor.IDColumn}, New Global.System.Data.DataColumn() {Me.tableCompra.idColumn}, false)
+        Me.tableTProvedor = New TProvedorDataTable()
+        MyBase.Tables.Add(Me.tableTProvedor)
+        Me.tableCompra = New CompraDataTable()
+        MyBase.Tables.Add(Me.tableCompra)
+        Me.tableUsuario = New UsuarioDataTable()
+        MyBase.Tables.Add(Me.tableUsuario)
+        Me.tableVentas = New VentasDataTable()
+        MyBase.Tables.Add(Me.tableVentas)
+        Me.relationFK_Compra_TProvedor = New Global.System.Data.DataRelation("FK_Compra_TProvedor", New Global.System.Data.DataColumn() {Me.tableTProvedor.IDColumn}, New Global.System.Data.DataColumn() {Me.tableCompra.IDColumn}, false)
         Me.Relations.Add(Me.relationFK_Compra_TProvedor)
-        Me.relationFK_Compra_Usuario = New Global.System.Data.DataRelation("FK_Compra_Usuario", New Global.System.Data.DataColumn() {Me.tableUsuario.IDColumn}, New Global.System.Data.DataColumn() {Me.tableCompra.idColumn}, false)
+        Me.relationFK_Compra_Usuario = New Global.System.Data.DataRelation("FK_Compra_Usuario", New Global.System.Data.DataColumn() {Me.tableUsuario.IDColumn}, New Global.System.Data.DataColumn() {Me.tableCompra.IDColumn}, false)
         Me.Relations.Add(Me.relationFK_Compra_Usuario)
     End Sub
     
@@ -356,13 +356,7 @@ Partial Public Class BD
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeVentas() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeCompra() As Boolean
+    Private Function ShouldSerializeTProducto() As Boolean
         Return false
     End Function
     
@@ -374,13 +368,19 @@ Partial Public Class BD
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializeCompra() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Function ShouldSerializeUsuario() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeTProducto() As Boolean
+    Private Function ShouldSerializeVentas() As Boolean
         Return false
     End Function
     
@@ -446,19 +446,19 @@ Partial Public Class BD
     Public Delegate Sub ClientesRowChangeEventHandler(ByVal sender As Object, ByVal e As ClientesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub VentasRowChangeEventHandler(ByVal sender As Object, ByVal e As VentasRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub CompraRowChangeEventHandler(ByVal sender As Object, ByVal e As CompraRowChangeEvent)
+    Public Delegate Sub TProductoRowChangeEventHandler(ByVal sender As Object, ByVal e As TProductoRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub TProvedorRowChangeEventHandler(ByVal sender As Object, ByVal e As TProvedorRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub CompraRowChangeEventHandler(ByVal sender As Object, ByVal e As CompraRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub UsuarioRowChangeEventHandler(ByVal sender As Object, ByVal e As UsuarioRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub TProductoRowChangeEventHandler(ByVal sender As Object, ByVal e As TProductoRowChangeEvent)
+    Public Delegate Sub VentasRowChangeEventHandler(ByVal sender As Object, ByVal e As VentasRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -772,22 +772,349 @@ Partial Public Class BD
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class VentasDataTable
-        Inherits Global.System.Data.TypedTableBase(Of VentasRow)
+    Partial Public Class TProductoDataTable
+        Inherits Global.System.Data.TypedTableBase(Of TProductoRow)
         
-        Private columnID As Global.System.Data.DataColumn
+        Private columnProductoID As Global.System.Data.DataColumn
         
-        Private columnValorT As Global.System.Data.DataColumn
+        Private columnNombre As Global.System.Data.DataColumn
         
-        Private columnestado As Global.System.Data.DataColumn
+        Private columnPrecioCom As Global.System.Data.DataColumn
         
-        Private columnfecha As Global.System.Data.DataColumn
+        Private columncategoria As Global.System.Data.DataColumn
+        
+        Private columncantidad As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Ventas"
+            Me.TableName = "TProducto"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ProductoIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProductoID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property PrecioComColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPrecioCom
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property categoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncategoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property cantidadColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columncantidad
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As TProductoRow
+            Get
+                Return CType(Me.Rows(index),TProductoRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event TProductoRowChanging As TProductoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event TProductoRowChanged As TProductoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event TProductoRowDeleting As TProductoRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event TProductoRowDeleted As TProductoRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddTProductoRow(ByVal row As TProductoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddTProductoRow(ByVal Nombre As String, ByVal PrecioCom As Double, ByVal categoria As String, ByVal cantidad As Integer) As TProductoRow
+            Dim rowTProductoRow As TProductoRow = CType(Me.NewRow,TProductoRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, PrecioCom, categoria, cantidad}
+            rowTProductoRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowTProductoRow)
+            Return rowTProductoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function FindByProductoID(ByVal ProductoID As Integer) As TProductoRow
+            Return CType(Me.Rows.Find(New Object() {ProductoID}),TProductoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As TProductoDataTable = CType(MyBase.Clone,TProductoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New TProductoDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnProductoID = MyBase.Columns("ProductoID")
+            Me.columnNombre = MyBase.Columns("Nombre")
+            Me.columnPrecioCom = MyBase.Columns("PrecioCom")
+            Me.columncategoria = MyBase.Columns("categoria")
+            Me.columncantidad = MyBase.Columns("cantidad")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnProductoID = New Global.System.Data.DataColumn("ProductoID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProductoID)
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
+            Me.columnPrecioCom = New Global.System.Data.DataColumn("PrecioCom", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPrecioCom)
+            Me.columncategoria = New Global.System.Data.DataColumn("categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncategoria)
+            Me.columncantidad = New Global.System.Data.DataColumn("cantidad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncantidad)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProductoID}, true))
+            Me.columnProductoID.AutoIncrement = true
+            Me.columnProductoID.AutoIncrementSeed = -1
+            Me.columnProductoID.AutoIncrementStep = -1
+            Me.columnProductoID.AllowDBNull = false
+            Me.columnProductoID.ReadOnly = true
+            Me.columnProductoID.Unique = true
+            Me.columnNombre.AllowDBNull = false
+            Me.columnNombre.MaxLength = 50
+            Me.columnPrecioCom.AllowDBNull = false
+            Me.columncategoria.AllowDBNull = false
+            Me.columncategoria.MaxLength = 50
+            Me.columncantidad.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewTProductoRow() As TProductoRow
+            Return CType(Me.NewRow,TProductoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New TProductoRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(TProductoRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.TProductoRowChangedEvent) Is Nothing) Then
+                RaiseEvent TProductoRowChanged(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.TProductoRowChangingEvent) Is Nothing) Then
+                RaiseEvent TProductoRowChanging(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.TProductoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent TProductoRowDeleted(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.TProductoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent TProductoRowDeleting(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemoveTProductoRow(ByVal row As TProductoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As BD = New BD()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "TProductoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class TProvedorDataTable
+        Inherits Global.System.Data.TypedTableBase(Of TProvedorRow)
+        
+        Private columnID As Global.System.Data.DataColumn
+        
+        Private columnNombre As Global.System.Data.DataColumn
+        
+        Private columnnit As Global.System.Data.DataColumn
+        
+        Private columntipo_documento As Global.System.Data.DataColumn
+        
+        Private columnnum_documento As Global.System.Data.DataColumn
+        
+        Private columntelefono As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "TProvedor"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -828,25 +1155,41 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ValorTColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnValorT
+                Return Me.columnNombre
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property estadoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property nitColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnestado
+                Return Me.columnnit
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property fechaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property tipo_documentoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnfecha
+                Return Me.columntipo_documento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property num_documentoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnum_documento
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property telefonoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntelefono
             End Get
         End Property
         
@@ -861,50 +1204,50 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As VentasRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As TProvedorRow
             Get
-                Return CType(Me.Rows(index),VentasRow)
+                Return CType(Me.Rows(index),TProvedorRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event VentasRowChanging As VentasRowChangeEventHandler
+        Public Event TProvedorRowChanging As TProvedorRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event VentasRowChanged As VentasRowChangeEventHandler
+        Public Event TProvedorRowChanged As TProvedorRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event VentasRowDeleting As VentasRowChangeEventHandler
+        Public Event TProvedorRowDeleting As TProvedorRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event VentasRowDeleted As VentasRowChangeEventHandler
+        Public Event TProvedorRowDeleted As TProvedorRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddVentasRow(ByVal row As VentasRow)
+        Public Overloads Sub AddTProvedorRow(ByVal row As TProvedorRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddVentasRow(ByVal ID As String, ByVal ValorT As Decimal, ByVal estado As String, ByVal fecha As Date) As VentasRow
-            Dim rowVentasRow As VentasRow = CType(Me.NewRow,VentasRow)
-            Dim columnValuesArray() As Object = New Object() {ID, ValorT, estado, fecha}
-            rowVentasRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowVentasRow)
-            Return rowVentasRow
+        Public Overloads Function AddTProvedorRow(ByVal Nombre As String, ByVal nit As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String) As TProvedorRow
+            Dim rowTProvedorRow As TProvedorRow = CType(Me.NewRow,TProvedorRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, nit, tipo_documento, num_documento, telefono}
+            rowTProvedorRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowTProvedorRow)
+            Return rowTProvedorRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByID(ByVal ID As String) As VentasRow
-            Return CType(Me.Rows.Find(New Object() {ID}),VentasRow)
+        Public Function FindByID(ByVal ID As Integer) As TProvedorRow
+            Return CType(Me.Rows.Find(New Object() {ID}),TProvedorRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As VentasDataTable = CType(MyBase.Clone,VentasDataTable)
+            Dim cln As TProvedorDataTable = CType(MyBase.Clone,TProvedorDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -912,63 +1255,78 @@ Partial Public Class BD
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New VentasDataTable()
+            Return New TProvedorDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
-            Me.columnValorT = MyBase.Columns("ValorT")
-            Me.columnestado = MyBase.Columns("estado")
-            Me.columnfecha = MyBase.Columns("fecha")
+            Me.columnNombre = MyBase.Columns("Nombre")
+            Me.columnnit = MyBase.Columns("nit")
+            Me.columntipo_documento = MyBase.Columns("tipo_documento")
+            Me.columnnum_documento = MyBase.Columns("num_documento")
+            Me.columntelefono = MyBase.Columns("telefono")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
-            Me.columnValorT = New Global.System.Data.DataColumn("ValorT", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnValorT)
-            Me.columnestado = New Global.System.Data.DataColumn("estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnestado)
-            Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnfecha)
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
+            Me.columnnit = New Global.System.Data.DataColumn("nit", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnit)
+            Me.columntipo_documento = New Global.System.Data.DataColumn("tipo_documento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipo_documento)
+            Me.columnnum_documento = New Global.System.Data.DataColumn("num_documento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnum_documento)
+            Me.columntelefono = New Global.System.Data.DataColumn("telefono", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntelefono)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
+            Me.columnID.ReadOnly = true
             Me.columnID.Unique = true
-            Me.columnID.MaxLength = 50
-            Me.columnValorT.AllowDBNull = false
-            Me.columnestado.AllowDBNull = false
-            Me.columnestado.MaxLength = 50
-            Me.columnfecha.AllowDBNull = false
+            Me.columnNombre.AllowDBNull = false
+            Me.columnNombre.MaxLength = 50
+            Me.columnnit.AllowDBNull = false
+            Me.columnnit.MaxLength = 50
+            Me.columntipo_documento.AllowDBNull = false
+            Me.columntipo_documento.MaxLength = 50
+            Me.columnnum_documento.AllowDBNull = false
+            Me.columnnum_documento.MaxLength = 50
+            Me.columntelefono.AllowDBNull = false
+            Me.columntelefono.MaxLength = 20
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewVentasRow() As VentasRow
-            Return CType(Me.NewRow,VentasRow)
+        Public Function NewTProvedorRow() As TProvedorRow
+            Return CType(Me.NewRow,TProvedorRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New VentasRow(builder)
+            Return New TProvedorRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(VentasRow)
+            Return GetType(TProvedorRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.VentasRowChangedEvent) Is Nothing) Then
-                RaiseEvent VentasRowChanged(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
+            If (Not (Me.TProvedorRowChangedEvent) Is Nothing) Then
+                RaiseEvent TProvedorRowChanged(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
             End If
         End Sub
         
@@ -976,8 +1334,8 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.VentasRowChangingEvent) Is Nothing) Then
-                RaiseEvent VentasRowChanging(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
+            If (Not (Me.TProvedorRowChangingEvent) Is Nothing) Then
+                RaiseEvent TProvedorRowChanging(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
             End If
         End Sub
         
@@ -985,8 +1343,8 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.VentasRowDeletedEvent) Is Nothing) Then
-                RaiseEvent VentasRowDeleted(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
+            If (Not (Me.TProvedorRowDeletedEvent) Is Nothing) Then
+                RaiseEvent TProvedorRowDeleted(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
             End If
         End Sub
         
@@ -994,14 +1352,14 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.VentasRowDeletingEvent) Is Nothing) Then
-                RaiseEvent VentasRowDeleting(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
+            If (Not (Me.TProvedorRowDeletingEvent) Is Nothing) Then
+                RaiseEvent TProvedorRowDeleting(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveVentasRow(ByVal row As VentasRow)
+        Public Sub RemoveTProvedorRow(ByVal row As TProvedorRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -1028,7 +1386,7 @@ Partial Public Class BD
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "VentasDataTable"
+            attribute2.FixedValue = "TProvedorDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1080,7 +1438,7 @@ Partial Public Class BD
     Partial Public Class CompraDataTable
         Inherits Global.System.Data.TypedTableBase(Of CompraRow)
         
-        Private columnid As Global.System.Data.DataColumn
+        Private columnID As Global.System.Data.DataColumn
         
         Private columncomprobante As Global.System.Data.DataColumn
         
@@ -1127,9 +1485,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnid
+                Return Me.columnID
             End Get
         End Property
         
@@ -1202,12 +1560,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddCompraRow(ByVal parentTProvedorRowByFK_Compra_TProvedor As TProvedorRow, ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date) As CompraRow
+        Public Overloads Function AddCompraRow(ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date) As CompraRow
             Dim rowCompraRow As CompraRow = CType(Me.NewRow,CompraRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, comprobante, numComprobante, descripcion, fecha}
-            If (Not (parentTProvedorRowByFK_Compra_TProvedor) Is Nothing) Then
-                columnValuesArray(0) = parentTProvedorRowByFK_Compra_TProvedor(0)
-            End If
             rowCompraRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCompraRow)
             Return rowCompraRow
@@ -1215,8 +1570,8 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByid(ByVal id As String) As CompraRow
-            Return CType(Me.Rows.Find(New Object() {id}),CompraRow)
+        Public Function FindByID(ByVal ID As Integer) As CompraRow
+            Return CType(Me.Rows.Find(New Object() {ID}),CompraRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1236,7 +1591,7 @@ Partial Public Class BD
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
+            Me.columnID = MyBase.Columns("ID")
             Me.columncomprobante = MyBase.Columns("comprobante")
             Me.columnnumComprobante = MyBase.Columns("numComprobante")
             Me.columndescripcion = MyBase.Columns("descripcion")
@@ -1246,8 +1601,8 @@ Partial Public Class BD
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
             Me.columncomprobante = New Global.System.Data.DataColumn("comprobante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncomprobante)
             Me.columnnumComprobante = New Global.System.Data.DataColumn("numComprobante", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1256,10 +1611,13 @@ Partial Public Class BD
             MyBase.Columns.Add(Me.columndescripcion)
             Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnfecha)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
-            Me.columnid.AllowDBNull = false
-            Me.columnid.Unique = true
-            Me.columnid.MaxLength = 50
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
+            Me.columnID.AllowDBNull = false
+            Me.columnID.ReadOnly = true
+            Me.columnID.Unique = true
             Me.columncomprobante.AllowDBNull = false
             Me.columncomprobante.MaxLength = 50
             Me.columnnumComprobante.AllowDBNull = false
@@ -1401,328 +1759,6 @@ Partial Public Class BD
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class TProvedorDataTable
-        Inherits Global.System.Data.TypedTableBase(Of TProvedorRow)
-        
-        Private columnID As Global.System.Data.DataColumn
-        
-        Private columnrazon_social As Global.System.Data.DataColumn
-        
-        Private columntipo_documento As Global.System.Data.DataColumn
-        
-        Private columnnum_documento As Global.System.Data.DataColumn
-        
-        Private columntelefono As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "TProvedor"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property razon_socialColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnrazon_social
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property tipo_documentoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntipo_documento
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property num_documentoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnum_documento
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property telefonoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntelefono
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As TProvedorRow
-            Get
-                Return CType(Me.Rows(index),TProvedorRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProvedorRowChanging As TProvedorRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProvedorRowChanged As TProvedorRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProvedorRowDeleting As TProvedorRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProvedorRowDeleted As TProvedorRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddTProvedorRow(ByVal row As TProvedorRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddTProvedorRow(ByVal ID As String, ByVal razon_social As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String) As TProvedorRow
-            Dim rowTProvedorRow As TProvedorRow = CType(Me.NewRow,TProvedorRow)
-            Dim columnValuesArray() As Object = New Object() {ID, razon_social, tipo_documento, num_documento, telefono}
-            rowTProvedorRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowTProvedorRow)
-            Return rowTProvedorRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByID(ByVal ID As String) As TProvedorRow
-            Return CType(Me.Rows.Find(New Object() {ID}),TProvedorRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As TProvedorDataTable = CType(MyBase.Clone,TProvedorDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New TProvedorDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
-            Me.columnrazon_social = MyBase.Columns("razon_social")
-            Me.columntipo_documento = MyBase.Columns("tipo_documento")
-            Me.columnnum_documento = MyBase.Columns("num_documento")
-            Me.columntelefono = MyBase.Columns("telefono")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
-            Me.columnrazon_social = New Global.System.Data.DataColumn("razon_social", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnrazon_social)
-            Me.columntipo_documento = New Global.System.Data.DataColumn("tipo_documento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntipo_documento)
-            Me.columnnum_documento = New Global.System.Data.DataColumn("num_documento", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnum_documento)
-            Me.columntelefono = New Global.System.Data.DataColumn("telefono", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntelefono)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
-            Me.columnID.AllowDBNull = false
-            Me.columnID.Unique = true
-            Me.columnID.MaxLength = 50
-            Me.columnrazon_social.AllowDBNull = false
-            Me.columnrazon_social.MaxLength = 50
-            Me.columntipo_documento.AllowDBNull = false
-            Me.columntipo_documento.MaxLength = 50
-            Me.columnnum_documento.AllowDBNull = false
-            Me.columnnum_documento.MaxLength = 50
-            Me.columntelefono.AllowDBNull = false
-            Me.columntelefono.MaxLength = 50
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewTProvedorRow() As TProvedorRow
-            Return CType(Me.NewRow,TProvedorRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New TProvedorRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(TProvedorRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.TProvedorRowChangedEvent) Is Nothing) Then
-                RaiseEvent TProvedorRowChanged(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.TProvedorRowChangingEvent) Is Nothing) Then
-                RaiseEvent TProvedorRowChanging(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.TProvedorRowDeletedEvent) Is Nothing) Then
-                RaiseEvent TProvedorRowDeleted(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.TProvedorRowDeletingEvent) Is Nothing) Then
-                RaiseEvent TProvedorRowDeleting(Me, New TProvedorRowChangeEvent(CType(e.Row,TProvedorRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveTProvedorRow(ByVal row As TProvedorRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As BD = New BD()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "TProvedorDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class UsuarioDataTable
         Inherits Global.System.Data.TypedTableBase(Of UsuarioRow)
         
@@ -1730,9 +1766,9 @@ Partial Public Class BD
         
         Private columnUsuario As Global.System.Data.DataColumn
         
-        Private columnContraseña As Global.System.Data.DataColumn
+        Private columnContrasena As Global.System.Data.DataColumn
         
-        Private columnRol As Global.System.Data.DataColumn
+        Private columnrol As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1787,17 +1823,17 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ContraseñaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ContrasenaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnContraseña
+                Return Me.columnContrasena
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property RolColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property rolColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnRol
+                Return Me.columnrol
             End Get
         End Property
         
@@ -1838,9 +1874,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddUsuarioRow(ByVal ID As String, ByVal Usuario As String, ByVal Contraseña As String, ByVal Rol As String) As UsuarioRow
+        Public Overloads Function AddUsuarioRow(ByVal Usuario As String, ByVal Contrasena As String, ByVal rol() As Byte) As UsuarioRow
             Dim rowUsuarioRow As UsuarioRow = CType(Me.NewRow,UsuarioRow)
-            Dim columnValuesArray() As Object = New Object() {ID, Usuario, Contraseña, Rol}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Usuario, Contrasena, rol}
             rowUsuarioRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowUsuarioRow)
             Return rowUsuarioRow
@@ -1848,7 +1884,7 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByID(ByVal ID As String) As UsuarioRow
+        Public Function FindByID(ByVal ID As Integer) As UsuarioRow
             Return CType(Me.Rows.Find(New Object() {ID}),UsuarioRow)
         End Function
         
@@ -1871,31 +1907,33 @@ Partial Public Class BD
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
             Me.columnUsuario = MyBase.Columns("Usuario")
-            Me.columnContraseña = MyBase.Columns("Contraseña")
-            Me.columnRol = MyBase.Columns("Rol")
+            Me.columnContrasena = MyBase.Columns("Contrasena")
+            Me.columnrol = MyBase.Columns("rol")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
             Me.columnUsuario = New Global.System.Data.DataColumn("Usuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnUsuario)
-            Me.columnContraseña = New Global.System.Data.DataColumn("Contraseña", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnContraseña)
-            Me.columnRol = New Global.System.Data.DataColumn("Rol", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnRol)
+            Me.columnContrasena = New Global.System.Data.DataColumn("Contrasena", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnContrasena)
+            Me.columnrol = New Global.System.Data.DataColumn("rol", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnrol)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
+            Me.columnID.ReadOnly = true
             Me.columnID.Unique = true
-            Me.columnID.MaxLength = 50
             Me.columnUsuario.AllowDBNull = false
             Me.columnUsuario.MaxLength = 50
-            Me.columnContraseña.AllowDBNull = false
-            Me.columnContraseña.MaxLength = 50
-            Me.columnRol.AllowDBNull = false
-            Me.columnRol.MaxLength = 50
+            Me.columnContrasena.AllowDBNull = false
+            Me.columnContrasena.MaxLength = 50
+            Me.columnrol.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2030,24 +2068,22 @@ Partial Public Class BD
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class TProductoDataTable
-        Inherits Global.System.Data.TypedTableBase(Of TProductoRow)
+    Partial Public Class VentasDataTable
+        Inherits Global.System.Data.TypedTableBase(Of VentasRow)
         
-        Private columnProductoID As Global.System.Data.DataColumn
+        Private columnID As Global.System.Data.DataColumn
         
-        Private columnNombre As Global.System.Data.DataColumn
+        Private columnValorT As Global.System.Data.DataColumn
         
-        Private columnPrecioCom As Global.System.Data.DataColumn
+        Private columnEstado As Global.System.Data.DataColumn
         
-        Private columncategoria As Global.System.Data.DataColumn
-        
-        Private columncantidad As Global.System.Data.DataColumn
+        Private columnfecha As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "TProducto"
+            Me.TableName = "Ventas"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -2080,41 +2116,33 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ProductoIDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnProductoID
+                Return Me.columnID
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property ValorTColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNombre
+                Return Me.columnValorT
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PrecioComColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property EstadoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPrecioCom
+                Return Me.columnEstado
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property categoriaColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property fechaColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncategoria
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cantidadColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columncantidad
+                Return Me.columnfecha
             End Get
         End Property
         
@@ -2129,50 +2157,50 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As TProductoRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As VentasRow
             Get
-                Return CType(Me.Rows(index),TProductoRow)
+                Return CType(Me.Rows(index),VentasRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProductoRowChanging As TProductoRowChangeEventHandler
+        Public Event VentasRowChanging As VentasRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProductoRowChanged As TProductoRowChangeEventHandler
+        Public Event VentasRowChanged As VentasRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProductoRowDeleting As TProductoRowChangeEventHandler
+        Public Event VentasRowDeleting As VentasRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event TProductoRowDeleted As TProductoRowChangeEventHandler
+        Public Event VentasRowDeleted As VentasRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddTProductoRow(ByVal row As TProductoRow)
+        Public Overloads Sub AddVentasRow(ByVal row As VentasRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddTProductoRow(ByVal ProductoID As String, ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String, ByVal cantidad As Integer) As TProductoRow
-            Dim rowTProductoRow As TProductoRow = CType(Me.NewRow,TProductoRow)
-            Dim columnValuesArray() As Object = New Object() {ProductoID, Nombre, PrecioCom, categoria, cantidad}
-            rowTProductoRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowTProductoRow)
-            Return rowTProductoRow
+        Public Overloads Function AddVentasRow(ByVal ValorT As Integer, ByVal Estado As String, ByVal fecha As Date) As VentasRow
+            Dim rowVentasRow As VentasRow = CType(Me.NewRow,VentasRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, ValorT, Estado, fecha}
+            rowVentasRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowVentasRow)
+            Return rowVentasRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByProductoID(ByVal ProductoID As String) As TProductoRow
-            Return CType(Me.Rows.Find(New Object() {ProductoID}),TProductoRow)
+        Public Function FindByID(ByVal ID As Integer) As VentasRow
+            Return CType(Me.Rows.Find(New Object() {ID}),VentasRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As TProductoDataTable = CType(MyBase.Clone,TProductoDataTable)
+            Dim cln As VentasDataTable = CType(MyBase.Clone,VentasDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -2180,68 +2208,66 @@ Partial Public Class BD
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New TProductoDataTable()
+            Return New VentasDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnProductoID = MyBase.Columns("ProductoID")
-            Me.columnNombre = MyBase.Columns("Nombre")
-            Me.columnPrecioCom = MyBase.Columns("PrecioCom")
-            Me.columncategoria = MyBase.Columns("categoria")
-            Me.columncantidad = MyBase.Columns("cantidad")
+            Me.columnID = MyBase.Columns("ID")
+            Me.columnValorT = MyBase.Columns("ValorT")
+            Me.columnEstado = MyBase.Columns("Estado")
+            Me.columnfecha = MyBase.Columns("fecha")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnProductoID = New Global.System.Data.DataColumn("ProductoID", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProductoID)
-            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNombre)
-            Me.columnPrecioCom = New Global.System.Data.DataColumn("PrecioCom", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPrecioCom)
-            Me.columncategoria = New Global.System.Data.DataColumn("categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncategoria)
-            Me.columncantidad = New Global.System.Data.DataColumn("cantidad", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncantidad)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProductoID}, true))
-            Me.columnProductoID.AllowDBNull = false
-            Me.columnProductoID.Unique = true
-            Me.columnProductoID.MaxLength = 50
-            Me.columnNombre.AllowDBNull = false
-            Me.columnNombre.MaxLength = 50
-            Me.columnPrecioCom.AllowDBNull = false
-            Me.columnPrecioCom.MaxLength = 50
-            Me.columncategoria.AllowDBNull = false
-            Me.columncategoria.MaxLength = 50
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
+            Me.columnValorT = New Global.System.Data.DataColumn("ValorT", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnValorT)
+            Me.columnEstado = New Global.System.Data.DataColumn("Estado", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstado)
+            Me.columnfecha = New Global.System.Data.DataColumn("fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfecha)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
+            Me.columnID.AutoIncrement = true
+            Me.columnID.AutoIncrementSeed = -1
+            Me.columnID.AutoIncrementStep = -1
+            Me.columnID.AllowDBNull = false
+            Me.columnID.ReadOnly = true
+            Me.columnID.Unique = true
+            Me.columnValorT.AllowDBNull = false
+            Me.columnEstado.AllowDBNull = false
+            Me.columnEstado.MaxLength = 50
+            Me.columnfecha.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewTProductoRow() As TProductoRow
-            Return CType(Me.NewRow,TProductoRow)
+        Public Function NewVentasRow() As VentasRow
+            Return CType(Me.NewRow,VentasRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New TProductoRow(builder)
+            Return New VentasRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(TProductoRow)
+            Return GetType(VentasRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.TProductoRowChangedEvent) Is Nothing) Then
-                RaiseEvent TProductoRowChanged(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            If (Not (Me.VentasRowChangedEvent) Is Nothing) Then
+                RaiseEvent VentasRowChanged(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
             End If
         End Sub
         
@@ -2249,8 +2275,8 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.TProductoRowChangingEvent) Is Nothing) Then
-                RaiseEvent TProductoRowChanging(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            If (Not (Me.VentasRowChangingEvent) Is Nothing) Then
+                RaiseEvent VentasRowChanging(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
             End If
         End Sub
         
@@ -2258,8 +2284,8 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.TProductoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent TProductoRowDeleted(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            If (Not (Me.VentasRowDeletedEvent) Is Nothing) Then
+                RaiseEvent VentasRowDeleted(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
             End If
         End Sub
         
@@ -2267,14 +2293,14 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.TProductoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent TProductoRowDeleting(Me, New TProductoRowChangeEvent(CType(e.Row,TProductoRow), e.Action))
+            If (Not (Me.VentasRowDeletingEvent) Is Nothing) Then
+                RaiseEvent VentasRowDeleting(Me, New VentasRowChangeEvent(CType(e.Row,VentasRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveTProductoRow(ByVal row As TProductoRow)
+        Public Sub RemoveVentasRow(ByVal row As VentasRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -2301,7 +2327,7 @@ Partial Public Class BD
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "TProductoDataTable"
+            attribute2.FixedValue = "VentasDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -2408,61 +2434,164 @@ Partial Public Class BD
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class VentasRow
+    Partial Public Class TProductoRow
         Inherits Global.System.Data.DataRow
         
-        Private tableVentas As VentasDataTable
+        Private tableTProducto As TProductoDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableVentas = CType(Me.Table,VentasDataTable)
+            Me.tableTProducto = CType(Me.Table,TProductoDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ID() As String
+        Public Property ProductoID() As Integer
             Get
-                Return CType(Me(Me.tableVentas.IDColumn),String)
+                Return CType(Me(Me.tableTProducto.ProductoIDColumn),Integer)
             End Get
             Set
-                Me(Me.tableVentas.IDColumn) = value
+                Me(Me.tableTProducto.ProductoIDColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ValorT() As Decimal
+        Public Property Nombre() As String
             Get
-                Return CType(Me(Me.tableVentas.ValorTColumn),Decimal)
+                Return CType(Me(Me.tableTProducto.NombreColumn),String)
             End Get
             Set
-                Me(Me.tableVentas.ValorTColumn) = value
+                Me(Me.tableTProducto.NombreColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property estado() As String
+        Public Property PrecioCom() As Double
             Get
-                Return CType(Me(Me.tableVentas.estadoColumn),String)
+                Return CType(Me(Me.tableTProducto.PrecioComColumn),Double)
             End Get
             Set
-                Me(Me.tableVentas.estadoColumn) = value
+                Me(Me.tableTProducto.PrecioComColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property fecha() As Date
+        Public Property categoria() As String
             Get
-                Return CType(Me(Me.tableVentas.fechaColumn),Date)
+                Return CType(Me(Me.tableTProducto.categoriaColumn),String)
             End Get
             Set
-                Me(Me.tableVentas.fechaColumn) = value
+                Me(Me.tableTProducto.categoriaColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property cantidad() As Integer
+            Get
+                Return CType(Me(Me.tableTProducto.cantidadColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTProducto.cantidadColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class TProvedorRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableTProvedor As TProvedorDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableTProvedor = CType(Me.Table,TProvedorDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tableTProvedor.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableTProvedor.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Nombre() As String
+            Get
+                Return CType(Me(Me.tableTProvedor.NombreColumn),String)
+            End Get
+            Set
+                Me(Me.tableTProvedor.NombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property nit() As String
+            Get
+                Return CType(Me(Me.tableTProvedor.nitColumn),String)
+            End Get
+            Set
+                Me(Me.tableTProvedor.nitColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property tipo_documento() As String
+            Get
+                Return CType(Me(Me.tableTProvedor.tipo_documentoColumn),String)
+            End Get
+            Set
+                Me(Me.tableTProvedor.tipo_documentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property num_documento() As String
+            Get
+                Return CType(Me(Me.tableTProvedor.num_documentoColumn),String)
+            End Get
+            Set
+                Me(Me.tableTProvedor.num_documentoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property telefono() As String
+            Get
+                Return CType(Me(Me.tableTProvedor.telefonoColumn),String)
+            End Get
+            Set
+                Me(Me.tableTProvedor.telefonoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function GetCompraRows() As CompraRow()
+            If (Me.Table.ChildRelations("FK_Compra_TProvedor") Is Nothing) Then
+                Return New CompraRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Compra_TProvedor")),CompraRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -2482,12 +2611,12 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id() As String
+        Public Property ID() As Integer
             Get
-                Return CType(Me(Me.tableCompra.idColumn),String)
+                Return CType(Me(Me.tableCompra.IDColumn),Integer)
             End Get
             Set
-                Me(Me.tableCompra.idColumn) = value
+                Me(Me.tableCompra.IDColumn) = value
             End Set
         End Property
         
@@ -2561,87 +2690,6 @@ Partial Public Class BD
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class TProvedorRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableTProvedor As TProvedorDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableTProvedor = CType(Me.Table,TProvedorDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ID() As String
-            Get
-                Return CType(Me(Me.tableTProvedor.IDColumn),String)
-            End Get
-            Set
-                Me(Me.tableTProvedor.IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property razon_social() As String
-            Get
-                Return CType(Me(Me.tableTProvedor.razon_socialColumn),String)
-            End Get
-            Set
-                Me(Me.tableTProvedor.razon_socialColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property tipo_documento() As String
-            Get
-                Return CType(Me(Me.tableTProvedor.tipo_documentoColumn),String)
-            End Get
-            Set
-                Me(Me.tableTProvedor.tipo_documentoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property num_documento() As String
-            Get
-                Return CType(Me(Me.tableTProvedor.num_documentoColumn),String)
-            End Get
-            Set
-                Me(Me.tableTProvedor.num_documentoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property telefono() As String
-            Get
-                Return CType(Me(Me.tableTProvedor.telefonoColumn),String)
-            End Get
-            Set
-                Me(Me.tableTProvedor.telefonoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function GetCompraRows() As CompraRow()
-            If (Me.Table.ChildRelations("FK_Compra_TProvedor") Is Nothing) Then
-                Return New CompraRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Compra_TProvedor")),CompraRow())
-            End If
-        End Function
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class UsuarioRow
         Inherits Global.System.Data.DataRow
         
@@ -2656,9 +2704,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ID() As String
+        Public Property ID() As Integer
             Get
-                Return CType(Me(Me.tableUsuario.IDColumn),String)
+                Return CType(Me(Me.tableUsuario.IDColumn),Integer)
             End Get
             Set
                 Me(Me.tableUsuario.IDColumn) = value
@@ -2678,23 +2726,23 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Contraseña() As String
+        Public Property Contrasena() As String
             Get
-                Return CType(Me(Me.tableUsuario.ContraseñaColumn),String)
+                Return CType(Me(Me.tableUsuario.ContrasenaColumn),String)
             End Get
             Set
-                Me(Me.tableUsuario.ContraseñaColumn) = value
+                Me(Me.tableUsuario.ContrasenaColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Rol() As String
+        Public Property rol() As Byte()
             Get
-                Return CType(Me(Me.tableUsuario.RolColumn),String)
+                Return CType(Me(Me.tableUsuario.rolColumn),Byte())
             End Get
             Set
-                Me(Me.tableUsuario.RolColumn) = value
+                Me(Me.tableUsuario.rolColumn) = value
             End Set
         End Property
         
@@ -2712,88 +2760,61 @@ Partial Public Class BD
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class TProductoRow
+    Partial Public Class VentasRow
         Inherits Global.System.Data.DataRow
         
-        Private tableTProducto As TProductoDataTable
+        Private tableVentas As VentasDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableTProducto = CType(Me.Table,TProductoDataTable)
+            Me.tableVentas = CType(Me.Table,VentasDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ProductoID() As String
+        Public Property ID() As Integer
             Get
-                Return CType(Me(Me.tableTProducto.ProductoIDColumn),String)
+                Return CType(Me(Me.tableVentas.IDColumn),Integer)
             End Get
             Set
-                Me(Me.tableTProducto.ProductoIDColumn) = value
+                Me(Me.tableVentas.IDColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Nombre() As String
+        Public Property ValorT() As Integer
             Get
-                Return CType(Me(Me.tableTProducto.NombreColumn),String)
+                Return CType(Me(Me.tableVentas.ValorTColumn),Integer)
             End Get
             Set
-                Me(Me.tableTProducto.NombreColumn) = value
+                Me(Me.tableVentas.ValorTColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property PrecioCom() As String
+        Public Property Estado() As String
             Get
-                Return CType(Me(Me.tableTProducto.PrecioComColumn),String)
+                Return CType(Me(Me.tableVentas.EstadoColumn),String)
             End Get
             Set
-                Me(Me.tableTProducto.PrecioComColumn) = value
+                Me(Me.tableVentas.EstadoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property categoria() As String
+        Public Property fecha() As Date
             Get
-                Return CType(Me(Me.tableTProducto.categoriaColumn),String)
+                Return CType(Me(Me.tableVentas.fechaColumn),Date)
             End Get
             Set
-                Me(Me.tableTProducto.categoriaColumn) = value
+                Me(Me.tableVentas.fechaColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cantidad() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableTProducto.cantidadColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'cantidad' de la tabla 'TProducto' es DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableTProducto.cantidadColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IscantidadNull() As Boolean
-            Return Me.IsNull(Me.tableTProducto.cantidadColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetcantidadNull()
-            Me(Me.tableTProducto.cantidadColumn) = Global.System.Convert.DBNull
-        End Sub
     End Class
     
     '''<summary>
@@ -2836,16 +2857,16 @@ Partial Public Class BD
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class VentasRowChangeEvent
+    Public Class TProductoRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As VentasRow
+        Private eventRow As TProductoRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As VentasRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As TProductoRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -2853,43 +2874,7 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As VentasRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class CompraRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As CompraRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As CompraRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As CompraRow
+        Public ReadOnly Property Row() As TProductoRow
             Get
                 Return Me.eventRow
             End Get
@@ -2944,6 +2929,42 @@ Partial Public Class BD
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class CompraRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As CompraRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As CompraRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As CompraRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Class UsuarioRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -2980,16 +3001,16 @@ Partial Public Class BD
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class TProductoRowChangeEvent
+    Public Class VentasRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As TProductoRow
+        Private eventRow As VentasRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As TProductoRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As VentasRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -2997,7 +3018,7 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As TProductoRow
+        Public ReadOnly Property Row() As VentasRow
             Get
                 Return Me.eventRow
             End Get
@@ -3586,7 +3607,7 @@ Namespace BDTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class VentasTableAdapter
+    Partial Public Class TProductoTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -3703,46 +3724,54 @@ Namespace BDTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Ventas"
-            tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("ValorT", "ValorT")
-            tableMapping.ColumnMappings.Add("estado", "estado")
-            tableMapping.ColumnMappings.Add("fecha", "fecha")
+            tableMapping.DataSetTable = "TProducto"
+            tableMapping.ColumnMappings.Add("ProductoID", "ProductoID")
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
+            tableMapping.ColumnMappings.Add("PrecioCom", "PrecioCom")
+            tableMapping.ColumnMappings.Add("categoria", "categoria")
+            tableMapping.ColumnMappings.Add("cantidad", "cantidad")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Ventas] WHERE (([ID] = @Original_ID) AND ([ValorT] = @Original"& _ 
-                "_ValorT) AND ([estado] = @Original_estado) AND ([fecha] = @Original_fecha))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TProducto] WHERE (([ProductoID] = @Original_ProductoID) AND (["& _ 
+                "Nombre] = @Original_Nombre) AND ([PrecioCom] = @Original_PrecioCom) AND ([catego"& _ 
+                "ria] = @Original_categoria) AND ([cantidad] = @Original_cantidad))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ValorT", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "estado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrecioCom", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ventas] ([ID], [ValorT], [estado], [fecha]) VALUES (@ID, @Valo"& _ 
-                "rT, @estado, @fecha);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ValorT, estado, fecha FROM Ventas WHERE (ID = "& _ 
-                "@ID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TProducto] ([Nombre], [PrecioCom], [categoria], [cantidad]) VA"& _ 
+                "LUES (@Nombre, @PrecioCom, @categoria, @cantidad);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, P"& _ 
+                "recioCom, categoria, cantidad FROM TProducto WHERE (ProductoID = SCOPE_IDENTITY("& _ 
+                "))"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ValorT", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Ventas] SET [ID] = @ID, [ValorT] = @ValorT, [estado] = @estado, [fe"& _ 
-                "cha] = @fecha WHERE (([ID] = @Original_ID) AND ([ValorT] = @Original_ValorT) AND"& _ 
-                " ([estado] = @Original_estado) AND ([fecha] = @Original_fecha));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Val"& _ 
-                "orT, estado, fecha FROM Ventas WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TProducto] SET [Nombre] = @Nombre, [PrecioCom] = @PrecioCom, [categ"& _ 
+                "oria] = @categoria, [cantidad] = @cantidad WHERE (([ProductoID] = @Original_Prod"& _ 
+                "uctoID) AND ([Nombre] = @Original_Nombre) AND ([PrecioCom] = @Original_PrecioCom"& _ 
+                ") AND ([categoria] = @Original_categoria) AND ([cantidad] = @Original_cantidad))"& _ 
+                ";"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM TProducto WHER"& _ 
+                "E (ProductoID = @ProductoID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ValorT", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ValorT", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "estado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrecioCom", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3755,18 +3784,52 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, ValorT, estado, fecha FROM dbo.Ventas"
+            Me._commandCollection(0).CommandText = "SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM dbo.TProducto"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[TProducto] ([ProductoID], [Nombre], [PrecioCom], [categoria], "& _ 
+                "[cantidad]) VALUES ( @Nombre, @PrecioCom, @categoria );"&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Nombre, PrecioCom"& _ 
+                ", categoria, "&Global.Microsoft.VisualBasic.ChrW(10)&" FROM TProducto"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM dbo.TProducto"&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E +' '+ Nombre +' '+ categoria LIKE '%'+@producto+'%'"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT        ProductoID, Nombre, PrecioCom, categoria, cantidad"&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            "& _ 
+                "TProducto"&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        +' '+categoria LIKE '%'+@Producto+'%'"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "UPDATE       TProducto"&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Nombre = @Nombre, PrecioCom = @PrecioCo"& _ 
+                "m, categoria = @categoria"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.Float, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[TProducto] WHERE [ProductoID] = @Original_ProductoID"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BD.VentasDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BD.TProductoDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -3779,9 +3842,77 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As BD.VentasDataTable
+        Public Overloads Overridable Function GetData() As BD.TProductoDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As BD.VentasDataTable = New BD.VentasDataTable()
+            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function ConsultarProducto(ByVal dataTable As BD.TProductoDataTable, ByVal producto As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (producto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("producto")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(producto,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy1(ByVal producto As String) As BD.TProductoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (producto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("producto")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(producto,String)
+            End If
+            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function ConsultarXCategoria(ByVal dataTable As BD.TProductoDataTable, ByVal Producto As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (Producto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Producto")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Producto,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy2(ByVal Producto As String) As BD.TProductoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            If (Producto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Producto")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Producto,String)
+            End If
+            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -3789,7 +3920,7 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As BD.VentasDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As BD.TProductoDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -3797,7 +3928,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As BD) As Integer
-            Return Me.Adapter.Update(dataSet, "Ventas")
+            Return Me.Adapter.Update(dataSet, "TProducto")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3818,19 +3949,20 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As String, ByVal Original_ValorT As Decimal, ByVal Original_estado As String, ByVal Original_fecha As Date) As Integer
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
+        Public Overloads Overridable Function Delete(ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_PrecioCom As Double, ByVal Original_categoria As String, ByVal Original_cantidad As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ProductoID,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Nombre")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Nombre,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ValorT,Decimal)
-            If (Original_estado Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_estado")
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_PrecioCom,Double)
+            If (Original_categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_categoria")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_estado,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_categoria,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_fecha,Date)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_cantidad,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3850,19 +3982,19 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ID As String, ByVal ValorT As Decimal, ByVal estado As String, ByVal fecha As Date) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
+        Public Overloads Overridable Function Insert(ByVal Nombre As String, ByVal PrecioCom As Double, ByVal categoria As String, ByVal cantidad As Integer) As Integer
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nombre,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ValorT,Decimal)
-            If (estado Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("estado")
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(PrecioCom,Double)
+            If (categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("categoria")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(estado,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(categoria,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(fecha,Date)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(cantidad,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3882,31 +4014,33 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ID As String, ByVal ValorT As Decimal, ByVal estado As String, ByVal fecha As Date, ByVal Original_ID As String, ByVal Original_ValorT As Decimal, ByVal Original_estado As String, ByVal Original_fecha As Date) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal PrecioCom As Double, ByVal categoria As String, ByVal cantidad As Integer, ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_PrecioCom As Double, ByVal Original_categoria As String, ByVal Original_cantidad As Integer, ByVal ProductoID As Integer) As Integer
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nombre,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ValorT,Decimal)
-            If (estado Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("estado")
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(PrecioCom,Double)
+            If (categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("categoria")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(estado,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(categoria,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(fecha,Date)
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(cantidad,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ProductoID,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ID,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Nombre,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ValorT,Decimal)
-            If (Original_estado Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_estado")
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_PrecioCom,Double)
+            If (Original_categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_categoria")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_estado,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_categoria,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_cantidad,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ProductoID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3926,394 +4060,93 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ValorT As Decimal, ByVal estado As String, ByVal fecha As Date, ByVal Original_ID As String, ByVal Original_ValorT As Decimal, ByVal Original_estado As String, ByVal Original_fecha As Date) As Integer
-            Return Me.Update(Original_ID, ValorT, estado, fecha, Original_ID, Original_ValorT, Original_estado, Original_fecha)
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal PrecioCom As Double, ByVal categoria As String, ByVal cantidad As Integer, ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_PrecioCom As Double, ByVal Original_categoria As String, ByVal Original_cantidad As Integer) As Integer
+            Return Me.Update(Nombre, PrecioCom, categoria, cantidad, Original_ProductoID, Original_Nombre, Original_PrecioCom, Original_categoria, Original_cantidad, Original_ProductoID)
         End Function
-    End Class
-    
-    '''<summary>
-    '''Represents the connection and commands used to retrieve and save data.
-    '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class CompraTableAdapter
-        Inherits Global.System.ComponentModel.Component
-        
-        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
-        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
-        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
-            Get
-                Return Me._transaction
-            End Get
-            Set
-                Me._transaction = value
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    Me.CommandCollection(i).Transaction = Me._transaction
-                    i = (i + 1)
-                Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
-                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
-                    Me.Adapter.InsertCommand.Transaction = Me._transaction
-                End If
-                If ((Not (Me.Adapter) Is Nothing)  _
-                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
-                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
-                End If
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitAdapter()
-            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
-            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Compra"
-            tableMapping.ColumnMappings.Add("id", "id")
-            tableMapping.ColumnMappings.Add("comprobante", "comprobante")
-            tableMapping.ColumnMappings.Add("numComprobante", "numComprobante")
-            tableMapping.ColumnMappings.Add("descripcion", "descripcion")
-            tableMapping.ColumnMappings.Add("fecha", "fecha")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Compra] WHERE (([id] = @Original_id) AND ([comprobante] = @Ori"& _ 
-                "ginal_comprobante) AND ([numComprobante] = @Original_numComprobante) AND ([fecha"& _ 
-                "] = @Original_fecha))"
-            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Compra] ([id], [comprobante], [numComprobante], [descripcion],"& _ 
-                " [fecha]) VALUES (@id, @comprobante, @numComprobante, @descripcion, @fecha);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
-                "LECT id, comprobante, numComprobante, descripcion, fecha FROM Compra WHERE (id ="& _ 
-                " @id)"
-            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcion", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Compra] SET [id] = @id, [comprobante] = @comprobante, [numComproban"& _ 
-                "te] = @numComprobante, [descripcion] = @descripcion, [fecha] = @fecha WHERE (([i"& _ 
-                "d] = @Original_id) AND ([comprobante] = @Original_comprobante) AND ([numComproba"& _ 
-                "nte] = @Original_numComprobante) AND ([fecha] = @Original_fecha));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, c"& _ 
-                "omprobante, numComprobante, descripcion, fecha FROM Compra WHERE (id = @id)"
-            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcion", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitConnection()
-            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.CmpInventario.My.MySettings.Default.dbinventarioConnectionString
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id, comprobante, numComprobante, descripcion, fecha FROM dbo.Compra"
-            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BD.CompraDataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function AgregarProducto(ByVal Nombre As Integer, ByVal PrecioCom As String, ByVal categoria As Double) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            command.Parameters(0).Value = CType(Nombre,Integer)
+            If (PrecioCom Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("PrecioCom")
+            Else
+                command.Parameters(1).Value = CType(PrecioCom,String)
             End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            command.Parameters(2).Value = CType(categoria,Double)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
             Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As BD.CompraDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As BD.CompraDataTable = New BD.CompraDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As BD.CompraDataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As BD) As Integer
-            Return Me.Adapter.Update(dataSet, "Compra")
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id As String, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date) As Integer
-            If (Original_id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_id")
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function EditarProducto(ByVal Nombre As String, ByVal PrecioCom As Double, ByVal categoria As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,String)
+                command.Parameters(0).Value = CType(Nombre,String)
             End If
-            If (Original_comprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_comprobante")
+            command.Parameters(1).Value = CType(PrecioCom,Double)
+            If (categoria Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("categoria")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_comprobante,String)
+                command.Parameters(2).Value = CType(categoria,String)
             End If
-            If (Original_numComprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_numComprobante")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_numComprobante,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_fecha,Date)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
+                command.Connection.Open
             End If
+            Dim returnValue As Integer
             Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
+                returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
+                    command.Connection.Close
                 End If
             End Try
+            Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal id As String, ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date) As Integer
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(id,String)
-            End If
-            If (comprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("comprobante")
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(comprobante,String)
-            End If
-            If (numComprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("numComprobante")
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(numComprobante,String)
-            End If
-            If (descripcion Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("descripcion")
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(descripcion,String)
-            End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(fecha,Date)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function EliminarProducto(ByVal Original_ProductoID As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
+            command.Parameters(0).Value = CType(Original_ProductoID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
+                command.Connection.Open
             End If
+            Dim returnValue As Integer
             Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
+                returnValue = command.ExecuteNonQuery
             Finally
                 If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
+                    command.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal id As String, ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date, ByVal Original_id As String, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date) As Integer
-            If (id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("id")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(id,String)
-            End If
-            If (comprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("comprobante")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(comprobante,String)
-            End If
-            If (numComprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("numComprobante")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(numComprobante,String)
-            End If
-            If (descripcion Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("descripcion")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(descripcion,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(fecha,Date)
-            If (Original_id Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_id")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_id,String)
-            End If
-            If (Original_comprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_comprobante")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_comprobante,String)
-            End If
-            If (Original_numComprobante Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_numComprobante")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_numComprobante,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_fecha,Date)
-            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date, ByVal Original_id As String, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date) As Integer
-            Return Me.Update(Original_id, comprobante, numComprobante, descripcion, fecha, Original_id, Original_comprobante, Original_numComprobante, Original_fecha)
+            Return returnValue
         End Function
     End Class
     
@@ -4445,54 +4278,59 @@ Namespace BDTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "TProvedor"
             tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("razon_social", "razon_social")
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
+            tableMapping.ColumnMappings.Add("nit", "nit")
             tableMapping.ColumnMappings.Add("tipo_documento", "tipo_documento")
             tableMapping.ColumnMappings.Add("num_documento", "num_documento")
             tableMapping.ColumnMappings.Add("telefono", "telefono")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TProvedor] WHERE (([ID] = @Original_ID) AND ([razon_social] = "& _ 
-                "@Original_razon_social) AND ([tipo_documento] = @Original_tipo_documento) AND (["& _ 
-                "num_documento] = @Original_num_documento) AND ([telefono] = @Original_telefono))"& _ 
-                ""
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TProvedor] WHERE (([ID] = @Original_ID) AND ([Nombre] = @Origi"& _ 
+                "nal_Nombre) AND ([nit] = @Original_nit) AND ([tipo_documento] = @Original_tipo_d"& _ 
+                "ocumento) AND ([num_documento] = @Original_num_documento) AND ([telefono] = @Ori"& _ 
+                "ginal_telefono))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_razon_social", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "razon_social", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_nit", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "nit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tipo_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_num_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_telefono", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "telefono", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TProvedor] ([ID], [razon_social], [tipo_documento], [num_docum"& _ 
-                "ento], [telefono]) VALUES (@ID, @razon_social, @tipo_documento, @num_documento, "& _ 
-                "@telefono);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, razon_social, tipo_documento, num_documento, telefono FR"& _ 
-                "OM TProvedor WHERE (ID = @ID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TProvedor] ([Nombre], [nit], [tipo_documento], [num_documento]"& _ 
+                ", [telefono]) VALUES (@Nombre, @nit, @tipo_documento, @num_documento, @telefono)"& _ 
+                ";"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Nombre, nit, tipo_documento, num_documento, telefono FROM TProvedo"& _ 
+                "r WHERE (ID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@razon_social", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "razon_social", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nit", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "nit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@telefono", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "telefono", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TProvedor] SET [ID] = @ID, [razon_social] = @razon_social, [tipo_do"& _ 
-                "cumento] = @tipo_documento, [num_documento] = @num_documento, [telefono] = @tele"& _ 
-                "fono WHERE (([ID] = @Original_ID) AND ([razon_social] = @Original_razon_social) "& _ 
-                "AND ([tipo_documento] = @Original_tipo_documento) AND ([num_documento] = @Origin"& _ 
-                "al_num_documento) AND ([telefono] = @Original_telefono));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, razon_soci"& _ 
-                "al, tipo_documento, num_documento, telefono FROM TProvedor WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TProvedor] SET [Nombre] = @Nombre, [nit] = @nit, [tipo_documento] ="& _ 
+                " @tipo_documento, [num_documento] = @num_documento, [telefono] = @telefono WHERE"& _ 
+                " (([ID] = @Original_ID) AND ([Nombre] = @Original_Nombre) AND ([nit] = @Original"& _ 
+                "_nit) AND ([tipo_documento] = @Original_tipo_documento) AND ([num_documento] = @"& _ 
+                "Original_num_documento) AND ([telefono] = @Original_telefono));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Nomb"& _ 
+                "re, nit, tipo_documento, num_documento, telefono FROM TProvedor WHERE (ID = @ID)"& _ 
+                ""
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@razon_social", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "razon_social", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@nit", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "nit", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@tipo_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@num_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_documento", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@telefono", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "telefono", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_razon_social", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "razon_social", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_nit", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "nit", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_tipo_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "tipo_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_num_documento", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "num_documento", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_telefono", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "telefono", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4508,8 +4346,8 @@ Namespace BDTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, razon_social, tipo_documento, num_documento, telefono FROM dbo.TProved"& _ 
-                "or"
+            Me._commandCollection(0).CommandText = "SELECT ID, Nombre, nit, tipo_documento, num_documento, telefono FROM dbo.TProvedo"& _ 
+                "r"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -4569,31 +4407,32 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As String, ByVal Original_razon_social As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String) As Integer
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Nombre As String, ByVal Original_nit As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Nombre")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,String)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Nombre,String)
             End If
-            If (Original_razon_social Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_razon_social")
+            If (Original_nit Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_nit")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_razon_social,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_nit,String)
             End If
             If (Original_tipo_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_tipo_documento")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_tipo_documento,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_tipo_documento,String)
             End If
             If (Original_num_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_num_documento")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_num_documento,String)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_num_documento,String)
             End If
             If (Original_telefono Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_telefono")
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_telefono,String)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_telefono,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -4614,16 +4453,16 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ID As String, ByVal razon_social As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
+        Public Overloads Overridable Function Insert(ByVal Nombre As String, ByVal nit As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String) As Integer
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Nombre,String)
             End If
-            If (razon_social Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("razon_social")
+            If (nit Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("nit")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(razon_social,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(nit,String)
             End If
             If (tipo_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("tipo_documento")
@@ -4659,16 +4498,16 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ID As String, ByVal razon_social As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String, ByVal Original_ID As String, ByVal Original_razon_social As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal nit As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String, ByVal Original_ID As Integer, ByVal Original_Nombre As String, ByVal Original_nit As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String, ByVal ID As Integer) As Integer
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Nombre,String)
             End If
-            If (razon_social Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("razon_social")
+            If (nit Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("nit")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(razon_social,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(nit,String)
             End If
             If (tipo_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("tipo_documento")
@@ -4685,31 +4524,33 @@ Namespace BDTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(telefono,String)
             End If
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Nombre,String)
             End If
-            If (Original_razon_social Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_razon_social")
+            If (Original_nit Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_nit")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_razon_social,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_nit,String)
             End If
             If (Original_tipo_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_tipo_documento")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_tipo_documento,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_tipo_documento,String)
             End If
             If (Original_num_documento Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_num_documento")
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_num_documento,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_num_documento,String)
             End If
             If (Original_telefono Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_telefono")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_telefono,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_telefono,String)
             End If
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -4729,8 +4570,376 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal razon_social As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String, ByVal Original_ID As String, ByVal Original_razon_social As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String) As Integer
-            Return Me.Update(Original_ID, razon_social, tipo_documento, num_documento, telefono, Original_ID, Original_razon_social, Original_tipo_documento, Original_num_documento, Original_telefono)
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal nit As String, ByVal tipo_documento As String, ByVal num_documento As String, ByVal telefono As String, ByVal Original_ID As Integer, ByVal Original_Nombre As String, ByVal Original_nit As String, ByVal Original_tipo_documento As String, ByVal Original_num_documento As String, ByVal Original_telefono As String) As Integer
+            Return Me.Update(Nombre, nit, tipo_documento, num_documento, telefono, Original_ID, Original_Nombre, Original_nit, Original_tipo_documento, Original_num_documento, Original_telefono, Original_ID)
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class CompraTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Compra"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("comprobante", "comprobante")
+            tableMapping.ColumnMappings.Add("numComprobante", "numComprobante")
+            tableMapping.ColumnMappings.Add("descripcion", "descripcion")
+            tableMapping.ColumnMappings.Add("fecha", "fecha")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Compra] WHERE (([ID] = @Original_ID) AND ([comprobante] = @Ori"& _ 
+                "ginal_comprobante) AND ([numComprobante] = @Original_numComprobante) AND ([fecha"& _ 
+                "] = @Original_fecha))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Compra] ([comprobante], [numComprobante], [descripcion], [fech"& _ 
+                "a]) VALUES (@comprobante, @numComprobante, @descripcion, @fecha);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, co"& _ 
+                "mprobante, numComprobante, descripcion, fecha FROM Compra WHERE (ID = SCOPE_IDEN"& _ 
+                "TITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcion", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Compra] SET [comprobante] = @comprobante, [numComprobante] = @numCo"& _ 
+                "mprobante, [descripcion] = @descripcion, [fecha] = @fecha WHERE (([ID] = @Origin"& _ 
+                "al_ID) AND ([comprobante] = @Original_comprobante) AND ([numComprobante] = @Orig"& _ 
+                "inal_numComprobante) AND ([fecha] = @Original_fecha));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, comprobante, "& _ 
+                "numComprobante, descripcion, fecha FROM Compra WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@descripcion", Global.System.Data.SqlDbType.Text, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_comprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "comprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_numComprobante", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "numComprobante", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.CmpInventario.My.MySettings.Default.dbinventarioConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID, comprobante, numComprobante, descripcion, fecha FROM dbo.Compra"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As BD.CompraDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As BD.CompraDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As BD.CompraDataTable = New BD.CompraDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As BD.CompraDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As BD) As Integer
+            Return Me.Adapter.Update(dataSet, "Compra")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            If (Original_comprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_comprobante")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_comprobante,String)
+            End If
+            If (Original_numComprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_numComprobante")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_numComprobante,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_fecha,Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date) As Integer
+            If (comprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("comprobante")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(comprobante,String)
+            End If
+            If (numComprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("numComprobante")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(numComprobante,String)
+            End If
+            If (descripcion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("descripcion")
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(descripcion,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(fecha,Date)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date, ByVal Original_ID As Integer, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date, ByVal ID As Integer) As Integer
+            If (comprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("comprobante")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(comprobante,String)
+            End If
+            If (numComprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("numComprobante")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(numComprobante,String)
+            End If
+            If (descripcion Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("descripcion")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(descripcion,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ID,Integer)
+            If (Original_comprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_comprobante")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_comprobante,String)
+            End If
+            If (Original_numComprobante Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_numComprobante")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_numComprobante,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal comprobante As String, ByVal numComprobante As String, ByVal descripcion As String, ByVal fecha As Date, ByVal Original_ID As Integer, ByVal Original_comprobante As String, ByVal Original_numComprobante As String, ByVal Original_fecha As Date) As Integer
+            Return Me.Update(comprobante, numComprobante, descripcion, fecha, Original_ID, Original_comprobante, Original_numComprobante, Original_fecha, Original_ID)
         End Function
     End Class
     
@@ -4863,44 +5072,43 @@ Namespace BDTableAdapters
             tableMapping.DataSetTable = "Usuario"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("Usuario", "Usuario")
-            tableMapping.ColumnMappings.Add("Contraseña", "Contraseña")
-            tableMapping.ColumnMappings.Add("Rol", "Rol")
+            tableMapping.ColumnMappings.Add("Contrasena", "Contrasena")
+            tableMapping.ColumnMappings.Add("rol", "rol")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Usuario] WHERE (([ID] = @Original_ID) AND ([Usuario] = @Origin"& _ 
-                "al_Usuario) AND ([Contraseña] = @Original_Contraseña) AND ([Rol] = @Original_Rol"& _ 
+                "al_Usuario) AND ([Contrasena] = @Original_Contrasena) AND ([rol] = @Original_rol"& _ 
                 "))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Usuario", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contraseña", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contraseña", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Rol", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rol", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contrasena", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contrasena", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_rol", Global.System.Data.SqlDbType.Binary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "rol", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuario] ([ID], [Usuario], [Contraseña], [Rol]) VALUES (@ID, @"& _ 
-                "Usuario, @Contraseña, @Rol);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Usuario, Contraseña, Rol FROM Usuario W"& _ 
-                "HERE (ID = @ID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Usuario] ([Usuario], [Contrasena], [rol]) VALUES (@Usuario, @C"& _ 
+                "ontrasena, @rol);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Usuario, Contrasena, rol FROM Usuario WHERE (ID = "& _ 
+                "SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contraseña", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contraseña", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rol", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contrasena", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contrasena", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rol", Global.System.Data.SqlDbType.Binary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "rol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Usuario] SET [ID] = @ID, [Usuario] = @Usuario, [Contraseña] = @Cont"& _ 
-                "raseña, [Rol] = @Rol WHERE (([ID] = @Original_ID) AND ([Usuario] = @Original_Usu"& _ 
-                "ario) AND ([Contraseña] = @Original_Contraseña) AND ([Rol] = @Original_Rol));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
-                "ELECT ID, Usuario, Contraseña, Rol FROM Usuario WHERE (ID = @ID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Usuario] SET [Usuario] = @Usuario, [Contrasena] = @Contrasena, [rol"& _ 
+                "] = @rol WHERE (([ID] = @Original_ID) AND ([Usuario] = @Original_Usuario) AND (["& _ 
+                "Contrasena] = @Original_Contrasena) AND ([rol] = @Original_rol));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, Us"& _ 
+                "uario, Contrasena, rol FROM Usuario WHERE (ID = @ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Usuario", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contraseña", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contraseña", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Rol", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Contrasena", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contrasena", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@rol", Global.System.Data.SqlDbType.Binary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "rol", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Usuario", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contraseña", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contraseña", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Rol", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Rol", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Contrasena", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Contrasena", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_rol", Global.System.Data.SqlDbType.Binary, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "rol", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4916,15 +5124,15 @@ Namespace BDTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, Usuario, Contraseña, Rol FROM dbo.Usuario"
+            Me._commandCollection(0).CommandText = "SELECT ID, Usuario, Contrasena, rol FROM dbo.Usuario"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT ID, Usuario, Contraseña, Rol"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Usuario"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (Usuario = @Param1)"& _ 
-                " AND (Contraseña = @Param2)"
+            Me._commandCollection(1).CommandText = "SELECT ID, Usuario, Contrasena, Rol"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM     Usuario"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (Usuario = @Param1)"& _ 
+                " AND (Contrasena = @Param2)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param1", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Usuario", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param2", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Contraseña", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param2", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Contrasena", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5027,26 +5235,22 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As String, ByVal Original_Usuario As String, ByVal Original_Contraseña As String, ByVal Original_Rol As String) As Integer
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,String)
-            End If
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Usuario As String, ByVal Original_Contrasena As String, ByVal Original_rol() As Byte) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Usuario Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Usuario")
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Usuario,String)
             End If
-            If (Original_Contraseña Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Contraseña")
+            If (Original_Contrasena Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Contrasena")
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Contraseña,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Contrasena,String)
             End If
-            If (Original_Rol Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Rol")
+            If (Original_rol Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_rol")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Rol,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_rol,Byte())
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5067,26 +5271,21 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ID As String, ByVal Usuario As String, ByVal Contraseña As String, ByVal Rol As String) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
-            Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID,String)
-            End If
+        Public Overloads Overridable Function Insert(ByVal Usuario As String, ByVal Contrasena As String, ByVal rol() As Byte) As Integer
             If (Usuario Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Usuario")
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Usuario,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(Usuario,String)
             End If
-            If (Contraseña Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Contraseña")
+            If (Contrasena Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Contrasena")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Contraseña,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Contrasena,String)
             End If
-            If (Rol Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Rol")
+            If (rol Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("rol")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Rol,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(rol,Byte())
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5107,47 +5306,39 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ID As String, ByVal Usuario As String, ByVal Contraseña As String, ByVal Rol As String, ByVal Original_ID As String, ByVal Original_Usuario As String, ByVal Original_Contraseña As String, ByVal Original_Rol As String) As Integer
-            If (ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ID")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID,String)
-            End If
+        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Contrasena As String, ByVal rol() As Byte, ByVal Original_ID As Integer, ByVal Original_Usuario As String, ByVal Original_Contrasena As String, ByVal Original_rol() As Byte, ByVal ID As Integer) As Integer
             If (Usuario Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Usuario")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Usuario,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(Usuario,String)
             End If
-            If (Contraseña Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Contraseña")
+            If (Contrasena Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Contrasena")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Contraseña,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Contrasena,String)
             End If
-            If (Rol Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Rol")
+            If (rol Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("rol")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Rol,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(rol,Byte())
             End If
-            If (Original_ID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ID")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ID,String)
-            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
             If (Original_Usuario Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Usuario")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Usuario,String)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Usuario,String)
             End If
-            If (Original_Contraseña Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Contraseña")
+            If (Original_Contrasena Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Contrasena")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Contraseña,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Contrasena,String)
             End If
-            If (Original_Rol Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Rol")
+            If (Original_rol Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_rol")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Rol,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_rol,Byte())
             End If
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5167,8 +5358,8 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Contraseña As String, ByVal Rol As String, ByVal Original_ID As String, ByVal Original_Usuario As String, ByVal Original_Contraseña As String, ByVal Original_Rol As String) As Integer
-            Return Me.Update(Original_ID, Usuario, Contraseña, Rol, Original_ID, Original_Usuario, Original_Contraseña, Original_Rol)
+        Public Overloads Overridable Function Update(ByVal Usuario As String, ByVal Contrasena As String, ByVal rol() As Byte, ByVal Original_ID As Integer, ByVal Original_Usuario As String, ByVal Original_Contrasena As String, ByVal Original_rol() As Byte) As Integer
+            Return Me.Update(Usuario, Contrasena, rol, Original_ID, Original_Usuario, Original_Contrasena, Original_rol, Original_ID)
         End Function
     End Class
     
@@ -5181,7 +5372,7 @@ Namespace BDTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class TProductoTableAdapter
+    Partial Public Class VentasTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -5298,59 +5489,45 @@ Namespace BDTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "TProducto"
-            tableMapping.ColumnMappings.Add("ProductoID", "ProductoID")
-            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
-            tableMapping.ColumnMappings.Add("PrecioCom", "PrecioCom")
-            tableMapping.ColumnMappings.Add("categoria", "categoria")
-            tableMapping.ColumnMappings.Add("cantidad", "cantidad")
+            tableMapping.DataSetTable = "Ventas"
+            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("ValorT", "ValorT")
+            tableMapping.ColumnMappings.Add("Estado", "Estado")
+            tableMapping.ColumnMappings.Add("fecha", "fecha")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[TProducto] WHERE (([ProductoID] = @Original_ProductoID) AND (["& _ 
-                "Nombre] = @Original_Nombre) AND ([PrecioCom] = @Original_PrecioCom) AND ([catego"& _ 
-                "ria] = @Original_categoria) AND ((@IsNull_cantidad = 1 AND [cantidad] IS NULL) O"& _ 
-                "R ([cantidad] = @Original_cantidad)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Ventas] WHERE (([ID] = @Original_ID) AND ([ValorT] = @Original"& _ 
+                "_ValorT) AND ([Estado] = @Original_Estado) AND ([fecha] = @Original_fecha))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrecioCom", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ValorT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TProducto] ([ProductoID], [Nombre], [PrecioCom], [categoria], "& _ 
-                "[cantidad]) VALUES (@ProductoID, @Nombre, @PrecioCom, @categoria, @cantidad);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"S"& _ 
-                "ELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM TProducto WHERE (P"& _ 
-                "roductoID = @ProductoID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Ventas] ([ValorT], [Estado], [fecha]) VALUES (@ValorT, @Estado"& _ 
+                ", @fecha);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ValorT, Estado, fecha FROM Ventas WHERE (ID = SCOPE_IDENT"& _ 
+                "ITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ValorT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[TProducto] SET [ProductoID] = @ProductoID, [Nombre] = @Nombre, [Pre"& _ 
-                "cioCom] = @PrecioCom, [categoria] = @categoria, [cantidad] = @cantidad WHERE ((["& _ 
-                "ProductoID] = @Original_ProductoID) AND ([Nombre] = @Original_Nombre) AND ([Prec"& _ 
-                "ioCom] = @Original_PrecioCom) AND ([categoria] = @Original_categoria) AND ((@IsN"& _ 
-                "ull_cantidad = 1 AND [cantidad] IS NULL) OR ([cantidad] = @Original_cantidad)));"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM TProducto WHERE"& _ 
-                " (ProductoID = @ProductoID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Ventas] SET [ValorT] = @ValorT, [Estado] = @Estado, [fecha] = @fech"& _ 
+                "a WHERE (([ID] = @Original_ID) AND ([ValorT] = @Original_ValorT) AND ([Estado] ="& _ 
+                " @Original_Estado) AND ([fecha] = @Original_fecha));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID, ValorT, Estado,"& _ 
+                " fecha FROM Ventas WHERE (ID = @ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PrecioCom", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_categoria", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cantidad", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cantidad", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ValorT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ValorT", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ValorT", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Estado", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Estado", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fecha", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fecha", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5363,52 +5540,18 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM dbo.TProducto"
+            Me._commandCollection(0).CommandText = "SELECT ID, ValorT, Estado, fecha FROM dbo.Ventas"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[TProducto] ([ProductoID], [Nombre], [PrecioCom], [categoria], "& _ 
-                "[cantidad]) VALUES ( @Nombre, @PrecioCom, @categoria );"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Nombre, PrecioCo"& _ 
-                "m, categoria, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" FROM TProducto "
-            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT ProductoID, Nombre, PrecioCom, categoria, cantidad FROM dbo.TProducto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
-                "RE +' '+ Nombre +' '+ categoria LIKE '%'+@producto+'%'"
-            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        ProductoID, Nombre, PrecioCom, categoria, cantidad"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM           "& _ 
-                " TProducto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        +' '+categoria LIKE '%'+@Producto+'%'"
-            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "UPDATE       TProducto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Nombre = @Nombre, PrecioCom = @PrecioC"& _ 
-                "om, categoria = @categoria"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
-            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PrecioCom", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "PrecioCom", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@categoria", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "categoria", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
-            Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[TProducto] WHERE [ProductoID] = @Original_ProductoID"
-            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As BD.TProductoDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As BD.VentasDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5421,77 +5564,9 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As BD.TProductoDataTable
+        Public Overloads Overridable Function GetData() As BD.VentasDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function ConsultarProducto(ByVal dataTable As BD.TProductoDataTable, ByVal producto As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (producto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("producto")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(producto,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy1(ByVal producto As String) As BD.TProductoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (producto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("producto")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(producto,String)
-            End If
-            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function ConsultarXCategoria(ByVal dataTable As BD.TProductoDataTable, ByVal Producto As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (Producto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Producto")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Producto,String)
-            End If
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataBy2(ByVal Producto As String) As BD.TProductoDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (Producto Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Producto")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Producto,String)
-            End If
-            Dim dataTable As BD.TProductoDataTable = New BD.TProductoDataTable()
+            Dim dataTable As BD.VentasDataTable = New BD.VentasDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -5499,7 +5574,7 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As BD.TProductoDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As BD.VentasDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -5507,7 +5582,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As BD) As Integer
-            Return Me.Adapter.Update(dataSet, "TProducto")
+            Return Me.Adapter.Update(dataSet, "Ventas")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5528,34 +5603,15 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ProductoID As String, ByVal Original_Nombre As String, ByVal Original_PrecioCom As String, ByVal Original_categoria As String, ByVal Original_cantidad As Global.System.Nullable(Of Integer)) As Integer
-            If (Original_ProductoID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ProductoID")
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_ValorT As Integer, ByVal Original_Estado As String, ByVal Original_fecha As Date) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ValorT,Integer)
+            If (Original_Estado Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Estado")
             Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ProductoID,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Estado,String)
             End If
-            If (Original_Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nombre")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_Nombre,String)
-            End If
-            If (Original_PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_PrecioCom")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_PrecioCom,String)
-            End If
-            If (Original_categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_categoria")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_categoria,String)
-            End If
-            If (Original_cantidad.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_cantidad.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_fecha,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5575,32 +5631,14 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ProductoID As String, ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String, ByVal cantidad As Global.System.Nullable(Of Integer)) As Integer
-            If (ProductoID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ProductoID")
+        Public Overloads Overridable Function Insert(ByVal ValorT As Integer, ByVal Estado As String, ByVal fecha As Date) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(ValorT,Integer)
+            If (Estado Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Estado")
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ProductoID,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Estado,String)
             End If
-            If (Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nombre")
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Nombre,String)
-            End If
-            If (PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PrecioCom")
-            Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(PrecioCom,String)
-            End If
-            If (categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("categoria")
-            Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(categoria,String)
-            End If
-            If (cantidad.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(cantidad.Value,Integer)
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(fecha,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5620,59 +5658,23 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ProductoID As String, ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String, ByVal cantidad As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As String, ByVal Original_Nombre As String, ByVal Original_PrecioCom As String, ByVal Original_categoria As String, ByVal Original_cantidad As Global.System.Nullable(Of Integer)) As Integer
-            If (ProductoID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("ProductoID")
+        Public Overloads Overridable Function Update(ByVal ValorT As Integer, ByVal Estado As String, ByVal fecha As Date, ByVal Original_ID As Integer, ByVal Original_ValorT As Integer, ByVal Original_Estado As String, ByVal Original_fecha As Date, ByVal ID As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ValorT,Integer)
+            If (Estado Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Estado")
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ProductoID,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Estado,String)
             End If
-            If (Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nombre")
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ValorT,Integer)
+            If (Original_Estado Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Estado")
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Estado,String)
             End If
-            If (PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PrecioCom")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(PrecioCom,String)
-            End If
-            If (categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("categoria")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(categoria,String)
-            End If
-            If (cantidad.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(cantidad.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProductoID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ProductoID")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ProductoID,String)
-            End If
-            If (Original_Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Nombre")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Nombre,String)
-            End If
-            If (Original_PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_PrecioCom")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_PrecioCom,String)
-            End If
-            If (Original_categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_categoria")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_categoria,String)
-            End If
-            If (Original_cantidad.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_cantidad.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5692,109 +5694,8 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String, ByVal cantidad As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As String, ByVal Original_Nombre As String, ByVal Original_PrecioCom As String, ByVal Original_categoria As String, ByVal Original_cantidad As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_ProductoID, Nombre, PrecioCom, categoria, cantidad, Original_ProductoID, Original_Nombre, Original_PrecioCom, Original_categoria, Original_cantidad)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function AgregarProducto(ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
-            If (Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nombre")
-            Else
-                command.Parameters(0).Value = CType(Nombre,String)
-            End If
-            If (PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PrecioCom")
-            Else
-                command.Parameters(1).Value = CType(PrecioCom,String)
-            End If
-            If (categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("categoria")
-            Else
-                command.Parameters(2).Value = CType(categoria,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Integer
-            Try 
-                returnValue = command.ExecuteNonQuery
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function EditarProducto(ByVal Nombre As String, ByVal PrecioCom As String, ByVal categoria As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
-            If (Nombre Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Nombre")
-            Else
-                command.Parameters(0).Value = CType(Nombre,String)
-            End If
-            If (PrecioCom Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("PrecioCom")
-            Else
-                command.Parameters(1).Value = CType(PrecioCom,String)
-            End If
-            If (categoria Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("categoria")
-            Else
-                command.Parameters(2).Value = CType(categoria,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Integer
-            Try 
-                returnValue = command.ExecuteNonQuery
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            Return returnValue
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
-        Public Overloads Overridable Function EliminarProducto(ByVal Original_ProductoID As String) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(5)
-            If (Original_ProductoID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ProductoID")
-            Else
-                command.Parameters(0).Value = CType(Original_ProductoID,String)
-            End If
-            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
-            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
-                        <> Global.System.Data.ConnectionState.Open) Then
-                command.Connection.Open
-            End If
-            Dim returnValue As Integer
-            Try 
-                returnValue = command.ExecuteNonQuery
-            Finally
-                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
-                    command.Connection.Close
-                End If
-            End Try
-            Return returnValue
+        Public Overloads Overridable Function Update(ByVal ValorT As Integer, ByVal Estado As String, ByVal fecha As Date, ByVal Original_ID As Integer, ByVal Original_ValorT As Integer, ByVal Original_Estado As String, ByVal Original_fecha As Date) As Integer
+            Return Me.Update(ValorT, Estado, fecha, Original_ID, Original_ValorT, Original_Estado, Original_fecha, Original_ID)
         End Function
     End Class
     
@@ -5813,15 +5714,15 @@ Namespace BDTableAdapters
         
         Private _clientesTableAdapter As ClientesTableAdapter
         
-        Private _ventasTableAdapter As VentasTableAdapter
-        
-        Private _compraTableAdapter As CompraTableAdapter
+        Private _tProductoTableAdapter As TProductoTableAdapter
         
         Private _tProvedorTableAdapter As TProvedorTableAdapter
         
+        Private _compraTableAdapter As CompraTableAdapter
+        
         Private _usuarioTableAdapter As UsuarioTableAdapter
         
-        Private _tProductoTableAdapter As TProductoTableAdapter
+        Private _ventasTableAdapter As VentasTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -5857,26 +5758,12 @@ Namespace BDTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property VentasTableAdapter() As VentasTableAdapter
+        Public Property TProductoTableAdapter() As TProductoTableAdapter
             Get
-                Return Me._ventasTableAdapter
+                Return Me._tProductoTableAdapter
             End Get
             Set
-                Me._ventasTableAdapter = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
-            "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property CompraTableAdapter() As CompraTableAdapter
-            Get
-                Return Me._compraTableAdapter
-            End Get
-            Set
-                Me._compraTableAdapter = value
+                Me._tProductoTableAdapter = value
             End Set
         End Property
         
@@ -5899,6 +5786,20 @@ Namespace BDTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property CompraTableAdapter() As CompraTableAdapter
+            Get
+                Return Me._compraTableAdapter
+            End Get
+            Set
+                Me._compraTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
         Public Property UsuarioTableAdapter() As UsuarioTableAdapter
             Get
                 Return Me._usuarioTableAdapter
@@ -5913,12 +5814,12 @@ Namespace BDTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property TProductoTableAdapter() As TProductoTableAdapter
+        Public Property VentasTableAdapter() As VentasTableAdapter
             Get
-                Return Me._tProductoTableAdapter
+                Return Me._ventasTableAdapter
             End Get
             Set
-                Me._tProductoTableAdapter = value
+                Me._ventasTableAdapter = value
             End Set
         End Property
         
@@ -5945,25 +5846,25 @@ Namespace BDTableAdapters
                             AndAlso (Not (Me._clientesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._clientesTableAdapter.Connection
                 End If
-                If ((Not (Me._ventasTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._ventasTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._ventasTableAdapter.Connection
-                End If
-                If ((Not (Me._compraTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._compraTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._compraTableAdapter.Connection
+                If ((Not (Me._tProductoTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._tProductoTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._tProductoTableAdapter.Connection
                 End If
                 If ((Not (Me._tProvedorTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._tProvedorTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tProvedorTableAdapter.Connection
                 End If
+                If ((Not (Me._compraTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._compraTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._compraTableAdapter.Connection
+                End If
                 If ((Not (Me._usuarioTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._usuarioTableAdapter.Connection) Is Nothing)) Then
                     Return Me._usuarioTableAdapter.Connection
                 End If
-                If ((Not (Me._tProductoTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._tProductoTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._tProductoTableAdapter.Connection
+                If ((Not (Me._ventasTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._ventasTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._ventasTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -5981,19 +5882,19 @@ Namespace BDTableAdapters
                 If (Not (Me._clientesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                    count = (count + 1)
-                End If
-                If (Not (Me._compraTableAdapter) Is Nothing) Then
+                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 If (Not (Me._tProvedorTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._compraTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 If (Not (Me._usuarioTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                If (Not (Me._ventasTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -6034,12 +5935,12 @@ Namespace BDTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._ventasTableAdapter.Update(updatedRows))
+                    result = (result + Me._tProductoTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -6052,12 +5953,12 @@ Namespace BDTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._ventasTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._tProductoTableAdapter.Update(updatedRows))
+                    result = (result + Me._ventasTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -6095,11 +5996,11 @@ Namespace BDTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._ventasTableAdapter.Update(addedRows))
+                    result = (result + Me._tProductoTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -6111,11 +6012,11 @@ Namespace BDTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._ventasTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._tProductoTableAdapter.Update(addedRows))
+                    result = (result + Me._ventasTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -6129,11 +6030,11 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As BD, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._ventasTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._tProductoTableAdapter.Update(deletedRows))
+                    result = (result + Me._ventasTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -6145,11 +6046,11 @@ Namespace BDTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Ventas.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.TProducto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._ventasTableAdapter.Update(deletedRows))
+                    result = (result + Me._tProductoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -6223,13 +6124,8 @@ Namespace BDTableAdapters
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
-            If ((Not (Me._ventasTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._ventasTableAdapter.Connection) = false)) Then
-                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
-                        "sma cadena de conexión.")
-            End If
-            If ((Not (Me._compraTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._compraTableAdapter.Connection) = false)) Then
+            If ((Not (Me._tProductoTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._tProductoTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -6238,13 +6134,18 @@ Namespace BDTableAdapters
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
+            If ((Not (Me._compraTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._compraTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
+                        "sma cadena de conexión.")
+            End If
             If ((Not (Me._usuarioTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._usuarioTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
-            If ((Not (Me._tProductoTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._tProductoTableAdapter.Connection) = false)) Then
+            If ((Not (Me._ventasTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._ventasTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi"& _ 
                         "sma cadena de conexión.")
             End If
@@ -6289,22 +6190,13 @@ Namespace BDTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._clientesTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._ventasTableAdapter, Me._ventasTableAdapter.Connection)
-                    Me._ventasTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._ventasTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._ventasTableAdapter.Adapter)
-                    End If
-                End If
-                If (Not (Me._compraTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._compraTableAdapter, Me._compraTableAdapter.Connection)
-                    Me._compraTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._compraTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._compraTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._compraTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._compraTableAdapter.Adapter)
+                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._tProductoTableAdapter, Me._tProductoTableAdapter.Connection)
+                    Me._tProductoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._tProductoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._tProductoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._tProductoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tProductoTableAdapter.Adapter)
                     End If
                 End If
                 If (Not (Me._tProvedorTableAdapter) Is Nothing) Then
@@ -6316,6 +6208,15 @@ Namespace BDTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tProvedorTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._compraTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._compraTableAdapter, Me._compraTableAdapter.Connection)
+                    Me._compraTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._compraTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._compraTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._compraTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._compraTableAdapter.Adapter)
+                    End If
+                End If
                 If (Not (Me._usuarioTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._usuarioTableAdapter, Me._usuarioTableAdapter.Connection)
                     Me._usuarioTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
@@ -6325,13 +6226,13 @@ Namespace BDTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._usuarioTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._tProductoTableAdapter, Me._tProductoTableAdapter.Connection)
-                    Me._tProductoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._tProductoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._tProductoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._tProductoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tProductoTableAdapter.Adapter)
+                If (Not (Me._ventasTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._ventasTableAdapter, Me._ventasTableAdapter.Connection)
+                    Me._ventasTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._ventasTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._ventasTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._ventasTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -6398,25 +6299,25 @@ Namespace BDTableAdapters
                     Me._clientesTableAdapter.Connection = CType(revertConnections(Me._clientesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._clientesTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._ventasTableAdapter) Is Nothing) Then
-                    Me._ventasTableAdapter.Connection = CType(revertConnections(Me._ventasTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._ventasTableAdapter.Transaction = Nothing
-                End If
-                If (Not (Me._compraTableAdapter) Is Nothing) Then
-                    Me._compraTableAdapter.Connection = CType(revertConnections(Me._compraTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._compraTableAdapter.Transaction = Nothing
+                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
+                    Me._tProductoTableAdapter.Connection = CType(revertConnections(Me._tProductoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._tProductoTableAdapter.Transaction = Nothing
                 End If
                 If (Not (Me._tProvedorTableAdapter) Is Nothing) Then
                     Me._tProvedorTableAdapter.Connection = CType(revertConnections(Me._tProvedorTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._tProvedorTableAdapter.Transaction = Nothing
                 End If
+                If (Not (Me._compraTableAdapter) Is Nothing) Then
+                    Me._compraTableAdapter.Connection = CType(revertConnections(Me._compraTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._compraTableAdapter.Transaction = Nothing
+                End If
                 If (Not (Me._usuarioTableAdapter) Is Nothing) Then
                     Me._usuarioTableAdapter.Connection = CType(revertConnections(Me._usuarioTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._usuarioTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._tProductoTableAdapter) Is Nothing) Then
-                    Me._tProductoTableAdapter.Connection = CType(revertConnections(Me._tProductoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._tProductoTableAdapter.Transaction = Nothing
+                If (Not (Me._ventasTableAdapter) Is Nothing) Then
+                    Me._ventasTableAdapter.Connection = CType(revertConnections(Me._ventasTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._ventasTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
