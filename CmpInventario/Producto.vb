@@ -45,10 +45,10 @@
 
         End Try
     End Sub
-    Public Sub EliminarProducto(ci As String)
+    Public Sub EliminarProducto(productoid As String)
         Try
             Dim adap As New BDTableAdapters.TProductoTableAdapter
-            adap.EliminarProducto(ci)
+            adap.EliminarProducto(productoid)
         Catch ex As Exception
 
         End Try
