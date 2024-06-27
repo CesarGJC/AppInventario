@@ -1,13 +1,23 @@
 ﻿Public Class nuevoProducto
 
     Private Sub nuevoProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim objPro As New CmpInventario.Producto
+            objPro.CargarCategoria(Bd1.Categorias)
+            Dim objPro1 As New CmpInventario.Producto
+            objPro1.CargarProveedor(Bd1.Proveedores)
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim Categoria As Integer = cbCategoria.SelectedValue
+        Dim Proveedor As Integer = cbProveedor.SelectedValue
         Dim objPro As New CmpInventario.Producto
         Try
-            objPro.Crear(txtNombre.Text, txtPrecio.Text, txtCat.Text)
+            objPro.AgregarProducto(txtNombre.Text, txtDescripcion.Text, Decimal.Parse(txtPrecio.Text), Categoria, Proveedor)
             MsgBox("Producto Registrado Correctamente")
             Close()
         Catch ex As Exception

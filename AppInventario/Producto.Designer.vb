@@ -24,13 +24,15 @@ Partial Class Producto
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrecioComDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CantidadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoriaIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProveedorIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Bd1 = New CmpInventario.BD()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,37 +55,50 @@ Partial Class Producto
         Me.dgvClientes.AllowUserToResizeRows = False
         Me.dgvClientes.AutoGenerateColumns = False
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.PrecioComDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn})
-        Me.dgvClientes.DataMember = "TProducto"
+        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoIDDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.DescripcionDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.CategoriaIDDataGridViewTextBoxColumn, Me.ProveedorIDDataGridViewTextBoxColumn})
+        Me.dgvClientes.DataMember = "Productos"
         Me.dgvClientes.DataSource = Me.Bd1
         Me.dgvClientes.Location = New System.Drawing.Point(26, 65)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.Size = New System.Drawing.Size(497, 272)
         Me.dgvClientes.TabIndex = 4
         '
-        'NombreDataGridViewTextBoxColumn
+        'ProductoIDDataGridViewTextBoxColumn
         '
-        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.ProductoIDDataGridViewTextBoxColumn.DataPropertyName = "ProductoID"
+        Me.ProductoIDDataGridViewTextBoxColumn.HeaderText = "ProductoID"
+        Me.ProductoIDDataGridViewTextBoxColumn.Name = "ProductoIDDataGridViewTextBoxColumn"
+        Me.ProductoIDDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'PrecioComDataGridViewTextBoxColumn
+        'DataGridViewTextBoxColumn1
         '
-        Me.PrecioComDataGridViewTextBoxColumn.DataPropertyName = "PrecioCom"
-        Me.PrecioComDataGridViewTextBoxColumn.HeaderText = "PrecioCom"
-        Me.PrecioComDataGridViewTextBoxColumn.Name = "PrecioComDataGridViewTextBoxColumn"
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         '
-        'CategoriaDataGridViewTextBoxColumn
+        'DescripcionDataGridViewTextBoxColumn
         '
-        Me.CategoriaDataGridViewTextBoxColumn.DataPropertyName = "categoria"
-        Me.CategoriaDataGridViewTextBoxColumn.HeaderText = "categoria"
-        Me.CategoriaDataGridViewTextBoxColumn.Name = "CategoriaDataGridViewTextBoxColumn"
+        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
         '
-        'CantidadDataGridViewTextBoxColumn
+        'PrecioDataGridViewTextBoxColumn
         '
-        Me.CantidadDataGridViewTextBoxColumn.DataPropertyName = "cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.HeaderText = "cantidad"
-        Me.CantidadDataGridViewTextBoxColumn.Name = "CantidadDataGridViewTextBoxColumn"
+        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
+        '
+        'CategoriaIDDataGridViewTextBoxColumn
+        '
+        Me.CategoriaIDDataGridViewTextBoxColumn.DataPropertyName = "CategoriaID"
+        Me.CategoriaIDDataGridViewTextBoxColumn.HeaderText = "CategoriaID"
+        Me.CategoriaIDDataGridViewTextBoxColumn.Name = "CategoriaIDDataGridViewTextBoxColumn"
+        '
+        'ProveedorIDDataGridViewTextBoxColumn
+        '
+        Me.ProveedorIDDataGridViewTextBoxColumn.DataPropertyName = "ProveedorID"
+        Me.ProveedorIDDataGridViewTextBoxColumn.HeaderText = "ProveedorID"
+        Me.ProveedorIDDataGridViewTextBoxColumn.Name = "ProveedorIDDataGridViewTextBoxColumn"
         '
         'Bd1
         '
@@ -97,15 +112,16 @@ Partial Class Producto
         Me.txtBuscarCliente.Size = New System.Drawing.Size(420, 20)
         Me.txtBuscarCliente.TabIndex = 3
         '
-        'ComboBox1
+        'cbCategoria
         '
-        Me.ComboBox1.DataSource = Me.Bd1
-        Me.ComboBox1.DisplayMember = "TProducto.categoria"
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(467, 23)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.cbCategoria.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.Bd1, "Categorias.CategoriaID", True))
+        Me.cbCategoria.DataSource = Me.Bd1
+        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
+        Me.cbCategoria.FormattingEnabled = True
+        Me.cbCategoria.Location = New System.Drawing.Point(467, 23)
+        Me.cbCategoria.Name = "cbCategoria"
+        Me.cbCategoria.Size = New System.Drawing.Size(121, 21)
+        Me.cbCategoria.TabIndex = 6
         '
         'Button1
         '
@@ -122,7 +138,7 @@ Partial Class Producto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(662, 391)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbCategoria)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvClientes)
         Me.Controls.Add(Me.txtBuscarCliente)
@@ -141,11 +157,17 @@ Partial Class Producto
     Friend WithEvents Label1 As Label
     Friend WithEvents dgvClientes As DataGridView
     Friend WithEvents txtBuscarCliente As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Bd1 As CmpInventario.BD
+    Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrecioComDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents Bd1 As CmpInventario.BD
+    Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CategoriaIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ProveedorIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class

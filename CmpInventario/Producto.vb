@@ -1,15 +1,23 @@
 ﻿Public Class Producto
-    Public Sub CargarCategoria(Producto As BD.TProductoDataTable)
+    Public Sub CargarCategoria(categoria As BD.CategoriasDataTable)
         Try
-            Dim adap As New BDTableAdapters.TProductoTableAdapter
-            adap.Fill(Producto)
+            Dim adap As New BDTableAdapters.CategoriasTableAdapter
+            adap.Fill(categoria)
         Catch ex As Exception
 
         End Try
     End Sub
-    Public Sub ConsultarXCategoria(Categoria As String, ds As BD.TProductoDataTable)
+    Public Sub CargarProveedor(Proveedor As BD.ProveedoresDataTable)
         Try
-            Dim adap As New BDTableAdapters.TProductoTableAdapter
+            Dim adap As New BDTableAdapters.ProveedoresTableAdapter
+            adap.Fill(Proveedor)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub ConsultarXCategoria(Categoria As String, ds As BD.ProductosDataTable)
+        Try
+            Dim adap As New BDTableAdapters.ProductosTableAdapter
             adap.ConsultarXCategoria(ds, Categoria)
         Catch ex As Exception
 
@@ -17,38 +25,38 @@
 
     End Sub
 
-    Public Sub ConsultarProducto(producto As String, ds As BD.TProductoDataTable)
+    Public Sub ConsultarProducto(producto As String, ds As BD.ProductosDataTable)
         Try
-            Dim adap As New BDTableAdapters.TProductoTableAdapter
+            Dim adap As New BDTableAdapters.ProductosTableAdapter
             adap.ConsultarProducto(ds, producto)
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Public Function Crear(nombre As String, precioC As String, Categoria As String)
+    Public Function AgregarProducto(nombre As String, descripcion As String, precioC As Decimal, CategoriaID As Integer, Proveedor As Integer)
         Try
-            Dim Adap As New BDTableAdapters.TProductoTableAdapter
+            Dim Adap As New BDTableAdapters.ProductosTableAdapter
 
-            Adap.AgregarProducto(nombre, precioC, Categoria)
+            Adap.AgregarProducto(nombre, descripcion, precioC, CategoriaID, Proveedor)
             Return 1
         Catch ex As Exception
             Return 0
         End Try
     End Function
 
-    Public Sub Editar(nombre As String, precioC As String, Categoria As String)
-        Try
-            Dim adap As New BDTableAdapters.TProductoTableAdapter
-            adap.EditarProducto(nombre, precioC, Categoria)
-        Catch ex As Exception
+    'Public Sub Editar(nombre As String, precioC As String, Categoria As String)
+    '    Try
+    '        Dim adap As New BDTableAdapters.TProductoTableAdapter
+    '        adap.EditarProducto(nombre, precioC, Categoria)
+    '    Catch ex As Exception
 
-        End Try
-    End Sub
-    Public Sub EliminarProducto(ci As String)
+    '    End Try
+    'End Sub
+    Public Sub EliminarProducto(ProductoID As String)
         Try
-            Dim adap As New BDTableAdapters.TProductoTableAdapter
-            adap.EliminarProducto(ci)
+            Dim adap As New BDTableAdapters.ProductosTableAdapter
+            adap.EliminarProducto(ProductoID)
         Catch ex As Exception
 
         End Try
