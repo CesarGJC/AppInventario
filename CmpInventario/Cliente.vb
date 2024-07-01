@@ -12,4 +12,5 @@
         Dim adap As New BDTableAdapters.ClientesTableAdapter
         adap.EditarCliente(ci, nombre, ape, direccion, tel, email)
     End Sub
+    'Prueba
 End Class
