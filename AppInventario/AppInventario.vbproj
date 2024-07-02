@@ -79,6 +79,12 @@
     <Compile Include="compra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditarCliente.Designer.vb">
+      <DependentUpon>EditarCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditarCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EditarProducto.Designer.vb">
       <DependentUpon>EditarProducto.vb</DependentUpon>
     </Compile>
@@ -95,6 +101,12 @@
       <DependentUpon>Inventario.vb</DependentUpon>
     </Compile>
     <Compile Include="Inventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoCliente.Designer.vb">
+      <DependentUpon>NuevoCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="nuevoProducto.Designer.vb">
@@ -154,6 +166,9 @@
     <EmbeddedResource Include="compra.resx">
       <DependentUpon>compra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditarCliente.resx">
+      <DependentUpon>EditarCliente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditarProducto.resx">
       <DependentUpon>EditarProducto.vb</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +183,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoCliente.resx">
+      <DependentUpon>NuevoCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nuevoProducto.resx">
       <DependentUpon>nuevoProducto.vb</DependentUpon>

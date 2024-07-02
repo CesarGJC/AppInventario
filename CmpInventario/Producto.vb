@@ -53,14 +53,6 @@
         End Try
     End Function
 
-    'Public Sub Editar(nombre As String, precioC As String, Categoria As String)
-    '    Try
-    '        Dim adap As New BDTableAdapters.TProductoTableAdapter
-    '        adap.EditarProducto(nombre, precioC, Categoria)
-    '    Catch ex As Exception
-
-    '    End Try
-    'End Sub
     Public Sub EliminarProducto(ProductoID As String)
         Try
             Dim adap As New BDTableAdapters.ProductosTableAdapter
@@ -77,6 +69,4 @@
 
         End Try
     End Sub
-    'esto es de prueba
-    'esto es una prueba x2
 End Class
