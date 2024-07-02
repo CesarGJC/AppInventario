@@ -21,4 +21,9 @@
 
         End Try
     End Sub
+
+    Public Sub Login(Usuario As String, contrasena As String, ds As BD.UsuarioDataTable)
+        Dim adap As New BDTableAdapters.UsuarioTableAdapter
+        adap.login(ds, Usuario, contrasena)
+    End Sub
 End Class

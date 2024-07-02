@@ -79,10 +79,22 @@
     <Compile Include="compra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.vb">
-      <DependentUpon>login.vb</DependentUpon>
+    <Compile Include="EditarProducto.Designer.vb">
+      <DependentUpon>EditarProducto.vb</DependentUpon>
     </Compile>
-    <Compile Include="login.vb">
+    <Compile Include="EditarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="iniciosesion.Designer.vb">
+      <DependentUpon>iniciosesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="iniciosesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventario.Designer.vb">
+      <DependentUpon>Inventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="nuevoProducto.Designer.vb">
@@ -142,8 +154,14 @@
     <EmbeddedResource Include="compra.resx">
       <DependentUpon>compra.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
-      <DependentUpon>login.vb</DependentUpon>
+    <EmbeddedResource Include="EditarProducto.resx">
+      <DependentUpon>EditarProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iniciosesion.resx">
+      <DependentUpon>iniciosesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventario.resx">
+      <DependentUpon>Inventario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -187,6 +205,9 @@
       <Project>{0368ed5a-0653-416d-9a61-eb9666562cd1}</Project>
       <Name>Cmpinventario</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
