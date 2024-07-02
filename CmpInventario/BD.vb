@@ -1,4 +1,6 @@
 ﻿Partial Class BD
+
+
     Partial Public Class ProveedoresDataTable
         Private Sub ProveedoresDataTable_ProveedoresRowChanging(sender As Object, e As ProveedoresRowChangeEvent) Handles Me.ProveedoresRowChanging
 

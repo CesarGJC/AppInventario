@@ -23,19 +23,19 @@
 
         End Try
     End Sub
-    Public Sub ConsultarXCategoria(Categoria As String, ds As BD.ProductosDataTable)
+    Public Sub ConsultarPorCategoria(Categoria As String, ds As BD.ProductoTADataTable)
         Try
-            Dim adap As New BDTableAdapters.ProductosTableAdapter
-            adap.ConsultarXCategoria(ds, Categoria)
+            Dim adap As New BDTableAdapters.ProductoTATableAdapter
+            adap.ConsultarPorCategoria(ds, Categoria)
         Catch ex As Exception
 
         End Try
 
     End Sub
 
-    Public Sub ConsultarProducto(producto As String, ds As BD.ProductosDataTable)
+    Public Sub ConsultarProducto(producto As String, ds As BD.ProductoTADataTable)
         Try
-            Dim adap As New BDTableAdapters.ProductosTableAdapter
+            Dim adap As New BDTableAdapters.ProductoTATableAdapter
             adap.ConsultarProducto(ds, producto)
         Catch ex As Exception
 

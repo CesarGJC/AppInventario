@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Producto
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,28 +20,34 @@ Partial Class Producto
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.Bd1 = New CmpInventario.BD()
-        Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.dgvProducto = New System.Windows.Forms.DataGridView()
+        Me.ProductoID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoriaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cmsEliminar = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.cbCategoria = New System.Windows.Forms.ComboBox()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cmsEliminar.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(23, 7)
+        Me.Label1.Location = New System.Drawing.Point(339, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 5
@@ -49,57 +55,57 @@ Partial Class Producto
         '
         'txtBuscarCliente
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(26, 23)
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(388, 26)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(420, 20)
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(132, 20)
         Me.txtBuscarCliente.TabIndex = 3
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(567, 65)
+        Me.Button1.Location = New System.Drawing.Point(26, 20)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 65)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Crear nuevo producto"
+        Me.Button1.Size = New System.Drawing.Size(83, 26)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Nuevo"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'cbCategoria
-        '
-        Me.cbCategoria.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.Bd1, "Categorias.CategoriaID", True))
-        Me.cbCategoria.DataSource = Me.Bd1
-        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
-        Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(467, 23)
-        Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Size = New System.Drawing.Size(121, 21)
-        Me.cbCategoria.TabIndex = 6
         '
         'Bd1
         '
         Me.Bd1.DataSetName = "BD"
         Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'dgvClientes
+        'dgvProducto
         '
-        Me.dgvClientes.AllowUserToAddRows = False
-        Me.dgvClientes.AllowUserToDeleteRows = False
-        Me.dgvClientes.AllowUserToResizeColumns = False
-        Me.dgvClientes.AllowUserToResizeRows = False
-        Me.dgvClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvClientes.AutoGenerateColumns = False
-        Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
-        Me.dgvClientes.DataMember = "ProductoTA"
-        Me.dgvClientes.DataSource = Me.Bd1
-        Me.dgvClientes.Enabled = False
-        Me.dgvClientes.Location = New System.Drawing.Point(26, 65)
-        Me.dgvClientes.Name = "dgvClientes"
-        Me.dgvClientes.ReadOnly = True
-        Me.dgvClientes.Size = New System.Drawing.Size(497, 272)
-        Me.dgvClientes.TabIndex = 4
+        Me.dgvProducto.AllowUserToAddRows = False
+        Me.dgvProducto.AllowUserToResizeColumns = False
+        Me.dgvProducto.AllowUserToResizeRows = False
+        Me.dgvProducto.AutoGenerateColumns = False
+        Me.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoID, Me.CategoriaID, Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
+        Me.dgvProducto.ContextMenuStrip = Me.cmsEliminar
+        Me.dgvProducto.DataMember = "ProductoTA"
+        Me.dgvProducto.DataSource = Me.Bd1
+        Me.dgvProducto.Location = New System.Drawing.Point(26, 65)
+        Me.dgvProducto.Name = "dgvProducto"
+        Me.dgvProducto.Size = New System.Drawing.Size(494, 272)
+        Me.dgvProducto.TabIndex = 4
+        '
+        'ProductoID
+        '
+        Me.ProductoID.DataPropertyName = "ProductoID"
+        Me.ProductoID.HeaderText = "ProductoID"
+        Me.ProductoID.Name = "ProductoID"
+        Me.ProductoID.ReadOnly = True
+        Me.ProductoID.Visible = False
+        '
+        'CategoriaID
+        '
+        Me.CategoriaID.DataPropertyName = "CategoriaID"
+        Me.CategoriaID.HeaderText = "CategoriaID"
+        Me.CategoriaID.Name = "CategoriaID"
+        Me.CategoriaID.ReadOnly = True
+        Me.CategoriaID.Visible = False
         '
         'DataGridViewTextBoxColumn1
         '
@@ -143,15 +149,39 @@ Partial Class Producto
         Me.Direccion.Name = "Direccion"
         Me.Direccion.ReadOnly = True
         '
+        'cmsEliminar
+        '
+        Me.cmsEliminar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EliminarToolStripMenuItem})
+        Me.cmsEliminar.Name = "cmsEliminar"
+        Me.cmsEliminar.Size = New System.Drawing.Size(118, 26)
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'cbCategoria
+        '
+        Me.cbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbCategoria.DataSource = Me.Bd1
+        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
+        Me.cbCategoria.FormattingEnabled = True
+        Me.cbCategoria.Location = New System.Drawing.Point(115, 21)
+        Me.cbCategoria.Name = "cbCategoria"
+        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
+        Me.cbCategoria.TabIndex = 2
+        Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
+        '
         'Producto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(662, 391)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(553, 359)
         Me.Controls.Add(Me.cbCategoria)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.dgvClientes)
+        Me.Controls.Add(Me.dgvProducto)
         Me.Controls.Add(Me.txtBuscarCliente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
@@ -159,22 +189,27 @@ Partial Class Producto
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ProductoUI"
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.cmsEliminar.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents dgvClientes As DataGridView
+    Friend WithEvents dgvProducto As DataGridView
     Friend WithEvents txtBuscarCliente As TextBox
-    Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrecioComDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
     Friend WithEvents Bd1 As CmpInventario.BD
+    Friend WithEvents cbCategoria As ComboBox
+    Friend WithEvents cmsEliminar As ContextMenuStrip
+    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ProductoID As DataGridViewTextBoxColumn
+    Friend WithEvents CategoriaID As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents Categoria As DataGridViewTextBoxColumn
     Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

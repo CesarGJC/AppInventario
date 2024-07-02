@@ -21,7 +21,7 @@
             MsgBox("Producto Registrado Correctamente")
             Close()
         Catch ex As Exception
-
+            MsgBox("Datos vacios " & ex.Message)
         End Try
     End Sub
 

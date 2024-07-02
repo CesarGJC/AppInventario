@@ -79,4 +79,12 @@ Public Class principal
     Private Sub btnCliente_Click(sender As Object, e As EventArgs) Handles btnCliente.Click
         Abrirforenpanel(New Cliente)
     End Sub
+
+    Private Sub btnCompra_Click(sender As Object, e As EventArgs) Handles btnCompra.Click
+        Abrirforenpanel(New compra)
+    End Sub
+
+    Private Sub btnInventario_Click(sender As Object, e As EventArgs) Handles btnInventario.Click
+        Abrirforenpanel(New Inventario)
+    End Sub
 End Class
