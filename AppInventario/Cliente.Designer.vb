@@ -25,7 +25,6 @@ Partial Class Cliente
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.CiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,7 +58,7 @@ Partial Class Cliente
         Me.dgvClientes.AllowUserToResizeRows = False
         Me.dgvClientes.AutoGenerateColumns = False
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CiDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.ApellidoDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn})
+        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.ApellidoDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn})
         Me.dgvClientes.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.Bd1, "Clientes.Telefono", True))
         Me.dgvClientes.DataMember = "Clientes"
         Me.dgvClientes.DataSource = Me.Bd1
@@ -67,12 +66,6 @@ Partial Class Cliente
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.Size = New System.Drawing.Size(549, 288)
         Me.dgvClientes.TabIndex = 1
-        '
-        'CiDataGridViewTextBoxColumn
-        '
-        Me.CiDataGridViewTextBoxColumn.DataPropertyName = "Ci"
-        Me.CiDataGridViewTextBoxColumn.HeaderText = "Ci"
-        Me.CiDataGridViewTextBoxColumn.Name = "CiDataGridViewTextBoxColumn"
         '
         'NombreDataGridViewTextBoxColumn
         '
@@ -106,7 +99,7 @@ Partial Class Cliente
         Me.Controls.Add(Me.dgvClientes)
         Me.Controls.Add(Me.txtBuscarCliente)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Cliente"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StockUI"

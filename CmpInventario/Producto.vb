@@ -1,4 +1,12 @@
 ﻿Public Class Producto
+    Public Sub CargarProducto(producto As BD.ProductoTADataTable)
+        Try
+            Dim adap As New BDTableAdapters.ProductoTATableAdapter
+            adap.Fill(producto)
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Public Sub CargarCategoria(categoria As BD.CategoriasDataTable)
         Try
             Dim adap As New BDTableAdapters.CategoriasTableAdapter

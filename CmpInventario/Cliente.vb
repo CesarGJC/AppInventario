@@ -12,5 +12,13 @@
         Dim adap As New BDTableAdapters.ClientesTableAdapter
         adap.EditarCliente(ci, nombre, ape, direccion, tel, email)
     End Sub
-    'Prueba
+
+    Public Sub CargarCliente(cliente As BD.ClientesDataTable)
+        Try
+            Dim adap As New BDTableAdapters.ClientesTableAdapter
+            adap.Fill(cliente)
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
