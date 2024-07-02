@@ -69,6 +69,14 @@
 
         End Try
     End Sub
+    Public Sub EditarProducto(ProductoID As Integer, Nombre As String, Precio As Decimal, Descripcion As String)
+        Try
+            Dim adap As New BDTableAdapters.ProductosTableAdapter
+            adap.EditarProducto(Nombre, Descripcion, Precio, ProductoID)
+        Catch ex As Exception
+
+        End Try
+    End Sub
     'esto es de prueba
     'esto es una prueba x2
 End Class

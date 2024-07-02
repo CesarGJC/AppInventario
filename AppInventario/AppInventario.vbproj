@@ -79,6 +79,12 @@
     <Compile Include="compra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditarProducto.Designer.vb">
+      <DependentUpon>EditarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="iniciosesion.Designer.vb">
       <DependentUpon>iniciosesion.vb</DependentUpon>
     </Compile>
@@ -148,6 +154,9 @@
     <EmbeddedResource Include="compra.resx">
       <DependentUpon>compra.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditarProducto.resx">
+      <DependentUpon>EditarProducto.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="iniciosesion.resx">
       <DependentUpon>iniciosesion.vb</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +205,9 @@
       <Project>{0368ed5a-0653-416d-9a61-eb9666562cd1}</Project>
       <Name>Cmpinventario</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
