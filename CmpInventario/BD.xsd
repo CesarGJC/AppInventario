@@ -54,7 +54,7 @@ SELECT CategoriaID, Nombre FROM Categorias WHERE (CategoriaID = @CategoriaID)</C
               <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AgregarCategoria" Modifier="Public" Name="AgregarCategoria" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="AgregarCategoria">
+              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AgregarCategoria" Modifier="Public" Name="AgregarCategoria" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AgregarCategoria">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Categorias] ([Nombre]) VALUES (@Nombre);
@@ -65,7 +65,7 @@ SELECT CategoriaID, Nombre FROM Categorias WHERE (CategoriaID = SCOPE_IDENTITY()
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EditarCategoria" Modifier="Public" Name="EditarCategoria" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="EditarCategoria">
+              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EditarCategoria" Modifier="Public" Name="EditarCategoria" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="EditarCategoria">
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>UPDATE Categorias SET Nombre=@Nombre WHERE CategoriaID=@CategoriaID</CommandText>
@@ -367,7 +367,7 @@ SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FROM Pr
               <Mapping SourceColumn="ProveedorID" DataSetColumn="ProveedorID" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AgregarProducto" Modifier="Public" Name="AgregarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="AgregarProducto">
+              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="AgregarProducto" Modifier="Public" Name="AgregarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="AgregarProducto">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [dbo].[Productos] ([Nombre], [Descripcion], [Precio], [CategoriaID], [ProveedorID]) VALUES (@Nombre, @Descripcion, @Precio, @CategoriaID, @ProveedorID);
@@ -404,7 +404,7 @@ WHERE (CategoriaID=@CategoriaID)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EliminarProducto" Modifier="Public" Name="EliminarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="EliminarProducto">
+              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="EliminarProducto" Modifier="Public" Name="EliminarProducto" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="EliminarProducto">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [dbo].[Productos] WHERE ProductoID=@ProductoID</CommandText>
@@ -484,6 +484,30 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductoTATableAdapter" GeneratorDataComponentClassName="ProductoTATableAdapter" Name="ProductoTA" UserDataComponentName="ProductoTATableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDinventarioConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Productos.Nombre, Productos.Descripcion, Productos.Precio, Categorias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor, Proveedores.Direccion
+FROM            Categorias INNER JOIN
+                         Productos ON Categorias.CategoriaID = Productos.CategoriaID INNER JOIN
+                         Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Descripcion" DataSetColumn="Descripcion" />
+              <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
+              <Mapping SourceColumn="Categoria" DataSetColumn="Categoria" />
+              <Mapping SourceColumn="Proveedor" DataSetColumn="Proveedor" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -492,7 +516,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
   <xs:element name="BD" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BD" msprop:Generator_UserDSName="BD">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Categorias" msprop:Generator_TableClassName="CategoriasDataTable" msprop:Generator_TableVarName="tableCategorias" msprop:Generator_TablePropName="Categorias" msprop:Generator_RowDeletingName="CategoriasRowDeleting" msprop:Generator_RowChangingName="CategoriasRowChanging" msprop:Generator_RowEvHandlerName="CategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriasRowDeleted" msprop:Generator_UserTableName="Categorias" msprop:Generator_RowChangedName="CategoriasRowChanged" msprop:Generator_RowEvArgName="CategoriasRowChangeEvent" msprop:Generator_RowClassName="CategoriasRow">
+        <xs:element name="Categorias" msprop:Generator_TableClassName="CategoriasDataTable" msprop:Generator_TableVarName="tableCategorias" msprop:Generator_RowChangedName="CategoriasRowChanged" msprop:Generator_TablePropName="Categorias" msprop:Generator_RowDeletingName="CategoriasRowDeleting" msprop:Generator_RowChangingName="CategoriasRowChanging" msprop:Generator_RowEvHandlerName="CategoriasRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriasRowDeleted" msprop:Generator_RowClassName="CategoriasRow" msprop:Generator_UserTableName="Categorias" msprop:Generator_RowEvArgName="CategoriasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CategoriaID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCategoriaID" msprop:Generator_ColumnPropNameInRow="CategoriaID" msprop:Generator_ColumnPropNameInTable="CategoriaIDColumn" msprop:Generator_UserColumnName="CategoriaID" type="xs:int" />
@@ -506,7 +530,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent" msprop:Generator_RowClassName="UsuarioRow">
+        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_RowClassName="UsuarioRow" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="UsuarioID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnUsuarioID" msprop:Generator_ColumnPropNameInRow="UsuarioID" msprop:Generator_ColumnPropNameInTable="UsuarioIDColumn" msprop:Generator_UserColumnName="UsuarioID" type="xs:int" />
@@ -528,7 +552,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_RowEvArgName="ClientesRowChangeEvent" msprop:Generator_RowClassName="ClientesRow">
+        <xs:element name="Clientes" msprop:Generator_TableClassName="ClientesDataTable" msprop:Generator_TableVarName="tableClientes" msprop:Generator_RowChangedName="ClientesRowChanged" msprop:Generator_TablePropName="Clientes" msprop:Generator_RowDeletingName="ClientesRowDeleting" msprop:Generator_RowChangingName="ClientesRowChanging" msprop:Generator_RowEvHandlerName="ClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="ClientesRowDeleted" msprop:Generator_RowClassName="ClientesRow" msprop:Generator_UserTableName="Clientes" msprop:Generator_RowEvArgName="ClientesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CI" msprop:Generator_ColumnVarNameInTable="columnCI" msprop:Generator_ColumnPropNameInRow="CI" msprop:Generator_ColumnPropNameInTable="CIColumn" msprop:Generator_UserColumnName="CI">
@@ -576,7 +600,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Inventario" msprop:Generator_TableClassName="InventarioDataTable" msprop:Generator_TableVarName="tableInventario" msprop:Generator_TablePropName="Inventario" msprop:Generator_RowDeletingName="InventarioRowDeleting" msprop:Generator_RowChangingName="InventarioRowChanging" msprop:Generator_RowEvHandlerName="InventarioRowChangeEventHandler" msprop:Generator_RowDeletedName="InventarioRowDeleted" msprop:Generator_UserTableName="Inventario" msprop:Generator_RowChangedName="InventarioRowChanged" msprop:Generator_RowEvArgName="InventarioRowChangeEvent" msprop:Generator_RowClassName="InventarioRow">
+        <xs:element name="Inventario" msprop:Generator_TableClassName="InventarioDataTable" msprop:Generator_TableVarName="tableInventario" msprop:Generator_RowChangedName="InventarioRowChanged" msprop:Generator_TablePropName="Inventario" msprop:Generator_RowDeletingName="InventarioRowDeleting" msprop:Generator_RowChangingName="InventarioRowChanging" msprop:Generator_RowEvHandlerName="InventarioRowChangeEventHandler" msprop:Generator_RowDeletedName="InventarioRowDeleted" msprop:Generator_RowClassName="InventarioRow" msprop:Generator_UserTableName="Inventario" msprop:Generator_RowEvArgName="InventarioRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="InventarioID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnInventarioID" msprop:Generator_ColumnPropNameInRow="InventarioID" msprop:Generator_ColumnPropNameInTable="InventarioIDColumn" msprop:Generator_UserColumnName="InventarioID" type="xs:int" />
@@ -586,7 +610,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Productos" msprop:Generator_TableClassName="ProductosDataTable" msprop:Generator_TableVarName="tableProductos" msprop:Generator_TablePropName="Productos" msprop:Generator_RowDeletingName="ProductosRowDeleting" msprop:Generator_RowChangingName="ProductosRowChanging" msprop:Generator_RowEvHandlerName="ProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductosRowDeleted" msprop:Generator_UserTableName="Productos" msprop:Generator_RowChangedName="ProductosRowChanged" msprop:Generator_RowEvArgName="ProductosRowChangeEvent" msprop:Generator_RowClassName="ProductosRow">
+        <xs:element name="Productos" msprop:Generator_TableClassName="ProductosDataTable" msprop:Generator_TableVarName="tableProductos" msprop:Generator_RowChangedName="ProductosRowChanged" msprop:Generator_TablePropName="Productos" msprop:Generator_RowDeletingName="ProductosRowDeleting" msprop:Generator_RowChangingName="ProductosRowChanging" msprop:Generator_RowEvHandlerName="ProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductosRowDeleted" msprop:Generator_RowClassName="ProductosRow" msprop:Generator_UserTableName="Productos" msprop:Generator_RowEvArgName="ProductosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProductoID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProductoID" msprop:Generator_ColumnPropNameInRow="ProductoID" msprop:Generator_ColumnPropNameInTable="ProductoIDColumn" msprop:Generator_UserColumnName="ProductoID" type="xs:int" />
@@ -610,7 +634,7 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Proveedores" msprop:Generator_TableClassName="ProveedoresDataTable" msprop:Generator_TableVarName="tableProveedores" msprop:Generator_TablePropName="Proveedores" msprop:Generator_RowDeletingName="ProveedoresRowDeleting" msprop:Generator_RowChangingName="ProveedoresRowChanging" msprop:Generator_RowEvHandlerName="ProveedoresRowChangeEventHandler" msprop:Generator_RowDeletedName="ProveedoresRowDeleted" msprop:Generator_UserTableName="Proveedores" msprop:Generator_RowChangedName="ProveedoresRowChanged" msprop:Generator_RowEvArgName="ProveedoresRowChangeEvent" msprop:Generator_RowClassName="ProveedoresRow">
+        <xs:element name="Proveedores" msprop:Generator_TableClassName="ProveedoresDataTable" msprop:Generator_TableVarName="tableProveedores" msprop:Generator_RowChangedName="ProveedoresRowChanged" msprop:Generator_TablePropName="Proveedores" msprop:Generator_RowDeletingName="ProveedoresRowDeleting" msprop:Generator_RowChangingName="ProveedoresRowChanging" msprop:Generator_RowEvHandlerName="ProveedoresRowChangeEventHandler" msprop:Generator_RowDeletedName="ProveedoresRowDeleted" msprop:Generator_RowClassName="ProveedoresRow" msprop:Generator_UserTableName="Proveedores" msprop:Generator_RowEvArgName="ProveedoresRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ProveedorID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProveedorID" msprop:Generator_ColumnPropNameInRow="ProveedorID" msprop:Generator_ColumnPropNameInTable="ProveedorIDColumn" msprop:Generator_UserColumnName="ProveedorID" type="xs:int" />
@@ -639,6 +663,48 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ProductoTA" msprop:Generator_TableClassName="ProductoTADataTable" msprop:Generator_TableVarName="tableProductoTA" msprop:Generator_TablePropName="ProductoTA" msprop:Generator_RowDeletingName="ProductoTARowDeleting" msprop:Generator_RowChangingName="ProductoTARowChanging" msprop:Generator_RowEvHandlerName="ProductoTARowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoTARowDeleted" msprop:Generator_UserTableName="ProductoTA" msprop:Generator_RowChangedName="ProductoTARowChanged" msprop:Generator_RowEvArgName="ProductoTARowChangeEvent" msprop:Generator_RowClassName="ProductoTARow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Descripcion" msprop:Generator_ColumnVarNameInTable="columnDescripcion" msprop:Generator_ColumnPropNameInRow="Descripcion" msprop:Generator_ColumnPropNameInTable="DescripcionColumn" msprop:Generator_UserColumnName="Descripcion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Precio" msprop:Generator_ColumnVarNameInTable="columnPrecio" msprop:Generator_ColumnPropNameInRow="Precio" msprop:Generator_ColumnPropNameInTable="PrecioColumn" msprop:Generator_UserColumnName="Precio" type="xs:decimal" />
+              <xs:element name="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_UserColumnName="Categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Proveedor" msprop:Generator_ColumnVarNameInTable="columnProveedor" msprop:Generator_ColumnPropNameInRow="Proveedor" msprop:Generator_ColumnPropNameInTable="ProveedorColumn" msprop:Generator_UserColumnName="Proveedor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -674,9 +740,9 @@ SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM Proveedores WHERE (P
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Inventario_Productos" msdata:parent="Productos" msdata:child="Inventario" msdata:parentkey="ProductoID" msdata:childkey="ProductoID" msprop:Generator_UserChildTable="Inventario" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_UserRelationName="FK_Inventario_Productos" msprop:Generator_RelationVarName="relationFK_Inventario_Productos" msprop:Generator_UserParentTable="Productos" msprop:Generator_ParentPropName="ProductosRow" />
-      <msdata:Relationship name="FK_Productos_Categorias" msdata:parent="Categorias" msdata:child="Productos" msdata:parentkey="CategoriaID" msdata:childkey="CategoriaID" msprop:Generator_UserChildTable="Productos" msprop:Generator_ChildPropName="GetProductosRows" msprop:Generator_UserRelationName="FK_Productos_Categorias" msprop:Generator_ParentPropName="CategoriasRow" msprop:Generator_RelationVarName="relationFK_Productos_Categorias" msprop:Generator_UserParentTable="Categorias" />
-      <msdata:Relationship name="FK_Productos_Proveedores" msdata:parent="Proveedores" msdata:child="Productos" msdata:parentkey="ProveedorID" msdata:childkey="ProveedorID" msprop:Generator_UserChildTable="Productos" msprop:Generator_ChildPropName="GetProductosRows" msprop:Generator_UserRelationName="FK_Productos_Proveedores" msprop:Generator_RelationVarName="relationFK_Productos_Proveedores" msprop:Generator_UserParentTable="Proveedores" msprop:Generator_ParentPropName="ProveedoresRow" />
+      <msdata:Relationship name="FK_Inventario_Productos" msdata:parent="Productos" msdata:child="Inventario" msdata:parentkey="ProductoID" msdata:childkey="ProductoID" msprop:Generator_UserChildTable="Inventario" msprop:Generator_ChildPropName="GetInventarioRows" msprop:Generator_UserRelationName="FK_Inventario_Productos" msprop:Generator_ParentPropName="ProductosRow" msprop:Generator_RelationVarName="relationFK_Inventario_Productos" msprop:Generator_UserParentTable="Productos" />
+      <msdata:Relationship name="FK_Productos_Categorias" msdata:parent="Categorias" msdata:child="Productos" msdata:parentkey="CategoriaID" msdata:childkey="CategoriaID" msprop:Generator_UserChildTable="Productos" msprop:Generator_ChildPropName="GetProductosRows" msprop:Generator_UserRelationName="FK_Productos_Categorias" msprop:Generator_RelationVarName="relationFK_Productos_Categorias" msprop:Generator_UserParentTable="Categorias" msprop:Generator_ParentPropName="CategoriasRow" />
+      <msdata:Relationship name="FK_Productos_Proveedores" msdata:parent="Proveedores" msdata:child="Productos" msdata:parentkey="ProveedorID" msdata:childkey="ProveedorID" msprop:Generator_UserChildTable="Productos" msprop:Generator_ChildPropName="GetProductosRows" msprop:Generator_UserRelationName="FK_Productos_Proveedores" msprop:Generator_ParentPropName="ProveedoresRow" msprop:Generator_RelationVarName="relationFK_Productos_Proveedores" msprop:Generator_UserParentTable="Proveedores" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

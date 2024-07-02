@@ -23,19 +23,19 @@ Partial Class Producto
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.ProductoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoriaIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProveedorIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Bd1 = New CmpInventario.BD()
         Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
-        Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.cbCategoria = New System.Windows.Forms.ComboBox()
+        Me.Bd1 = New CmpInventario.BD()
+        Me.dgvClientes = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -47,70 +47,21 @@ Partial Class Producto
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Buscar:"
         '
-        'dgvClientes
-        '
-        Me.dgvClientes.AllowUserToAddRows = False
-        Me.dgvClientes.AllowUserToDeleteRows = False
-        Me.dgvClientes.AllowUserToResizeColumns = False
-        Me.dgvClientes.AllowUserToResizeRows = False
-        Me.dgvClientes.AutoGenerateColumns = False
-        Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoIDDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.DescripcionDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.CategoriaIDDataGridViewTextBoxColumn, Me.ProveedorIDDataGridViewTextBoxColumn})
-        Me.dgvClientes.DataMember = "Productos"
-        Me.dgvClientes.DataSource = Me.Bd1
-        Me.dgvClientes.Location = New System.Drawing.Point(26, 65)
-        Me.dgvClientes.Name = "dgvClientes"
-        Me.dgvClientes.Size = New System.Drawing.Size(497, 272)
-        Me.dgvClientes.TabIndex = 4
-        '
-        'ProductoIDDataGridViewTextBoxColumn
-        '
-        Me.ProductoIDDataGridViewTextBoxColumn.DataPropertyName = "ProductoID"
-        Me.ProductoIDDataGridViewTextBoxColumn.HeaderText = "ProductoID"
-        Me.ProductoIDDataGridViewTextBoxColumn.Name = "ProductoIDDataGridViewTextBoxColumn"
-        Me.ProductoIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Nombre"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        '
-        'PrecioDataGridViewTextBoxColumn
-        '
-        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
-        '
-        'CategoriaIDDataGridViewTextBoxColumn
-        '
-        Me.CategoriaIDDataGridViewTextBoxColumn.DataPropertyName = "CategoriaID"
-        Me.CategoriaIDDataGridViewTextBoxColumn.HeaderText = "CategoriaID"
-        Me.CategoriaIDDataGridViewTextBoxColumn.Name = "CategoriaIDDataGridViewTextBoxColumn"
-        '
-        'ProveedorIDDataGridViewTextBoxColumn
-        '
-        Me.ProveedorIDDataGridViewTextBoxColumn.DataPropertyName = "ProveedorID"
-        Me.ProveedorIDDataGridViewTextBoxColumn.HeaderText = "ProveedorID"
-        Me.ProveedorIDDataGridViewTextBoxColumn.Name = "ProveedorIDDataGridViewTextBoxColumn"
-        '
-        'Bd1
-        '
-        Me.Bd1.DataSetName = "BD"
-        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'txtBuscarCliente
         '
         Me.txtBuscarCliente.Location = New System.Drawing.Point(26, 23)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
         Me.txtBuscarCliente.Size = New System.Drawing.Size(420, 20)
         Me.txtBuscarCliente.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(567, 65)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(83, 65)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Crear nuevo producto"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'cbCategoria
         '
@@ -123,14 +74,74 @@ Partial Class Producto
         Me.cbCategoria.Size = New System.Drawing.Size(121, 21)
         Me.cbCategoria.TabIndex = 6
         '
-        'Button1
+        'Bd1
         '
-        Me.Button1.Location = New System.Drawing.Point(548, 65)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 65)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Crear nuevo producto"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Bd1.DataSetName = "BD"
+        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'dgvClientes
+        '
+        Me.dgvClientes.AllowUserToAddRows = False
+        Me.dgvClientes.AllowUserToDeleteRows = False
+        Me.dgvClientes.AllowUserToResizeColumns = False
+        Me.dgvClientes.AllowUserToResizeRows = False
+        Me.dgvClientes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvClientes.AutoGenerateColumns = False
+        Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
+        Me.dgvClientes.DataMember = "ProductoTA"
+        Me.dgvClientes.DataSource = Me.Bd1
+        Me.dgvClientes.Enabled = False
+        Me.dgvClientes.Location = New System.Drawing.Point(26, 65)
+        Me.dgvClientes.Name = "dgvClientes"
+        Me.dgvClientes.ReadOnly = True
+        Me.dgvClientes.Size = New System.Drawing.Size(497, 272)
+        Me.dgvClientes.TabIndex = 4
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'Categoria
+        '
+        Me.Categoria.DataPropertyName = "Categoria"
+        Me.Categoria.HeaderText = "Categoria"
+        Me.Categoria.Name = "Categoria"
+        Me.Categoria.ReadOnly = True
+        '
+        'PrecioDataGridViewTextBoxColumn
+        '
+        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
+        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
+        Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'DescripcionDataGridViewTextBoxColumn
+        '
+        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
+        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
+        Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'Proveedor
+        '
+        Me.Proveedor.DataPropertyName = "Proveedor"
+        Me.Proveedor.HeaderText = "Proveedor"
+        Me.Proveedor.Name = "Proveedor"
+        Me.Proveedor.ReadOnly = True
+        '
+        'Direccion
+        '
+        Me.Direccion.DataPropertyName = "Direccion"
+        Me.Direccion.HeaderText = "Direccion"
+        Me.Direccion.Name = "Direccion"
+        Me.Direccion.ReadOnly = True
         '
         'Producto
         '
@@ -147,8 +158,8 @@ Partial Class Producto
         Me.Name = "Producto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ProductoUI"
-        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,10 +175,10 @@ Partial Class Producto
     Friend WithEvents CantidadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
     Friend WithEvents Bd1 As CmpInventario.BD
-    Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Categoria As DataGridViewTextBoxColumn
     Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CategoriaIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ProveedorIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Proveedor As DataGridViewTextBoxColumn
+    Friend WithEvents Direccion As DataGridViewTextBoxColumn
 End Class

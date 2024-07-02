@@ -7,4 +7,13 @@
 
         End Try
     End Sub
+
+    Private Sub Cliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim ObjCli As New CmpInventario.Cliente
+            ObjCli.CargarCliente(Bd1.Clientes)
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

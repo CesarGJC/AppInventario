@@ -6,7 +6,9 @@
     Private Sub Producto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Dim objPro As New CmpInventario.Producto
-            objPro.CargarCategoria(Bd1.Categorias)
+            objPro.CargarProducto(Bd1.ProductoTA)
+            Dim ObjPro1 As New CmpInventario.Producto
+            ObjPro1.CargarCategoria(Bd1.Categorias)
         Catch ex As Exception
 
         End Try
