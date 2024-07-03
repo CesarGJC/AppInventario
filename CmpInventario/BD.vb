@@ -1,5 +1,10 @@
 ﻿Partial Class BD
+    Partial Public Class ProductoTADataTable
+        Private Sub ProductoTADataTable_ProductoTARowChanging(sender As Object, e As ProductoTARowChangeEvent) Handles Me.ProductoTARowChanging
 
+        End Sub
+
+    End Class
 
     Partial Public Class ProveedoresDataTable
         Private Sub ProveedoresDataTable_ProveedoresRowChanging(sender As Object, e As ProveedoresRowChangeEvent) Handles Me.ProveedoresRowChanging
