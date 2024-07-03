@@ -109,6 +109,12 @@
     <Compile Include="NuevoCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NuevoInventario.Designer.vb">
+      <DependentUpon>NuevoInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoInventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="nuevoProducto.Designer.vb">
       <DependentUpon>nuevoProducto.vb</DependentUpon>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NuevoCliente.resx">
       <DependentUpon>NuevoCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuevoInventario.resx">
+      <DependentUpon>NuevoInventario.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="nuevoProducto.resx">
       <DependentUpon>nuevoProducto.vb</DependentUpon>
