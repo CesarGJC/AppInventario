@@ -30,8 +30,9 @@ Partial Class NuevoInventario
         Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnCancelar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnGuardar = New System.Windows.Forms.Button()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -106,15 +107,15 @@ Partial Class NuevoInventario
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnGuardar
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(356, 209)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(98, 39)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardar.Location = New System.Drawing.Point(356, 209)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(98, 39)
+        Me.btnGuardar.TabIndex = 11
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'LinkLabel1
         '
@@ -126,14 +127,26 @@ Partial Class NuevoInventario
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Nuevo Producto"
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
+        Me.btnActualizar.BackgroundImage = Global.AppInventario.My.Resources.Resources.Refresh_icon
+        Me.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnActualizar.Location = New System.Drawing.Point(460, 67)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(34, 29)
+        Me.btnActualizar.TabIndex = 16
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'NuevoInventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(721, 383)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.btnCancelar)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.cbProducto)
@@ -157,7 +170,8 @@ Partial Class NuevoInventario
     Friend WithEvents dtpFecha As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents btnCancelar As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnGuardar As Button
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Bd1 As CmpInventario.BD
+    Friend WithEvents btnActualizar As Button
 End Class

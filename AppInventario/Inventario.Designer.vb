@@ -23,30 +23,56 @@ Partial Class Inventario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Me.cmsInventario = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.btnNuevo = New System.Windows.Forms.Button()
         Me.dgvInventario = New System.Windows.Forms.DataGridView()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Bd1 = New CmpInventario.BD()
+        Me.btnActualizar = New System.Windows.Forms.Button()
+        Me.cbCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
+        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InventarioID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoriaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Bd1 = New CmpInventario.BD()
-        Me.cmsInventario = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.btnActualizar = New System.Windows.Forms.Button()
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProveedorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DireccionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UltimaActualizacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoriaIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnNuevo = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cmsInventario.SuspendLayout()
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'cmsInventario
+        '
+        Me.cmsInventario.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
+        Me.cmsInventario.Name = "cmsInventario"
+        Me.cmsInventario.Size = New System.Drawing.Size(118, 48)
+        '
+        'EditarToolStripMenuItem
+        '
+        Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.Location = New System.Drawing.Point(20, 16)
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
+        Me.btnNuevo.TabIndex = 16
+        Me.btnNuevo.Text = "Nuevo"
+        Me.btnNuevo.UseVisualStyleBackColor = True
         '
         'dgvInventario
         '
@@ -57,32 +83,79 @@ Partial Class Inventario
         Me.dgvInventario.AutoGenerateColumns = False
         Me.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Nombre, Me.Descripcion, Me.Precio, Me.Categoria, Me.Proveedor, Me.Direccion, Me.ProductoID, Me.CategoriaID, Me.NombreDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn, Me.ProveedorDataGridViewTextBoxColumn, Me.DireccionDataGridViewTextBoxColumn, Me.ProductoIDDataGridViewTextBoxColumn, Me.CategoriaIDDataGridViewTextBoxColumn})
-        Me.dgvInventario.DataMember = "ProductoTA"
+        Me.dgvInventario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.InventarioID, Me.Cantidad, Me.Categoria, Me.Proveedor, Me.Descripcion, Me.UltimaActualizacion, Me.ProductoIDDataGridViewTextBoxColumn})
+        Me.dgvInventario.ContextMenuStrip = Me.cmsInventario
+        Me.dgvInventario.DataMember = "InventarioTA"
         Me.dgvInventario.DataSource = Me.Bd1
-        Me.dgvInventario.Location = New System.Drawing.Point(34, 48)
+        Me.dgvInventario.Location = New System.Drawing.Point(20, 48)
         Me.dgvInventario.Name = "dgvInventario"
         Me.dgvInventario.RowHeadersVisible = False
         Me.dgvInventario.Size = New System.Drawing.Size(655, 303)
         Me.dgvInventario.TabIndex = 13
         '
-        'Nombre
+        'Bd1
         '
-        Me.Nombre.DataPropertyName = "Nombre"
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
+        Me.Bd1.DataSetName = "BD"
+        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Descripcion
+        'btnActualizar
         '
-        Me.Descripcion.DataPropertyName = "Descripcion"
-        Me.Descripcion.HeaderText = "Descripcion"
-        Me.Descripcion.Name = "Descripcion"
+        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
+        Me.btnActualizar.BackgroundImage = Global.AppInventario.My.Resources.Resources.Refresh_icon
+        Me.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnActualizar.Location = New System.Drawing.Point(101, 13)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(34, 29)
+        Me.btnActualizar.TabIndex = 15
+        Me.btnActualizar.UseVisualStyleBackColor = False
         '
-        'Precio
+        'cbCategoria
         '
-        Me.Precio.DataPropertyName = "Precio"
-        Me.Precio.HeaderText = "Precio"
-        Me.Precio.Name = "Precio"
+        Me.cbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbCategoria.DataSource = Me.Bd1
+        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
+        Me.cbCategoria.FormattingEnabled = True
+        Me.cbCategoria.Location = New System.Drawing.Point(201, 16)
+        Me.cbCategoria.Name = "cbCategoria"
+        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
+        Me.cbCategoria.TabIndex = 17
+        Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(494, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Buscar:"
+        '
+        'txtBuscarInventario
+        '
+        Me.txtBuscarInventario.Location = New System.Drawing.Point(543, 16)
+        Me.txtBuscarInventario.Name = "txtBuscarInventario"
+        Me.txtBuscarInventario.Size = New System.Drawing.Size(132, 20)
+        Me.txtBuscarInventario.TabIndex = 18
+        '
+        'NombreDataGridViewTextBoxColumn
+        '
+        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
+        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
+        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        '
+        'InventarioID
+        '
+        Me.InventarioID.DataPropertyName = "InventarioID"
+        Me.InventarioID.HeaderText = "InventarioID"
+        Me.InventarioID.Name = "InventarioID"
+        Me.InventarioID.ReadOnly = True
+        Me.InventarioID.Visible = False
+        '
+        'Cantidad
+        '
+        Me.Cantidad.DataPropertyName = "Cantidad"
+        Me.Cantidad.HeaderText = "Cantidad"
+        Me.Cantidad.Name = "Cantidad"
         '
         'Categoria
         '
@@ -96,84 +169,17 @@ Partial Class Inventario
         Me.Proveedor.HeaderText = "Proveedor"
         Me.Proveedor.Name = "Proveedor"
         '
-        'Direccion
+        'Descripcion
         '
-        Me.Direccion.DataPropertyName = "Direccion"
-        Me.Direccion.HeaderText = "Direccion"
-        Me.Direccion.Name = "Direccion"
+        Me.Descripcion.DataPropertyName = "Descripcion"
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
         '
-        'ProductoID
+        'UltimaActualizacion
         '
-        Me.ProductoID.DataPropertyName = "ProductoID"
-        Me.ProductoID.HeaderText = "ProductoID"
-        Me.ProductoID.Name = "ProductoID"
-        Me.ProductoID.ReadOnly = True
-        Me.ProductoID.Visible = False
-        '
-        'CategoriaID
-        '
-        Me.CategoriaID.DataPropertyName = "CategoriaID"
-        Me.CategoriaID.HeaderText = "CategoriaID"
-        Me.CategoriaID.Name = "CategoriaID"
-        Me.CategoriaID.ReadOnly = True
-        Me.CategoriaID.Visible = False
-        '
-        'Bd1
-        '
-        Me.Bd1.DataSetName = "BD"
-        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'cmsInventario
-        '
-        Me.cmsInventario.Name = "cmsInventario"
-        Me.cmsInventario.Size = New System.Drawing.Size(61, 4)
-        '
-        'btnActualizar
-        '
-        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
-        Me.btnActualizar.BackgroundImage = Global.AppInventario.My.Resources.Resources.Refresh_icon
-        Me.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnActualizar.Location = New System.Drawing.Point(101, 13)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(34, 29)
-        Me.btnActualizar.TabIndex = 15
-        Me.btnActualizar.UseVisualStyleBackColor = False
-        '
-        'NombreDataGridViewTextBoxColumn
-        '
-        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
-        '
-        'DescripcionDataGridViewTextBoxColumn
-        '
-        Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
-        Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
-        '
-        'PrecioDataGridViewTextBoxColumn
-        '
-        Me.PrecioDataGridViewTextBoxColumn.DataPropertyName = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.HeaderText = "Precio"
-        Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
-        '
-        'CategoriaDataGridViewTextBoxColumn
-        '
-        Me.CategoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria"
-        Me.CategoriaDataGridViewTextBoxColumn.HeaderText = "Categoria"
-        Me.CategoriaDataGridViewTextBoxColumn.Name = "CategoriaDataGridViewTextBoxColumn"
-        '
-        'ProveedorDataGridViewTextBoxColumn
-        '
-        Me.ProveedorDataGridViewTextBoxColumn.DataPropertyName = "Proveedor"
-        Me.ProveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor"
-        Me.ProveedorDataGridViewTextBoxColumn.Name = "ProveedorDataGridViewTextBoxColumn"
-        '
-        'DireccionDataGridViewTextBoxColumn
-        '
-        Me.DireccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion"
-        Me.DireccionDataGridViewTextBoxColumn.HeaderText = "Direccion"
-        Me.DireccionDataGridViewTextBoxColumn.Name = "DireccionDataGridViewTextBoxColumn"
+        Me.UltimaActualizacion.DataPropertyName = "UltimaActualizacion"
+        Me.UltimaActualizacion.HeaderText = "UltimaActualizacion"
+        Me.UltimaActualizacion.Name = "UltimaActualizacion"
         '
         'ProductoIDDataGridViewTextBoxColumn
         '
@@ -181,59 +187,57 @@ Partial Class Inventario
         Me.ProductoIDDataGridViewTextBoxColumn.HeaderText = "ProductoID"
         Me.ProductoIDDataGridViewTextBoxColumn.Name = "ProductoIDDataGridViewTextBoxColumn"
         Me.ProductoIDDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductoIDDataGridViewTextBoxColumn.Visible = False
         '
-        'CategoriaIDDataGridViewTextBoxColumn
+        'Label2
         '
-        Me.CategoriaIDDataGridViewTextBoxColumn.DataPropertyName = "CategoriaID"
-        Me.CategoriaIDDataGridViewTextBoxColumn.HeaderText = "CategoriaID"
-        Me.CategoriaIDDataGridViewTextBoxColumn.Name = "CategoriaIDDataGridViewTextBoxColumn"
-        Me.CategoriaIDDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'btnNuevo
-        '
-        Me.btnNuevo.Location = New System.Drawing.Point(20, 16)
-        Me.btnNuevo.Name = "btnNuevo"
-        Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
-        Me.btnNuevo.TabIndex = 16
-        Me.btnNuevo.Text = "Nuevo"
-        Me.btnNuevo.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(141, 19)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Categoria:"
         '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(738, 413)
+        Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.txtBuscarInventario)
+        Me.Controls.Add(Me.cbCategoria)
         Me.Controls.Add(Me.btnNuevo)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.dgvInventario)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Inventario"
         Me.Text = "Inventario"
+        Me.cmsInventario.ResumeLayout(False)
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents dgvInventario As DataGridView
     Friend WithEvents Bd1 As CmpInventario.BD
     Friend WithEvents cmsInventario As ContextMenuStrip
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
-    Friend WithEvents Precio As DataGridViewTextBoxColumn
+    Friend WithEvents btnActualizar As Button
+    Friend WithEvents btnNuevo As Button
+    Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents cbCategoria As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents txtBuscarInventario As TextBox
+    Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents InventarioID As DataGridViewTextBoxColumn
+    Friend WithEvents Cantidad As DataGridViewTextBoxColumn
     Friend WithEvents Categoria As DataGridViewTextBoxColumn
     Friend WithEvents Proveedor As DataGridViewTextBoxColumn
-    Friend WithEvents Direccion As DataGridViewTextBoxColumn
-    Friend WithEvents ProductoID As DataGridViewTextBoxColumn
-    Friend WithEvents CategoriaID As DataGridViewTextBoxColumn
-    Friend WithEvents btnActualizar As Button
-    Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ProveedorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DireccionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Descripcion As DataGridViewTextBoxColumn
+    Friend WithEvents UltimaActualizacion As DataGridViewTextBoxColumn
     Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CategoriaIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents btnNuevo As Button
+    Friend WithEvents Label2 As Label
 End Class

@@ -2830,6 +2830,10 @@ Partial Public Class BD
         
         Private columnProductoID As Global.System.Data.DataColumn
         
+        Private columnCategoria As Global.System.Data.DataColumn
+        
+        Private columnProveedor As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2914,6 +2918,22 @@ Partial Public Class BD
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CategoriaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCategoria
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ProveedorColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProveedor
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2950,9 +2970,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddInventarioTARow(ByVal Nombre As String, ByVal Cantidad As Integer, ByVal Descripcion As String, ByVal UltimaActualizacion As Date, ByVal parentProductosRowByFK_Inventario_Productos1 As ProductosRow) As InventarioTARow
+        Public Overloads Function AddInventarioTARow(ByVal Nombre As String, ByVal Cantidad As Integer, ByVal Descripcion As String, ByVal UltimaActualizacion As Date, ByVal parentProductosRowByFK_Inventario_Productos1 As ProductosRow, ByVal Categoria As String, ByVal Proveedor As String) As InventarioTARow
             Dim rowInventarioTARow As InventarioTARow = CType(Me.NewRow,InventarioTARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Cantidad, Descripcion, UltimaActualizacion, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Cantidad, Descripcion, UltimaActualizacion, Nothing, Categoria, Proveedor}
             If (Not (parentProductosRowByFK_Inventario_Productos1) Is Nothing) Then
                 columnValuesArray(5) = parentProductosRowByFK_Inventario_Productos1(0)
             End If
@@ -2990,6 +3010,8 @@ Partial Public Class BD
             Me.columnDescripcion = MyBase.Columns("Descripcion")
             Me.columnUltimaActualizacion = MyBase.Columns("UltimaActualizacion")
             Me.columnProductoID = MyBase.Columns("ProductoID")
+            Me.columnCategoria = MyBase.Columns("Categoria")
+            Me.columnProveedor = MyBase.Columns("Proveedor")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3007,6 +3029,10 @@ Partial Public Class BD
             MyBase.Columns.Add(Me.columnUltimaActualizacion)
             Me.columnProductoID = New Global.System.Data.DataColumn("ProductoID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProductoID)
+            Me.columnCategoria = New Global.System.Data.DataColumn("Categoria", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCategoria)
+            Me.columnProveedor = New Global.System.Data.DataColumn("Proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProveedor)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnInventarioID}, true))
             Me.columnInventarioID.AutoIncrement = true
             Me.columnInventarioID.AutoIncrementSeed = -1
@@ -3018,8 +3044,11 @@ Partial Public Class BD
             Me.columnNombre.MaxLength = 100
             Me.columnCantidad.AllowDBNull = false
             Me.columnDescripcion.MaxLength = 255
-            Me.columnUltimaActualizacion.AllowDBNull = false
             Me.columnProductoID.AllowDBNull = false
+            Me.columnCategoria.AllowDBNull = false
+            Me.columnCategoria.MaxLength = 100
+            Me.columnProveedor.AllowDBNull = false
+            Me.columnProveedor.MaxLength = 100
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3983,7 +4012,12 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property UltimaActualizacion() As Date
             Get
-                Return CType(Me(Me.tableInventarioTA.UltimaActualizacionColumn),Date)
+                Try 
+                    Return CType(Me(Me.tableInventarioTA.UltimaActualizacionColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'UltimaActualizacion' de la tabla 'InventarioTA' es DBNull"& _ 
+                            ".", e)
+                End Try
             End Get
             Set
                 Me(Me.tableInventarioTA.UltimaActualizacionColumn) = value
@@ -3998,6 +4032,28 @@ Partial Public Class BD
             End Get
             Set
                 Me(Me.tableInventarioTA.ProductoIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Categoria() As String
+            Get
+                Return CType(Me(Me.tableInventarioTA.CategoriaColumn),String)
+            End Get
+            Set
+                Me(Me.tableInventarioTA.CategoriaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Proveedor() As String
+            Get
+                Return CType(Me(Me.tableInventarioTA.ProveedorColumn),String)
+            End Get
+            Set
+                Me(Me.tableInventarioTA.ProveedorColumn) = value
             End Set
         End Property
         
@@ -4022,6 +4078,18 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDescripcionNull()
             Me(Me.tableInventarioTA.DescripcionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsUltimaActualizacionNull() As Boolean
+            Return Me.IsNull(Me.tableInventarioTA.UltimaActualizacionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetUltimaActualizacionNull()
+            Me(Me.tableInventarioTA.UltimaActualizacionColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -5876,7 +5944,7 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT InventarioID, ProductoID, Cantidad, UltimaActualizacion FROM dbo.Inventari"& _ 
@@ -5892,6 +5960,20 @@ Namespace BDTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cantidad", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UltimaActualizacion", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UltimaActualizacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "UPDATE Inventario"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET ProductoID=@ProductoID,Cantidad=@Cantidad,UltimaActualizac"& _ 
+                "ion=@UltimaActualizacion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE InventarioID=@InventarioID"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Cantidad", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Cantidad", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@UltimaActualizacion", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "UltimaActualizacion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@InventarioID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "InventarioID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "DELETE FROM [dbo].[Inventario] WHERE InventarioID=@InventarioID"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@InventarioID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "InventarioID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6042,6 +6124,59 @@ Namespace BDTableAdapters
             Else
                 command.Parameters(2).Value = Global.System.DBNull.Value
             End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function EditarInventario(ByVal ProductoID As Integer, ByVal Cantidad As Integer, ByVal UltimaActualizacion As Global.System.Nullable(Of Date), ByVal InventarioID As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            command.Parameters(0).Value = CType(ProductoID,Integer)
+            command.Parameters(1).Value = CType(Cantidad,Integer)
+            If (UltimaActualizacion.HasValue = true) Then
+                command.Parameters(2).Value = CType(UltimaActualizacion.Value,Date)
+            Else
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            command.Parameters(3).Value = CType(InventarioID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function EliminarInventario(ByVal InventarioID As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            command.Parameters(0).Value = CType(InventarioID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7470,6 +7605,8 @@ Namespace BDTableAdapters
             tableMapping.ColumnMappings.Add("Descripcion", "Descripcion")
             tableMapping.ColumnMappings.Add("UltimaActualizacion", "UltimaActualizacion")
             tableMapping.ColumnMappings.Add("ProductoID", "ProductoID")
+            tableMapping.ColumnMappings.Add("Categoria", "Categoria")
+            tableMapping.ColumnMappings.Add("Proveedor", "Proveedor")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -7483,14 +7620,42 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
-                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM "& _ 
-                "           Inventario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventar"& _ 
-                "io.ProductoID = Productos.ProductoID"
+                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
+                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
+                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
+                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
+                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
+                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
+                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
+                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
+                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
+                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
+                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
+                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Produ"& _ 
+                "ctos.Nombre + ' ' + Categorias.Nombre + ' ' + Proveedores.Nombre + ' ' + Product"& _ 
+                "os.Descripcion LIKE '%' + @Inventario + '%')"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inventario", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
+                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
+                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
+                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
+                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
+                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
+                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Categ"& _ 
+                "orias.CategoriaID = @Categoria)"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Categoria", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7515,6 +7680,38 @@ Namespace BDTableAdapters
             Dim dataTable As BD.InventarioTADataTable = New BD.InventarioTADataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function ConsultarInventario(ByVal dataTable As BD.InventarioTADataTable, ByVal Inventario As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Inventario Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Inventario")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Inventario,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function ConsultarPorCategoria(ByVal dataTable As BD.InventarioTADataTable, ByVal Categoria As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(Categoria,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
         End Function
     End Class
     
