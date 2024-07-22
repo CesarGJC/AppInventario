@@ -87,4 +87,8 @@ Public Class principal
     Private Sub btnInventario_Click(sender As Object, e As EventArgs) Handles btnInventario.Click
         Abrirforenpanel(New Inventario)
     End Sub
+
+    Private Sub btnProveedores_Click(sender As Object, e As EventArgs) Handles btnProveedores.Click
+        Abrirforenpanel(New Proveedores)
+    End Sub
 End Class

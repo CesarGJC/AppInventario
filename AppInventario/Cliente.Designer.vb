@@ -78,7 +78,7 @@ Partial Class Cliente
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(460, 30)
+        Me.Label1.Location = New System.Drawing.Point(396, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 10
@@ -86,9 +86,9 @@ Partial Class Cliente
         '
         'txtBuscarCliente
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(509, 27)
+        Me.txtBuscarCliente.Location = New System.Drawing.Point(445, 27)
         Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(132, 20)
+        Me.txtBuscarCliente.Size = New System.Drawing.Size(196, 20)
         Me.txtBuscarCliente.TabIndex = 9
         '
         'btnActualizar

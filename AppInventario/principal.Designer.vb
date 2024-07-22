@@ -50,8 +50,12 @@ Partial Class principal
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.tmocultarmenu = New System.Windows.Forms.Timer(Me.components)
         Me.tmMostrarmenu = New System.Windows.Forms.Timer(Me.components)
+        Me.btnProveedores = New System.Windows.Forms.Button()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Panelcabera.SuspendLayout()
         Me.Panelmenu.SuspendLayout()
+        Me.Panel10.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel5.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -141,8 +145,10 @@ Partial Class principal
         'Panelmenu
         '
         Me.Panelmenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(59, Byte), Integer))
-        Me.Panelmenu.Controls.Add(Me.Panel10)
+        Me.Panelmenu.Controls.Add(Me.Panel12)
         Me.Panelmenu.Controls.Add(Me.btnInventario)
+        Me.Panelmenu.Controls.Add(Me.btnProveedores)
+        Me.Panelmenu.Controls.Add(Me.Panel10)
         Me.Panelmenu.Controls.Add(Me.Panel9)
         Me.Panelmenu.Controls.Add(Me.btnUsuario)
         Me.Panelmenu.Controls.Add(Me.Panel7)
@@ -164,6 +170,7 @@ Partial Class principal
         'Panel10
         '
         Me.Panel10.BackColor = System.Drawing.Color.Red
+        Me.Panel10.Controls.Add(Me.Panel11)
         Me.Panel10.Location = New System.Drawing.Point(0, 237)
         Me.Panel10.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel10.Name = "Panel10"
@@ -181,10 +188,10 @@ Partial Class principal
         Me.btnInventario.ForeColor = System.Drawing.Color.White
         Me.btnInventario.Image = CType(resources.GetObject("btnInventario.Image"), System.Drawing.Image)
         Me.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInventario.Location = New System.Drawing.Point(2, 237)
+        Me.btnInventario.Location = New System.Drawing.Point(8, 237)
         Me.btnInventario.Margin = New System.Windows.Forms.Padding(2)
         Me.btnInventario.Name = "btnInventario"
-        Me.btnInventario.Size = New System.Drawing.Size(165, 41)
+        Me.btnInventario.Size = New System.Drawing.Size(159, 41)
         Me.btnInventario.TabIndex = 9
         Me.btnInventario.Text = "Inventario"
         Me.btnInventario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -400,6 +407,44 @@ Partial Class principal
         'tmMostrarmenu
         '
         '
+        'btnProveedores
+        '
+        Me.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnProveedores.FlatAppearance.BorderSize = 0
+        Me.btnProveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btnProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnProveedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnProveedores.ForeColor = System.Drawing.Color.White
+        Me.btnProveedores.Image = CType(resources.GetObject("btnProveedores.Image"), System.Drawing.Image)
+        Me.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnProveedores.Location = New System.Drawing.Point(2, 282)
+        Me.btnProveedores.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnProveedores.Name = "btnProveedores"
+        Me.btnProveedores.Size = New System.Drawing.Size(165, 41)
+        Me.btnProveedores.TabIndex = 10
+        Me.btnProveedores.Text = "Proveedores"
+        Me.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnProveedores.UseVisualStyleBackColor = True
+        '
+        'Panel11
+        '
+        Me.Panel11.BackColor = System.Drawing.Color.Red
+        Me.Panel11.Location = New System.Drawing.Point(0, 0)
+        Me.Panel11.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel11.Name = "Panel11"
+        Me.Panel11.Size = New System.Drawing.Size(4, 41)
+        Me.Panel11.TabIndex = 7
+        '
+        'Panel12
+        '
+        Me.Panel12.BackColor = System.Drawing.Color.Red
+        Me.Panel12.Location = New System.Drawing.Point(0, 282)
+        Me.Panel12.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel12.Name = "Panel12"
+        Me.Panel12.Size = New System.Drawing.Size(4, 41)
+        Me.Panel12.TabIndex = 7
+        '
         'principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -415,6 +460,7 @@ Partial Class principal
         Me.Text = "Menu"
         Me.Panelcabera.ResumeLayout(False)
         Me.Panelmenu.ResumeLayout(False)
+        Me.Panel10.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
         Me.Panel5.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
@@ -450,4 +496,7 @@ Partial Class principal
     Friend WithEvents btnUsuario As Button
     Friend WithEvents Panel10 As Panel
     Friend WithEvents btnInventario As Button
+    Friend WithEvents Panel12 As Panel
+    Friend WithEvents btnProveedores As Button
+    Friend WithEvents Panel11 As Panel
 End Class

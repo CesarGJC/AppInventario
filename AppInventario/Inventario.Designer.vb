@@ -33,15 +33,16 @@ Partial Class Inventario
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InventarioID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UltimaActualizacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmsInventario.SuspendLayout()
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,7 +84,7 @@ Partial Class Inventario
         Me.dgvInventario.AutoGenerateColumns = False
         Me.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvInventario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.InventarioID, Me.Cantidad, Me.Categoria, Me.Proveedor, Me.Descripcion, Me.UltimaActualizacion, Me.ProductoIDDataGridViewTextBoxColumn})
+        Me.dgvInventario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.InventarioID, Me.Cantidad, Me.Categoria, Me.Proveedor, Me.Marca, Me.Descripcion, Me.UltimaActualizacion, Me.ProductoIDDataGridViewTextBoxColumn})
         Me.dgvInventario.ContextMenuStrip = Me.cmsInventario
         Me.dgvInventario.DataMember = "InventarioTA"
         Me.dgvInventario.DataSource = Me.Bd1
@@ -137,6 +138,15 @@ Partial Class Inventario
         Me.txtBuscarInventario.Size = New System.Drawing.Size(132, 20)
         Me.txtBuscarInventario.TabIndex = 18
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(141, 19)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Categoria:"
+        '
         'NombreDataGridViewTextBoxColumn
         '
         Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
@@ -169,6 +179,12 @@ Partial Class Inventario
         Me.Proveedor.HeaderText = "Proveedor"
         Me.Proveedor.Name = "Proveedor"
         '
+        'Marca
+        '
+        Me.Marca.DataPropertyName = "Marca"
+        Me.Marca.HeaderText = "Marca"
+        Me.Marca.Name = "Marca"
+        '
         'Descripcion
         '
         Me.Descripcion.DataPropertyName = "Descripcion"
@@ -188,15 +204,6 @@ Partial Class Inventario
         Me.ProductoIDDataGridViewTextBoxColumn.Name = "ProductoIDDataGridViewTextBoxColumn"
         Me.ProductoIDDataGridViewTextBoxColumn.ReadOnly = True
         Me.ProductoIDDataGridViewTextBoxColumn.Visible = False
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(141, 19)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 13)
-        Me.Label2.TabIndex = 20
-        Me.Label2.Text = "Categoria:"
         '
         'Inventario
         '
@@ -231,13 +238,14 @@ Partial Class Inventario
     Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtBuscarInventario As TextBox
+    Friend WithEvents Label2 As Label
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents InventarioID As DataGridViewTextBoxColumn
     Friend WithEvents Cantidad As DataGridViewTextBoxColumn
     Friend WithEvents Categoria As DataGridViewTextBoxColumn
     Friend WithEvents Proveedor As DataGridViewTextBoxColumn
+    Friend WithEvents Marca As DataGridViewTextBoxColumn
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn
     Friend WithEvents UltimaActualizacion As DataGridViewTextBoxColumn
     Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents Label2 As Label
 End Class

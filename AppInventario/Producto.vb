@@ -3,6 +3,7 @@
     Dim Nombre As String
     Dim Precio As Decimal
     Dim Descripcion As String
+    Dim Marca1 As String
 
     Private Sub Producto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -15,10 +16,10 @@
         End Try
     End Sub
 
-    Private Sub txtBuscarCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarCliente.TextChanged
+    Private Sub txtBuscarCliente_TextChanged(sender As Object, e As EventArgs) Handles txtBuscarProducto.TextChanged
         Try
             Dim objPro As New CmpInventario.Producto
-            objPro.ConsultarProducto(txtBuscarCliente.Text, Bd1.ProductoTA)
+            objPro.ConsultarProducto(txtBuscarProducto.Text, Bd1.ProductoTA)
         Catch ex As Exception
 
         End Try
@@ -68,11 +69,13 @@
         Nombre = dgvProducto.Item("DataGridViewTextBoxColumn1", dgvProducto.CurrentRow.Index).Value
         Precio = dgvProducto.Item("PrecioDataGridViewTextBoxColumn", dgvProducto.CurrentRow.Index).Value
         Descripcion = dgvProducto.Item("DescripcionDataGridViewTextBoxColumn", dgvProducto.CurrentRow.Index).Value
+        Marca1 = dgvProducto.Item("Marca", dgvProducto.CurrentRow.Index).Value
         Try
             f.ProductoID1 = ProductoID1
             f.Nombre = Nombre
             f.Precio = Precio
             f.Descripcion = Descripcion
+            f.Marca = Marca1
             f.ShowDialog()
         Catch ex As Exception
 

@@ -29,9 +29,6 @@
 End Class
 
 Namespace BDTableAdapters
-    Partial Public Class TProductoTableAdapter
-    End Class
-
-    Partial Public Class ClientesTableAdapter
+    Partial Public Class ProductosTableAdapter
     End Class
 End Namespace

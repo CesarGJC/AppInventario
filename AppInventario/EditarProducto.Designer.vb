@@ -32,22 +32,24 @@ Partial Class EditarProducto
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtMarca = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtDescripcion
         '
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcion.Location = New System.Drawing.Point(275, 212)
+        Me.txtDescripcion.Location = New System.Drawing.Point(275, 244)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(359, 47)
-        Me.txtDescripcion.TabIndex = 21
+        Me.txtDescripcion.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(169, 215)
+        Me.Label5.Location = New System.Drawing.Point(169, 247)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 20)
         Me.Label5.TabIndex = 24
@@ -56,20 +58,20 @@ Partial Class EditarProducto
         'btnCancelar
         '
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(275, 265)
+        Me.btnCancelar.Location = New System.Drawing.Point(275, 297)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(98, 39)
-        Me.btnCancelar.TabIndex = 22
+        Me.btnCancelar.TabIndex = 5
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'btnGuardar
         '
         Me.btnGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnGuardar.Location = New System.Drawing.Point(430, 265)
+        Me.btnGuardar.Location = New System.Drawing.Point(430, 297)
         Me.btnGuardar.Name = "btnGuardar"
         Me.btnGuardar.Size = New System.Drawing.Size(98, 39)
-        Me.btnGuardar.TabIndex = 23
+        Me.btnGuardar.TabIndex = 6
         Me.btnGuardar.Text = "Guardar"
         Me.btnGuardar.UseVisualStyleBackColor = True
         '
@@ -89,7 +91,7 @@ Partial Class EditarProducto
         Me.txtNombre.Location = New System.Drawing.Point(275, 148)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(359, 26)
-        Me.txtNombre.TabIndex = 16
+        Me.txtNombre.TabIndex = 1
         '
         'Label1
         '
@@ -107,7 +109,7 @@ Partial Class EditarProducto
         Me.txtPrecio.Location = New System.Drawing.Point(275, 180)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(359, 26)
-        Me.txtPrecio.TabIndex = 17
+        Me.txtPrecio.TabIndex = 2
         '
         'txtID
         '
@@ -128,11 +130,31 @@ Partial Class EditarProducto
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "ID:"
         '
+        'txtMarca
+        '
+        Me.txtMarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMarca.Location = New System.Drawing.Point(275, 212)
+        Me.txtMarca.Name = "txtMarca"
+        Me.txtMarca.Size = New System.Drawing.Size(359, 26)
+        Me.txtMarca.TabIndex = 3
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(208, 215)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 20)
+        Me.Label4.TabIndex = 28
+        Me.Label4.Text = "Marca:"
+        '
         'EditarProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.txtMarca)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtID)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtDescripcion)
@@ -161,4 +183,6 @@ Partial Class EditarProducto
     Friend WithEvents txtPrecio As TextBox
     Friend WithEvents txtID As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents txtMarca As TextBox
+    Friend WithEvents Label4 As Label
 End Class

@@ -24,7 +24,7 @@ Partial Class Producto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtBuscarCliente = New System.Windows.Forms.TextBox()
+        Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Bd1 = New CmpInventario.BD()
         Me.cmsEliminar = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -38,6 +38,7 @@ Partial Class Producto
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Categoria = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Marca = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -56,12 +57,12 @@ Partial Class Producto
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Buscar:"
         '
-        'txtBuscarCliente
+        'txtBuscarProducto
         '
-        Me.txtBuscarCliente.Location = New System.Drawing.Point(490, 26)
-        Me.txtBuscarCliente.Name = "txtBuscarCliente"
-        Me.txtBuscarCliente.Size = New System.Drawing.Size(132, 20)
-        Me.txtBuscarCliente.TabIndex = 3
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(490, 26)
+        Me.txtBuscarProducto.Name = "txtBuscarProducto"
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(132, 20)
+        Me.txtBuscarProducto.TabIndex = 3
         '
         'Button1
         '
@@ -127,7 +128,7 @@ Partial Class Producto
         Me.dgvProducto.AutoGenerateColumns = False
         Me.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoID, Me.CategoriaID, Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
+        Me.dgvProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoID, Me.CategoriaID, Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.Marca, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
         Me.dgvProducto.ContextMenuStrip = Me.cmsEliminar
         Me.dgvProducto.DataMember = "ProductoTA"
         Me.dgvProducto.DataSource = Me.Bd1
@@ -174,6 +175,12 @@ Partial Class Producto
         Me.PrecioDataGridViewTextBoxColumn.Name = "PrecioDataGridViewTextBoxColumn"
         Me.PrecioDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'Marca
+        '
+        Me.Marca.DataPropertyName = "Marca"
+        Me.Marca.HeaderText = "Marca"
+        Me.Marca.Name = "Marca"
+        '
         'DescripcionDataGridViewTextBoxColumn
         '
         Me.DescripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion"
@@ -215,7 +222,7 @@ Partial Class Producto
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvProducto)
-        Me.Controls.Add(Me.txtBuscarCliente)
+        Me.Controls.Add(Me.txtBuscarProducto)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Producto"
@@ -230,7 +237,7 @@ Partial Class Producto
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtBuscarCliente As TextBox
+    Friend WithEvents txtBuscarProducto As TextBox
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PrecioComDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -240,16 +247,17 @@ Partial Class Producto
     Friend WithEvents cbCategoria As ComboBox
     Friend WithEvents cmsEliminar As ContextMenuStrip
     Friend WithEvents EliminarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button2 As Button
+    Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents dgvProducto As DataGridView
+    Friend WithEvents Label2 As Label
     Friend WithEvents ProductoID As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaID As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents Categoria As DataGridViewTextBoxColumn
     Friend WithEvents PrecioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Marca As DataGridViewTextBoxColumn
     Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Proveedor As DataGridViewTextBoxColumn
     Friend WithEvents Direccion As DataGridViewTextBoxColumn
-    Friend WithEvents Button2 As Button
-    Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents dgvProducto As DataGridView
-    Friend WithEvents Label2 As Label
 End Class

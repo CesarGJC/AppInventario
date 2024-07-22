@@ -10,7 +10,7 @@
             End If
 
         Catch ex As Exception
-            MsgBox("Datos vacios " & ex.Message)
+            MsgBox("Por favor completar los datos faltantes " & ex.Message)
         End Try
     End Sub
     Private Function ValidarFrm() As Boolean

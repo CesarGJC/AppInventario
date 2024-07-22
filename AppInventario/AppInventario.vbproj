@@ -97,6 +97,12 @@
     <Compile Include="EditarProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EditarProveedor.Designer.vb">
+      <DependentUpon>EditarProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="iniciosesion.Designer.vb">
       <DependentUpon>iniciosesion.vb</DependentUpon>
     </Compile>
@@ -127,6 +133,12 @@
     <Compile Include="nuevoProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="NuevoProveedor.Designer.vb">
+      <DependentUpon>NuevoProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="principal.Designer.vb">
       <DependentUpon>principal.vb</DependentUpon>
     </Compile>
@@ -153,6 +165,12 @@
       <DependentUpon>Producto.vb</DependentUpon>
     </Compile>
     <Compile Include="Producto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.vb">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporte.Designer.vb">
@@ -187,6 +205,9 @@
     <EmbeddedResource Include="EditarProducto.resx">
       <DependentUpon>EditarProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditarProveedor.resx">
+      <DependentUpon>EditarProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="iniciosesion.resx">
       <DependentUpon>iniciosesion.vb</DependentUpon>
     </EmbeddedResource>
@@ -208,11 +229,17 @@
     <EmbeddedResource Include="nuevoProducto.resx">
       <DependentUpon>nuevoProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevoProveedor.resx">
+      <DependentUpon>NuevoProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto.resx">
       <DependentUpon>Producto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte.resx">
       <DependentUpon>Reporte.vb</DependentUpon>

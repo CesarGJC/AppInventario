@@ -35,6 +35,8 @@ Partial Class nuevoProducto
         Me.cbProveedor = New System.Windows.Forms.ComboBox()
         Me.Bd1 = New CmpInventario.BD()
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
+        Me.txtMarca = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,37 +79,37 @@ Partial Class nuevoProducto
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(359, 231)
+        Me.Button1.Location = New System.Drawing.Point(359, 262)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(98, 39)
-        Me.Button1.TabIndex = 7
+        Me.Button1.TabIndex = 8
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'btnCancelar
         '
         Me.btnCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCancelar.Location = New System.Drawing.Point(204, 231)
+        Me.btnCancelar.Location = New System.Drawing.Point(204, 262)
         Me.btnCancelar.Name = "btnCancelar"
         Me.btnCancelar.Size = New System.Drawing.Size(98, 39)
-        Me.btnCancelar.TabIndex = 6
+        Me.btnCancelar.TabIndex = 7
         Me.btnCancelar.Text = "Cancelar"
         Me.btnCancelar.UseVisualStyleBackColor = True
         '
         'txtDescripcion
         '
         Me.txtDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDescripcion.Location = New System.Drawing.Point(166, 164)
+        Me.txtDescripcion.Location = New System.Drawing.Point(166, 195)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
         Me.txtDescripcion.Size = New System.Drawing.Size(359, 47)
-        Me.txtDescripcion.TabIndex = 5
+        Me.txtDescripcion.TabIndex = 6
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(60, 167)
+        Me.Label5.Location = New System.Drawing.Point(60, 198)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(96, 20)
         Me.Label5.TabIndex = 10
@@ -117,7 +119,7 @@ Partial Class nuevoProducto
         '
         Me.Categoria.AutoSize = True
         Me.Categoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Categoria.Location = New System.Drawing.Point(74, 111)
+        Me.Categoria.Location = New System.Drawing.Point(74, 142)
         Me.Categoria.Name = "Categoria"
         Me.Categoria.Size = New System.Drawing.Size(82, 20)
         Me.Categoria.TabIndex = 12
@@ -127,7 +129,7 @@ Partial Class nuevoProducto
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(71, 137)
+        Me.Label6.Location = New System.Drawing.Point(71, 168)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(85, 20)
         Me.Label6.TabIndex = 14
@@ -138,10 +140,10 @@ Partial Class nuevoProducto
         Me.cbProveedor.DataSource = Me.Bd1
         Me.cbProveedor.DisplayMember = "Proveedores.Nombre"
         Me.cbProveedor.FormattingEnabled = True
-        Me.cbProveedor.Location = New System.Drawing.Point(166, 137)
+        Me.cbProveedor.Location = New System.Drawing.Point(166, 168)
         Me.cbProveedor.Name = "cbProveedor"
         Me.cbProveedor.Size = New System.Drawing.Size(184, 21)
-        Me.cbProveedor.TabIndex = 4
+        Me.cbProveedor.TabIndex = 5
         Me.cbProveedor.ValueMember = "Proveedores.ProveedorID"
         '
         'Bd1
@@ -154,17 +156,37 @@ Partial Class nuevoProducto
         Me.cbCategoria.DataSource = Me.Bd1
         Me.cbCategoria.DisplayMember = "Categorias.Nombre"
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(166, 110)
+        Me.cbCategoria.Location = New System.Drawing.Point(166, 141)
         Me.cbCategoria.Name = "cbCategoria"
         Me.cbCategoria.Size = New System.Drawing.Size(184, 21)
-        Me.cbCategoria.TabIndex = 3
+        Me.cbCategoria.TabIndex = 4
         Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
+        '
+        'txtMarca
+        '
+        Me.txtMarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMarca.Location = New System.Drawing.Point(166, 109)
+        Me.txtMarca.Name = "txtMarca"
+        Me.txtMarca.Size = New System.Drawing.Size(359, 26)
+        Me.txtMarca.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(87, 112)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(57, 20)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Marca:"
         '
         'nuevoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(609, 327)
+        Me.Controls.Add(Me.txtMarca)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.cbProveedor)
         Me.Controls.Add(Me.Categoria)
@@ -199,4 +221,6 @@ Partial Class nuevoProducto
     Friend WithEvents Categoria As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents cbProveedor As ComboBox
+    Friend WithEvents txtMarca As TextBox
+    Friend WithEvents Label3 As Label
 End Class
