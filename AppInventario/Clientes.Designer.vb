@@ -24,8 +24,8 @@ Partial Class Clientes
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.cmsCliente = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Bd1 = New CmpInventario.BD()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -47,19 +47,19 @@ Partial Class Clientes
         '
         Me.cmsCliente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.cmsCliente.Name = "ContextMenuStrip1"
-        Me.cmsCliente.Size = New System.Drawing.Size(181, 70)
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        Me.cmsCliente.Size = New System.Drawing.Size(118, 48)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'Bd1
         '
@@ -124,6 +124,7 @@ Partial Class Clientes
         Me.dgvClientes.DataSource = Me.Bd1
         Me.dgvClientes.Location = New System.Drawing.Point(20, 48)
         Me.dgvClientes.Name = "dgvClientes"
+        Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
         Me.dgvClientes.Size = New System.Drawing.Size(655, 303)
         Me.dgvClientes.TabIndex = 4
@@ -133,36 +134,42 @@ Partial Class Clientes
         Me.CIDataGridViewTextBoxColumn.DataPropertyName = "CI"
         Me.CIDataGridViewTextBoxColumn.HeaderText = "CI"
         Me.CIDataGridViewTextBoxColumn.Name = "CIDataGridViewTextBoxColumn"
+        Me.CIDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NombreDataGridViewTextBoxColumn
         '
         Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ApellidoDataGridViewTextBoxColumn
         '
         Me.ApellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido"
         Me.ApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido"
         Me.ApellidoDataGridViewTextBoxColumn.Name = "ApellidoDataGridViewTextBoxColumn"
+        Me.ApellidoDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DireccionDataGridViewTextBoxColumn
         '
         Me.DireccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion"
         Me.DireccionDataGridViewTextBoxColumn.HeaderText = "Direccion"
         Me.DireccionDataGridViewTextBoxColumn.Name = "DireccionDataGridViewTextBoxColumn"
+        Me.DireccionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TelefonoDataGridViewTextBoxColumn
         '
         Me.TelefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono"
         Me.TelefonoDataGridViewTextBoxColumn.HeaderText = "Telefono"
         Me.TelefonoDataGridViewTextBoxColumn.Name = "TelefonoDataGridViewTextBoxColumn"
+        Me.TelefonoDataGridViewTextBoxColumn.ReadOnly = True
         '
         'EmailDataGridViewTextBoxColumn
         '
         Me.EmailDataGridViewTextBoxColumn.DataPropertyName = "Email"
         Me.EmailDataGridViewTextBoxColumn.HeaderText = "Email"
         Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
+        Me.EmailDataGridViewTextBoxColumn.ReadOnly = True
         '
         'Clientes
         '
@@ -178,7 +185,7 @@ Partial Class Clientes
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StockUI"
+        Me.Text = "Clientes"
         Me.cmsCliente.ResumeLayout(False)
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()

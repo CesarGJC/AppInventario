@@ -94,6 +94,7 @@ Partial Class Inventario
         Me.dgvInventario.DataSource = Me.Bd1
         Me.dgvInventario.Location = New System.Drawing.Point(20, 48)
         Me.dgvInventario.Name = "dgvInventario"
+        Me.dgvInventario.ReadOnly = True
         Me.dgvInventario.RowHeadersVisible = False
         Me.dgvInventario.Size = New System.Drawing.Size(655, 303)
         Me.dgvInventario.TabIndex = 5
@@ -103,6 +104,7 @@ Partial Class Inventario
         Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
         '
         'InventarioID
         '
@@ -117,36 +119,42 @@ Partial Class Inventario
         Me.Cantidad.DataPropertyName = "Cantidad"
         Me.Cantidad.HeaderText = "Cantidad"
         Me.Cantidad.Name = "Cantidad"
+        Me.Cantidad.ReadOnly = True
         '
         'Categoria
         '
         Me.Categoria.DataPropertyName = "Categoria"
         Me.Categoria.HeaderText = "Categoria"
         Me.Categoria.Name = "Categoria"
+        Me.Categoria.ReadOnly = True
         '
         'Proveedor
         '
         Me.Proveedor.DataPropertyName = "Proveedor"
         Me.Proveedor.HeaderText = "Proveedor"
         Me.Proveedor.Name = "Proveedor"
+        Me.Proveedor.ReadOnly = True
         '
         'Marca
         '
         Me.Marca.DataPropertyName = "Marca"
         Me.Marca.HeaderText = "Marca"
         Me.Marca.Name = "Marca"
+        Me.Marca.ReadOnly = True
         '
         'Descripcion
         '
         Me.Descripcion.DataPropertyName = "Descripcion"
         Me.Descripcion.HeaderText = "Descripcion"
         Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
         '
         'UltimaActualizacion
         '
         Me.UltimaActualizacion.DataPropertyName = "UltimaActualizacion"
         Me.UltimaActualizacion.HeaderText = "UltimaActualizacion"
         Me.UltimaActualizacion.Name = "UltimaActualizacion"
+        Me.UltimaActualizacion.ReadOnly = True
         '
         'ProductoIDDataGridViewTextBoxColumn
         '

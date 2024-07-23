@@ -222,7 +222,7 @@ Partial Class nuevoProducto
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "nuevoProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "nuevoProducto"
+        Me.Text = "Agregar Producto"
         Me.TopMost = True
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

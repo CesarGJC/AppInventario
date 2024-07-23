@@ -178,7 +178,7 @@ Partial Class NuevoInventario
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "NuevoInventario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "NuevoInventario"
+        Me.Text = "Agregar Inventario"
         Me.TopMost = True
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

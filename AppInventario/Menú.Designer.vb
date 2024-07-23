@@ -445,7 +445,7 @@ Partial Class Menú
         'tmMostrarmenu
         '
         '
-        'principal
+        'Menú
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -456,9 +456,9 @@ Partial Class Menú
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "principal"
+        Me.Name = "Menú"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Menu"
+        Me.Text = "Menú"
         Me.Panelcabera.ResumeLayout(False)
         Me.Panelmenu.ResumeLayout(False)
         Me.Panel10.ResumeLayout(False)

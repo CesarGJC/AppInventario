@@ -134,7 +134,7 @@ Partial Class iniciosesion
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "iniciosesion"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "login"
+        Me.Text = "Inicio de Sesion"
         Me.TopMost = True
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

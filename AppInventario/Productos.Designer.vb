@@ -142,6 +142,7 @@ Partial Class Productos
         Me.dgvProducto.DataSource = Me.Bd1
         Me.dgvProducto.Location = New System.Drawing.Point(20, 48)
         Me.dgvProducto.Name = "dgvProducto"
+        Me.dgvProducto.ReadOnly = True
         Me.dgvProducto.RowHeadersVisible = False
         Me.dgvProducto.Size = New System.Drawing.Size(655, 303)
         Me.dgvProducto.TabIndex = 5
@@ -188,6 +189,7 @@ Partial Class Productos
         Me.Marca.DataPropertyName = "Marca"
         Me.Marca.HeaderText = "Marca"
         Me.Marca.Name = "Marca"
+        Me.Marca.ReadOnly = True
         '
         'DescripcionDataGridViewTextBoxColumn
         '
@@ -235,7 +237,7 @@ Partial Class Productos
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Productos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ProductoUI"
+        Me.Text = "Productos"
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsEliminar.ResumeLayout(False)
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
