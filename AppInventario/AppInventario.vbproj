@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -79,28 +94,34 @@
     <Compile Include="compra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarCliente.Designer.vb">
-      <DependentUpon>EditarCliente.vb</DependentUpon>
+    <Compile Include="Editar Cliente.Designer.vb">
+      <DependentUpon>Editar Cliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditarCliente.vb">
+    <Compile Include="Editar Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarInventario.Designer.vb">
-      <DependentUpon>EditarInventario.vb</DependentUpon>
+    <Compile Include="Editar Inventario.Designer.vb">
+      <DependentUpon>Editar Inventario.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditarInventario.vb">
+    <Compile Include="Editar Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarProducto.Designer.vb">
-      <DependentUpon>EditarProducto.vb</DependentUpon>
+    <Compile Include="Editar Producto.Designer.vb">
+      <DependentUpon>Editar Producto.vb</DependentUpon>
     </Compile>
-    <Compile Include="EditarProducto.vb">
+    <Compile Include="Editar Producto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="iniciosesion.Designer.vb">
-      <DependentUpon>iniciosesion.vb</DependentUpon>
+    <Compile Include="Editar Proveedor.Designer.vb">
+      <DependentUpon>Editar Proveedor.vb</DependentUpon>
     </Compile>
-    <Compile Include="iniciosesion.vb">
+    <Compile Include="Editar Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Iniciar Sesion.Designer.vb">
+      <DependentUpon>Iniciar Sesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Iniciar Sesion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventario.Designer.vb">
@@ -109,28 +130,34 @@
     <Compile Include="Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevoCliente.Designer.vb">
-      <DependentUpon>NuevoCliente.vb</DependentUpon>
+    <Compile Include="Agregar Cliente.Designer.vb">
+      <DependentUpon>Agregar Cliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="NuevoCliente.vb">
+    <Compile Include="Agregar Cliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NuevoInventario.Designer.vb">
-      <DependentUpon>NuevoInventario.vb</DependentUpon>
+    <Compile Include="Agregar Inventario.Designer.vb">
+      <DependentUpon>Agregar Inventario.vb</DependentUpon>
     </Compile>
-    <Compile Include="NuevoInventario.vb">
+    <Compile Include="Agregar Inventario.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="nuevoProducto.Designer.vb">
-      <DependentUpon>nuevoProducto.vb</DependentUpon>
+    <Compile Include="Agregar Producto.Designer.vb">
+      <DependentUpon>Agregar Producto.vb</DependentUpon>
     </Compile>
-    <Compile Include="nuevoProducto.vb">
+    <Compile Include="Agregar Producto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="principal.Designer.vb">
-      <DependentUpon>principal.vb</DependentUpon>
+    <Compile Include="Agregar Proveedor.Designer.vb">
+      <DependentUpon>Agregar Proveedor.vb</DependentUpon>
     </Compile>
-    <Compile Include="principal.vb">
+    <Compile Include="Agregar Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menú.Designer.vb">
+      <DependentUpon>Menú.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Menú.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -149,10 +176,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Producto.Designer.vb">
-      <DependentUpon>Producto.vb</DependentUpon>
+    <Compile Include="Productos.Designer.vb">
+      <DependentUpon>Productos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Producto.vb">
+    <Compile Include="Productos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores.Designer.vb">
+      <DependentUpon>Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reporte.Designer.vb">
@@ -167,10 +200,10 @@
     <Compile Include="usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cliente.Designer.vb">
-      <DependentUpon>Cliente.vb</DependentUpon>
+    <Compile Include="Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.vb">
+    <Compile Include="Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -178,17 +211,20 @@
     <EmbeddedResource Include="compra.resx">
       <DependentUpon>compra.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarCliente.resx">
-      <DependentUpon>EditarCliente.vb</DependentUpon>
+    <EmbeddedResource Include="Editar Cliente.resx">
+      <DependentUpon>Editar Cliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarInventario.resx">
-      <DependentUpon>EditarInventario.vb</DependentUpon>
+    <EmbeddedResource Include="Editar Inventario.resx">
+      <DependentUpon>Editar Inventario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarProducto.resx">
-      <DependentUpon>EditarProducto.vb</DependentUpon>
+    <EmbeddedResource Include="Editar Producto.resx">
+      <DependentUpon>Editar Producto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="iniciosesion.resx">
-      <DependentUpon>iniciosesion.vb</DependentUpon>
+    <EmbeddedResource Include="Editar Proveedor.resx">
+      <DependentUpon>Editar Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Iniciar Sesion.resx">
+      <DependentUpon>Iniciar Sesion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario.resx">
       <DependentUpon>Inventario.vb</DependentUpon>
@@ -199,26 +235,32 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevoCliente.resx">
-      <DependentUpon>NuevoCliente.vb</DependentUpon>
+    <EmbeddedResource Include="Agregar Cliente.resx">
+      <DependentUpon>Agregar Cliente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NuevoInventario.resx">
-      <DependentUpon>NuevoInventario.vb</DependentUpon>
+    <EmbeddedResource Include="Agregar Inventario.resx">
+      <DependentUpon>Agregar Inventario.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="nuevoProducto.resx">
-      <DependentUpon>nuevoProducto.vb</DependentUpon>
+    <EmbeddedResource Include="Agregar Producto.resx">
+      <DependentUpon>Agregar Producto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="principal.resx">
-      <DependentUpon>principal.vb</DependentUpon>
+    <EmbeddedResource Include="Agregar Proveedor.resx">
+      <DependentUpon>Agregar Proveedor.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Producto.resx">
-      <DependentUpon>Producto.vb</DependentUpon>
+    <EmbeddedResource Include="Menú.resx">
+      <DependentUpon>Menú.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores.resx">
+      <DependentUpon>Proveedores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reporte.resx">
       <DependentUpon>Reporte.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cliente.resx">
-      <DependentUpon>Cliente.vb</DependentUpon>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usuarios.resx">
       <DependentUpon>usuarios.vb</DependentUpon>
@@ -244,6 +286,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Refresh_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

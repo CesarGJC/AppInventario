@@ -1,11 +1,12 @@
 ﻿Public Class Inventario
     Dim InventarioID1 As Integer
     Dim ProductoId1 As Integer
+    Dim Nombre1 As String
     Dim Cantidad1 As Integer
     Dim UltimaActualizacion1 As String
     Private Sub btnNuevo_Click_1(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Try
-            NuevoInventario.Show()
+            NuevoInventario.ShowDialog()
         Catch ex As Exception
 
         End Try
@@ -51,11 +52,13 @@
         Dim ObjInv As New CmpInventario.Inventario
         InventarioID1 = dgvInventario.Item("InventarioID", dgvInventario.CurrentRow.Index).Value
         ProductoId1 = dgvInventario.Item("ProductoIDDataGridViewTextBoxColumn", dgvInventario.CurrentRow.Index).Value
+        Nombre1 = dgvInventario.Item("NombreDataGridViewTextBoxColumn", dgvInventario.CurrentRow.Index).Value
         Cantidad1 = dgvInventario.Item("Cantidad", dgvInventario.CurrentRow.Index).Value
         UltimaActualizacion1 = dgvInventario.Item("UltimaActualizacion", dgvInventario.CurrentRow.Index).Value
         Try
             f.InventarioID1 = InventarioID1
             f.ProductoID1 = ProductoId1
+            f.Nombre = Nombre1
             f.Cantidad1 = Cantidad1
             f.UltimaActualizacion1 = UltimaActualizacion1
             f.ShowDialog()

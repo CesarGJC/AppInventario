@@ -1798,6 +1798,8 @@ Partial Public Class BD
         
         Private columnProveedorID As Global.System.Data.DataColumn
         
+        Private columnMarca As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1882,6 +1884,14 @@ Partial Public Class BD
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property MarcaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarca
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1918,9 +1928,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddProductosRow(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal parentCategoriasRowByFK_Productos_Categorias As CategoriasRow, ByVal parentProveedoresRowByFK_Productos_Proveedores As ProveedoresRow) As ProductosRow
+        Public Overloads Function AddProductosRow(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal parentCategoriasRowByFK_Productos_Categorias As CategoriasRow, ByVal parentProveedoresRowByFK_Productos_Proveedores As ProveedoresRow, ByVal Marca As String) As ProductosRow
             Dim rowProductosRow As ProductosRow = CType(Me.NewRow,ProductosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Descripcion, Precio, Nothing, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Descripcion, Precio, Nothing, Nothing, Marca}
             If (Not (parentCategoriasRowByFK_Productos_Categorias) Is Nothing) Then
                 columnValuesArray(4) = parentCategoriasRowByFK_Productos_Categorias(0)
             End If
@@ -1961,6 +1971,7 @@ Partial Public Class BD
             Me.columnPrecio = MyBase.Columns("Precio")
             Me.columnCategoriaID = MyBase.Columns("CategoriaID")
             Me.columnProveedorID = MyBase.Columns("ProveedorID")
+            Me.columnMarca = MyBase.Columns("Marca")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1978,6 +1989,8 @@ Partial Public Class BD
             MyBase.Columns.Add(Me.columnCategoriaID)
             Me.columnProveedorID = New Global.System.Data.DataColumn("ProveedorID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProveedorID)
+            Me.columnMarca = New Global.System.Data.DataColumn("Marca", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarca)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProductoID}, true))
             Me.columnProductoID.AutoIncrement = true
             Me.columnProductoID.AutoIncrementSeed = -1
@@ -1989,6 +2002,7 @@ Partial Public Class BD
             Me.columnNombre.MaxLength = 100
             Me.columnDescripcion.MaxLength = 255
             Me.columnPrecio.AllowDBNull = false
+            Me.columnMarca.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2464,6 +2478,8 @@ Partial Public Class BD
         
         Private columnCategoriaID As Global.System.Data.DataColumn
         
+        Private columnMarca As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2564,6 +2580,14 @@ Partial Public Class BD
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property MarcaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarca
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2600,9 +2624,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddProductoTARow(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Categoria As String, ByVal Proveedor As String, ByVal Direccion As String) As ProductoTARow
+        Public Overloads Function AddProductoTARow(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Categoria As String, ByVal Proveedor As String, ByVal Direccion As String, ByVal Marca As String) As ProductoTARow
             Dim rowProductoTARow As ProductoTARow = CType(Me.NewRow,ProductoTARow)
-            Dim columnValuesArray() As Object = New Object() {Nombre, Descripcion, Precio, Categoria, Proveedor, Direccion, Nothing, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nombre, Descripcion, Precio, Categoria, Proveedor, Direccion, Nothing, Nothing, Marca}
             rowProductoTARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductoTARow)
             Return rowProductoTARow
@@ -2639,6 +2663,7 @@ Partial Public Class BD
             Me.columnDireccion = MyBase.Columns("Direccion")
             Me.columnProductoID = MyBase.Columns("ProductoID")
             Me.columnCategoriaID = MyBase.Columns("CategoriaID")
+            Me.columnMarca = MyBase.Columns("Marca")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2660,6 +2685,8 @@ Partial Public Class BD
             MyBase.Columns.Add(Me.columnProductoID)
             Me.columnCategoriaID = New Global.System.Data.DataColumn("CategoriaID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCategoriaID)
+            Me.columnMarca = New Global.System.Data.DataColumn("Marca", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarca)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProductoID}, true))
             Me.columnNombre.AllowDBNull = false
             Me.columnNombre.MaxLength = 100
@@ -2681,6 +2708,7 @@ Partial Public Class BD
             Me.columnCategoriaID.AutoIncrementStep = -1
             Me.columnCategoriaID.AllowDBNull = false
             Me.columnCategoriaID.ReadOnly = true
+            Me.columnMarca.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2834,6 +2862,8 @@ Partial Public Class BD
         
         Private columnProveedor As Global.System.Data.DataColumn
         
+        Private columnMarca As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2934,6 +2964,14 @@ Partial Public Class BD
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property MarcaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnMarca
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2970,9 +3008,9 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddInventarioTARow(ByVal Nombre As String, ByVal Cantidad As Integer, ByVal Descripcion As String, ByVal UltimaActualizacion As Date, ByVal parentProductosRowByFK_Inventario_Productos1 As ProductosRow, ByVal Categoria As String, ByVal Proveedor As String) As InventarioTARow
+        Public Overloads Function AddInventarioTARow(ByVal Nombre As String, ByVal Cantidad As Integer, ByVal Descripcion As String, ByVal UltimaActualizacion As Date, ByVal parentProductosRowByFK_Inventario_Productos1 As ProductosRow, ByVal Categoria As String, ByVal Proveedor As String, ByVal Marca As String) As InventarioTARow
             Dim rowInventarioTARow As InventarioTARow = CType(Me.NewRow,InventarioTARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Cantidad, Descripcion, UltimaActualizacion, Nothing, Categoria, Proveedor}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nombre, Cantidad, Descripcion, UltimaActualizacion, Nothing, Categoria, Proveedor, Marca}
             If (Not (parentProductosRowByFK_Inventario_Productos1) Is Nothing) Then
                 columnValuesArray(5) = parentProductosRowByFK_Inventario_Productos1(0)
             End If
@@ -3012,6 +3050,7 @@ Partial Public Class BD
             Me.columnProductoID = MyBase.Columns("ProductoID")
             Me.columnCategoria = MyBase.Columns("Categoria")
             Me.columnProveedor = MyBase.Columns("Proveedor")
+            Me.columnMarca = MyBase.Columns("Marca")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3033,6 +3072,8 @@ Partial Public Class BD
             MyBase.Columns.Add(Me.columnCategoria)
             Me.columnProveedor = New Global.System.Data.DataColumn("Proveedor", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnProveedor)
+            Me.columnMarca = New Global.System.Data.DataColumn("Marca", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMarca)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnInventarioID}, true))
             Me.columnInventarioID.AutoIncrement = true
             Me.columnInventarioID.AutoIncrementSeed = -1
@@ -3049,6 +3090,7 @@ Partial Public Class BD
             Me.columnCategoria.MaxLength = 100
             Me.columnProveedor.AllowDBNull = false
             Me.columnProveedor.MaxLength = 100
+            Me.columnMarca.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3582,6 +3624,21 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Marca() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProductos.MarcaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Marca' de la tabla 'Productos' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProductos.MarcaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property CategoriasRow() As CategoriasRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Productos_Categorias")),CategoriasRow)
@@ -3647,6 +3704,18 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetProveedorIDNull()
             Me(Me.tableProductos.ProveedorIDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsMarcaNull() As Boolean
+            Return Me.IsNull(Me.tableProductos.MarcaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetMarcaNull()
+            Me(Me.tableProductos.MarcaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3912,6 +3981,21 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Marca() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableProductoTA.MarcaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Marca' de la tabla 'ProductoTA' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProductoTA.MarcaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsDescripcionNull() As Boolean
             Return Me.IsNull(Me.tableProductoTA.DescripcionColumn)
         End Function
@@ -3932,6 +4016,18 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDireccionNull()
             Me(Me.tableProductoTA.DireccionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsMarcaNull() As Boolean
+            Return Me.IsNull(Me.tableProductoTA.MarcaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetMarcaNull()
+            Me(Me.tableProductoTA.MarcaColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4059,6 +4155,21 @@ Partial Public Class BD
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Marca() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableInventarioTA.MarcaColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Marca' de la tabla 'InventarioTA' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableInventarioTA.MarcaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property ProductosRow() As ProductosRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Inventario_Productos1")),ProductosRow)
@@ -4090,6 +4201,18 @@ Partial Public Class BD
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetUltimaActualizacionNull()
             Me(Me.tableInventarioTA.UltimaActualizacionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsMarcaNull() As Boolean
+            Return Me.IsNull(Me.tableInventarioTA.MarcaColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetMarcaNull()
+            Me(Me.tableInventarioTA.MarcaColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -6327,63 +6450,72 @@ Namespace BDTableAdapters
             tableMapping.ColumnMappings.Add("Precio", "Precio")
             tableMapping.ColumnMappings.Add("CategoriaID", "CategoriaID")
             tableMapping.ColumnMappings.Add("ProveedorID", "ProveedorID")
+            tableMapping.ColumnMappings.Add("Marca", "Marca")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Productos] WHERE (([ProductoID] = @Original_ProductoID) AND (["& _ 
-                "Nombre] = @Original_Nombre) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS N"& _ 
-                "ULL) OR ([Descripcion] = @Original_Descripcion)) AND ([Precio] = @Original_Preci"& _ 
-                "o) AND ((@IsNull_CategoriaID = 1 AND [CategoriaID] IS NULL) OR ([CategoriaID] = "& _ 
-                "@Original_CategoriaID)) AND ((@IsNull_ProveedorID = 1 AND [ProveedorID] IS NULL)"& _ 
-                " OR ([ProveedorID] = @Original_ProveedorID)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Productos] WHERE (([ProductoID] = @Original_ProductoID) AND ([Nombre"& _ 
+                "] = @Original_Nombre) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) O"& _ 
+                "R ([Descripcion] = @Original_Descripcion)) AND ([Precio] = @Original_Precio) AND"& _ 
+                " ((@IsNull_Marca = 1 AND [Marca] IS NULL) OR ([Marca] = @Original_Marca)) AND (("& _ 
+                "@IsNull_ProveedorID = 1 AND [ProveedorID] IS NULL) OR ([ProveedorID] = @Original"& _ 
+                "_ProveedorID)) AND ((@IsNull_CategoriaID = 1 AND [CategoriaID] IS NULL) OR ([Cat"& _ 
+                "egoriaID] = @Original_CategoriaID)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Precio", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Marca", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Marca", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Productos] ([Nombre], [Descripcion], [Precio], [CategoriaID], "& _ 
-                "[ProveedorID]) VALUES (@Nombre, @Descripcion, @Precio, @CategoriaID, @ProveedorI"& _ 
-                "D);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FR"& _ 
-                "OM Productos WHERE (ProductoID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Productos] ([Nombre], [Descripcion], [Precio], [Marca], [ProveedorID"& _ 
+                "], [CategoriaID]) VALUES (@Nombre, @Descripcion, @Precio, @Marca, @ProveedorID, "& _ 
+                "@CategoriaID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, Marca, Proveedor"& _ 
+                "ID, CategoriaID FROM Productos WHERE (ProductoID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Precio", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Marca", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Productos] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [P"& _ 
-                "recio] = @Precio, [CategoriaID] = @CategoriaID, [ProveedorID] = @ProveedorID WHE"& _ 
-                "RE (([ProductoID] = @Original_ProductoID) AND ([Nombre] = @Original_Nombre) AND "& _ 
-                "((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcion] = @Origin"& _ 
-                "al_Descripcion)) AND ([Precio] = @Original_Precio) AND ((@IsNull_CategoriaID = 1"& _ 
-                " AND [CategoriaID] IS NULL) OR ([CategoriaID] = @Original_CategoriaID)) AND ((@I"& _ 
-                "sNull_ProveedorID = 1 AND [ProveedorID] IS NULL) OR ([ProveedorID] = @Original_P"& _ 
-                "roveedorID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, Pro"& _ 
-                "veedorID FROM Productos WHERE (ProductoID = @ProductoID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Productos] SET [Nombre] = @Nombre, [Descripcion] = @Descripcion, [Precio]"& _ 
+                " = @Precio, [Marca] = @Marca, [ProveedorID] = @ProveedorID, [CategoriaID] = @Cat"& _ 
+                "egoriaID WHERE (([ProductoID] = @Original_ProductoID) AND ([Nombre] = @Original_"& _ 
+                "Nombre) AND ((@IsNull_Descripcion = 1 AND [Descripcion] IS NULL) OR ([Descripcio"& _ 
+                "n] = @Original_Descripcion)) AND ([Precio] = @Original_Precio) AND ((@IsNull_Mar"& _ 
+                "ca = 1 AND [Marca] IS NULL) OR ([Marca] = @Original_Marca)) AND ((@IsNull_Provee"& _ 
+                "dorID = 1 AND [ProveedorID] IS NULL) OR ([ProveedorID] = @Original_ProveedorID))"& _ 
+                " AND ((@IsNull_CategoriaID = 1 AND [CategoriaID] IS NULL) OR ([CategoriaID] = @O"& _ 
+                "riginal_CategoriaID)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, Marca, "& _ 
+                "ProveedorID, CategoriaID FROM Productos WHERE (ProductoID = @ProductoID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Precio", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Marca", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductoID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Nombre", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Descripcion", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Descripcion", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Precio", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Marca", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Marca", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProveedorID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CategoriaID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -6400,42 +6532,46 @@ Namespace BDTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FROM dbo"& _ 
-                ".Productos"
+            Me._commandCollection(0).CommandText = "SELECT        ProductoID, Nombre, Descripcion, Precio, Marca, ProveedorID, Catego"& _ 
+                "riaID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Productos"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[Productos] ([Nombre], [Descripcion], [Precio], [CategoriaID], "& _ 
-                "[ProveedorID]) VALUES (@Nombre, @Descripcion, @Precio, @CategoriaID, @ProveedorI"& _ 
-                "D);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FR"& _ 
-                "OM Productos WHERE (ProductoID = SCOPE_IDENTITY())"
+            Me._commandCollection(1).CommandText = "INSERT INTO Productos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (Nombre, Descripcion, Precio, Mar"& _ 
+                "ca, CategoriaID, ProveedorID)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@Nombre,@Descripcion,@Precio,@Marc"& _ 
+                "a,@CategoriaID,@ProveedorID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProductoID, Nombre, Descripcion, Precio, "& _ 
+                "Marca,CategoriaID, ProveedorID FROM Productos WHERE (ProductoID = SCOPE_IDENTITY"& _ 
+                "())"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Precio", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Marca", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FROM dbo"& _ 
-                ".Productos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ProductoID+' '+Nombre+' '+Descripcion+' '+Precio+' '+Categoria"& _ 
-                "ID+' '+ProveedorID LIKE '%'+@Producto+'%'"
+            Me._commandCollection(2).CommandText = "SELECT CategoriaID, Descripcion, Marca, Nombre, Precio, ProductoID, ProveedorID F"& _ 
+                "ROM Productos WHERE (ProductoID + ' ' + Nombre + ' ' + Descripcion + ' ' + Preci"& _ 
+                "o+ ' ' +Marca + ' ' + CategoriaID + ' ' + ProveedorID LIKE '%' + @Producto + '%'"& _ 
+                ")"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT ProductoID, Nombre, Descripcion, Precio, CategoriaID, ProveedorID FROM dbo"& _ 
-                ".Productos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (CategoriaID=@CategoriaID)"
+            Me._commandCollection(3).CommandText = "SELECT CategoriaID, Descripcion, Marca, Nombre, Precio, ProductoID, ProveedorID F"& _ 
+                "ROM Productos WHERE (CategoriaID = @CategoriaID)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CategoriaID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "UPDATE       Productos"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                Nombre = @Nombre, Descripcion = @Descr"& _ 
-                "ipcion, Precio = @Precio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ProductoID = @ProductoID)"
+                "ipcion, Precio = @Precio,Marca=@Marca"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ProductoID = @ProductoID)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Descripcion", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Descripcion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Precio", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 10, 2, "Precio", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Marca", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "Marca", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
@@ -6552,7 +6688,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_CategoriaID As Global.System.Nullable(Of Integer), ByVal Original_ProveedorID As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_Marca As String, ByVal Original_ProveedorID As Global.System.Nullable(Of Integer), ByVal Original_CategoriaID As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ProductoID,Integer)
             If (Original_Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Nombre")
@@ -6567,12 +6703,12 @@ Namespace BDTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Descripcion,String)
             End If
             Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Precio,Decimal)
-            If (Original_CategoriaID.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_CategoriaID.Value,Integer)
-            Else
+            If (Original_Marca Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Marca,String)
             End If
             If (Original_ProveedorID.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
@@ -6580,6 +6716,13 @@ Namespace BDTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_CategoriaID.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_CategoriaID.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6600,7 +6743,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal ProveedorID As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Marca As String, ByVal ProveedorID As Global.System.Nullable(Of Integer), ByVal CategoriaID As Global.System.Nullable(Of Integer)) As Integer
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")
             Else
@@ -6612,15 +6755,20 @@ Namespace BDTableAdapters
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(Descripcion,String)
             End If
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(Precio,Decimal)
-            If (CategoriaID.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(CategoriaID.Value,Integer)
-            Else
+            If (Marca Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Marca,String)
             End If
             If (ProveedorID.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(ProveedorID.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (CategoriaID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(CategoriaID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6641,7 +6789,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal ProveedorID As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_CategoriaID As Global.System.Nullable(Of Integer), ByVal Original_ProveedorID As Global.System.Nullable(Of Integer), ByVal ProductoID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Marca As String, ByVal ProveedorID As Global.System.Nullable(Of Integer), ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_Marca As String, ByVal Original_ProveedorID As Global.System.Nullable(Of Integer), ByVal Original_CategoriaID As Global.System.Nullable(Of Integer), ByVal ProductoID As Integer) As Integer
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")
             Else
@@ -6653,45 +6801,57 @@ Namespace BDTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Descripcion,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Precio,Decimal)
-            If (CategoriaID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(CategoriaID.Value,Integer)
-            Else
+            If (Marca Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Marca,String)
             End If
             If (ProveedorID.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ProveedorID.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ProductoID,Integer)
+            If (CategoriaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(CategoriaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ProductoID,Integer)
             If (Original_Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Nombre")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Nombre,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Nombre,String)
             End If
             If (Original_Descripcion Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Descripcion,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Descripcion,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Precio,Decimal)
-            If (Original_CategoriaID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_CategoriaID.Value,Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Precio,Decimal)
+            If (Original_Marca Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Marca,String)
             End If
             If (Original_ProveedorID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_ProveedorID.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_ProveedorID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(ProductoID,Integer)
+            If (Original_CategoriaID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_CategoriaID.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(ProductoID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6711,15 +6871,15 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal ProveedorID As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_CategoriaID As Global.System.Nullable(Of Integer), ByVal Original_ProveedorID As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Nombre, Descripcion, Precio, CategoriaID, ProveedorID, Original_ProductoID, Original_Nombre, Original_Descripcion, Original_Precio, Original_CategoriaID, Original_ProveedorID, Original_ProductoID)
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Marca As String, ByVal ProveedorID As Global.System.Nullable(Of Integer), ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal Original_ProductoID As Integer, ByVal Original_Nombre As String, ByVal Original_Descripcion As String, ByVal Original_Precio As Decimal, ByVal Original_Marca As String, ByVal Original_ProveedorID As Global.System.Nullable(Of Integer), ByVal Original_CategoriaID As Global.System.Nullable(Of Integer)) As Integer
+            Return Me.Update(Nombre, Descripcion, Precio, Marca, ProveedorID, CategoriaID, Original_ProductoID, Original_Nombre, Original_Descripcion, Original_Precio, Original_Marca, Original_ProveedorID, Original_CategoriaID, Original_ProductoID)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
-        Public Overloads Overridable Function AgregarProducto(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal ProveedorID As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function AgregarProducto(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Marca As String, ByVal CategoriaID As Global.System.Nullable(Of Integer), ByVal ProveedorID As Global.System.Nullable(Of Integer)) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")
@@ -6732,15 +6892,20 @@ Namespace BDTableAdapters
                 command.Parameters(1).Value = CType(Descripcion,String)
             End If
             command.Parameters(2).Value = CType(Precio,Decimal)
-            If (CategoriaID.HasValue = true) Then
-                command.Parameters(3).Value = CType(CategoriaID.Value,Integer)
-            Else
+            If (Marca Is Nothing) Then
                 command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Marca,String)
             End If
-            If (ProveedorID.HasValue = true) Then
-                command.Parameters(4).Value = CType(ProveedorID.Value,Integer)
+            If (CategoriaID.HasValue = true) Then
+                command.Parameters(4).Value = CType(CategoriaID.Value,Integer)
             Else
                 command.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (ProveedorID.HasValue = true) Then
+                command.Parameters(5).Value = CType(ProveedorID.Value,Integer)
+            Else
+                command.Parameters(5).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -6762,7 +6927,7 @@ Namespace BDTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
-        Public Overloads Overridable Function EditarProducto(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal ProductoID As Integer) As Integer
+        Public Overloads Overridable Function EditarProducto(ByVal Nombre As String, ByVal Descripcion As String, ByVal Precio As Decimal, ByVal Marca As String, ByVal ProductoID As Integer) As Integer
             Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Nombre Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Nombre")
@@ -6775,7 +6940,12 @@ Namespace BDTableAdapters
                 command.Parameters(1).Value = CType(Descripcion,String)
             End If
             command.Parameters(2).Value = CType(Precio,Decimal)
-            command.Parameters(3).Value = CType(ProductoID,Integer)
+            If (Marca Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Marca,String)
+            End If
+            command.Parameters(4).Value = CType(ProductoID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7011,11 +7181,41 @@ Namespace BDTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM dbo.Proveedores"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "INSERT INTO [dbo].[Proveedores] ([Nombre], [Direccion], [Telefono], [Email]) VALU"& _ 
+                "ES (@Nombre, @Direccion, @Telefono, @Email);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Direccion", Global.System.Data.SqlDbType.VarChar, 200, Global.System.Data.ParameterDirection.Input, 0, 0, "Direccion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefono", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefono", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT ProveedorID, Nombre, Direccion, Telefono, Email FROM dbo.Proveedores WHERE"& _ 
+                " Nombre +' '+Direccion+' '+Telefono+' '+Email LIKE '%'+@Proveedor+'%'"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Proveedor", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "UPDATE Proveedores"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET Nombre=@Nombre, Direccion=@Direccion, Telefono=@Telefono,"& _ 
+                "Email=@Email"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ProveedorID=@ProveedorID"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Nombre", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Direccion", Global.System.Data.SqlDbType.VarChar, 200, Global.System.Data.ParameterDirection.Input, 0, 0, "Direccion", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Telefono", Global.System.Data.SqlDbType.VarChar, 20, Global.System.Data.ParameterDirection.Input, 0, 0, "Telefono", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Email", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "Email", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "DELETE FROM [dbo].[Proveedores] WHERE (ProveedorID=@ProveedorID)"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProveedorID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProveedorID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7040,6 +7240,24 @@ Namespace BDTableAdapters
             Dim dataTable As BD.ProveedoresDataTable = New BD.ProveedoresDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function BuscarProveedor(ByVal dataTable As BD.ProveedoresDataTable, ByVal Proveedor As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Proveedor Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Proveedor")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Proveedor,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7232,6 +7450,114 @@ Namespace BDTableAdapters
         Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Direccion As String, ByVal Telefono As String, ByVal Email As String, ByVal Original_ProveedorID As Integer, ByVal Original_Nombre As String, ByVal Original_Direccion As String, ByVal Original_Telefono As String, ByVal Original_Email As String) As Integer
             Return Me.Update(Nombre, Direccion, Telefono, Email, Original_ProveedorID, Original_Nombre, Original_Direccion, Original_Telefono, Original_Email, Original_ProveedorID)
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
+        Public Overloads Overridable Function AgregarProveedor(ByVal Nombre As String, ByVal Direccion As String, ByVal Telefono As String, ByVal Email As String) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(1)
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
+            Else
+                command.Parameters(0).Value = CType(Nombre,String)
+            End If
+            If (Direccion Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(Direccion,String)
+            End If
+            If (Telefono Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(Telefono,String)
+            End If
+            If (Email Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Email,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, false)>  _
+        Public Overloads Overridable Function EditarProveedor(ByVal Nombre As String, ByVal Direccion As String, ByVal Telefono As String, ByVal Email As String, ByVal ProveedorID As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            If (Nombre Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Nombre")
+            Else
+                command.Parameters(0).Value = CType(Nombre,String)
+            End If
+            If (Direccion Is Nothing) Then
+                command.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(1).Value = CType(Direccion,String)
+            End If
+            If (Telefono Is Nothing) Then
+                command.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(2).Value = CType(Telefono,String)
+            End If
+            If (Email Is Nothing) Then
+                command.Parameters(3).Value = Global.System.DBNull.Value
+            Else
+                command.Parameters(3).Value = CType(Email,String)
+            End If
+            command.Parameters(4).Value = CType(ProveedorID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, false)>  _
+        Public Overloads Overridable Function EliminarProveedor(ByVal ProveedorID As Integer) As Integer
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
+            command.Parameters(0).Value = CType(ProveedorID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
+            If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                command.Connection.Open
+            End If
+            Dim returnValue As Integer
+            Try 
+                returnValue = command.ExecuteNonQuery
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    command.Connection.Close
+                End If
+            End Try
+            Return returnValue
+        End Function
     End Class
     
     '''<summary>
@@ -7369,6 +7695,7 @@ Namespace BDTableAdapters
             tableMapping.ColumnMappings.Add("Direccion", "Direccion")
             tableMapping.ColumnMappings.Add("ProductoID", "ProductoID")
             tableMapping.ColumnMappings.Add("CategoriaID", "CategoriaID")
+            tableMapping.ColumnMappings.Add("Marca", "Marca")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -7385,32 +7712,33 @@ Namespace BDTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Productos.ProductoID,Categorias.CategoriaID,Productos.Nombre, Produ"& _ 
-                "ctos.Descripcion, Productos.Precio, Categorias.Nombre AS Categoria, Proveedores."& _ 
-                "Nombre AS Proveedor, Proveedores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Categorias INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Categorias.CategoriaID = Productos.Cate"& _ 
-                "goriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Proveedores ON Productos.ProveedorI"& _ 
-                "D = Proveedores.ProveedorID"
+            Me._commandCollection(0).CommandText = "SELECT        Productos.ProductoID, Categorias.CategoriaID, Productos.Nombre, Pro"& _ 
+                "ductos.Descripcion, Productos.Precio, Productos.Marca, Categorias.Nombre AS Cate"& _ 
+                "goria, Proveedores.Nombre AS Proveedor, Proveedores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            C"& _ 
+                "ategorias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Categorias.Categoria"& _ 
+                "ID = Productos.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Proveedores ON P"& _ 
+                "roductos.ProveedorID = Proveedores.ProveedorID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        Productos.ProductoID,Categorias.CategoriaID,Productos.Nombre, Produ"& _ 
-                "ctos.Descripcion, Productos.Precio, Categorias.Nombre AS Categoria, Proveedores."& _ 
-                "Nombre AS Proveedor, Proveedores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Categorias INNER JOI"& _ 
-                "N"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Categorias.CategoriaID = Productos.Cate"& _ 
-                "goriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Proveedores ON Productos.ProveedorI"& _ 
-                "D = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Categorias.CategoriaID=@Categoria"
+                "ctos.Descripcion, Productos.Precio,Productos.Marca, Categorias.Nombre AS Categor"& _ 
+                "ia, Proveedores.Nombre AS Proveedor, Proveedores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Cate"& _ 
+                "gorias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Categorias.CategoriaID "& _ 
+                "= Productos.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Proveedores ON Prod"& _ 
+                "uctos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Categorias.CategoriaID=@Categ"& _ 
+                "oria"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Categoria", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT        Productos.Nombre, Productos.Descripcion, Productos.Precio, Categori"& _ 
-                "as.Nombre AS Categoria, Proveedores.Nombre AS Proveedor, Proveedores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "FROM            Categorias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Cat"& _ 
-                "egorias.CategoriaID = Productos.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                        "& _ 
-                " Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (Producto"& _ 
-                "s.Nombre+' '+ Productos.Descripcion+' '+ Categorias.Nombre+' '+ Proveedores.Nomb"& _ 
-                "re+' '+ Proveedores.Direccion LIKE'%'+@Producto+'%')"
+            Me._commandCollection(2).CommandText = "SELECT        Productos.Nombre, Productos.Descripcion, Productos.Precio,Productos"& _ 
+                ".Marca, Categorias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor, Proveed"& _ 
+                "ores.Direccion"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Categorias INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         "& _ 
+                "Productos ON Categorias.CategoriaID = Productos.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (Productos.Nombre+' '+ Productos.Descripcion+' '+ Categorias.Nombre+' '+ "& _ 
+                "Proveedores.Nombre+' '+ Productos.Marca+' '+Proveedores.Direccion LIKE '%'+@Prod"& _ 
+                "ucto+'%')"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Producto", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -7607,6 +7935,7 @@ Namespace BDTableAdapters
             tableMapping.ColumnMappings.Add("ProductoID", "ProductoID")
             tableMapping.ColumnMappings.Add("Categoria", "Categoria")
             tableMapping.ColumnMappings.Add("Proveedor", "Proveedor")
+            tableMapping.ColumnMappings.Add("Marca", "Marca")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -7624,36 +7953,37 @@ Namespace BDTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
-                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
-                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
-                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
-                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
-                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
-                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"
+                "nventario.Cantidad, Productos.Descripcion,Productos.Marca, Inventario.UltimaActu"& _ 
+                "alizacion, Categorias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM"& _ 
+                "            Inventario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventa"& _ 
+                "rio.ProductoID = Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categ"& _ 
+                "orias ON Productos.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
-                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
-                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
-                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
-                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
-                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
-                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Produ"& _ 
-                "ctos.Nombre + ' ' + Categorias.Nombre + ' ' + Proveedores.Nombre + ' ' + Product"& _ 
-                "os.Descripcion LIKE '%' + @Inventario + '%')"
+                "nventario.Cantidad, Productos.Descripcion,Productos.Marca, Inventario.UltimaActu"& _ 
+                "alizacion, Categorias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM"& _ 
+                "            Inventario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventa"& _ 
+                "rio.ProductoID = Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categ"& _ 
+                "orias ON Productos.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"            "& _ 
+                "             Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        (Productos.Nombre + ' ' + Categorias.Nombre + ' ' + Proveedores.Nombre"& _ 
+                " + ' ' + Productos.Descripcion+' '+Productos.Marca LIKE '%' + @Inventario + '%')"& _ 
+                ""
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Inventario", Global.System.Data.SqlDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, 0, 0, "", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT        Inventario.InventarioID, Inventario.ProductoID, Productos.Nombre, I"& _ 
-                "nventario.Cantidad, Productos.Descripcion, Inventario.UltimaActualizacion, Categ"& _ 
-                "orias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Inve"& _ 
-                "ntario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Inventario.ProductoID ="& _ 
-                " Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Categorias ON Product"& _ 
-                "os.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Pro"& _ 
-                "veedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Categ"& _ 
-                "orias.CategoriaID = @Categoria)"
+                "nventario.Cantidad, Productos.Descripcion, Productos.Marca, Inventario.UltimaAct"& _ 
+                "ualizacion, Categorias.Nombre AS Categoria, Proveedores.Nombre AS Proveedor"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FRO"& _ 
+                "M            Inventario INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Productos ON Invent"& _ 
+                "ario.ProductoID = Productos.ProductoID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Cate"& _ 
+                "gorias ON Productos.CategoriaID = Categorias.CategoriaID INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"           "& _ 
+                "              Proveedores ON Productos.ProveedorID = Proveedores.ProveedorID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WH"& _ 
+                "ERE        (Categorias.CategoriaID = @Categoria)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Categoria", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CategoriaID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
