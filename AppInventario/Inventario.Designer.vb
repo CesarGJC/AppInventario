@@ -28,12 +28,6 @@ Partial Class Inventario
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.dgvInventario = New System.Windows.Forms.DataGridView()
-        Me.Bd1 = New CmpInventario.BD()
-        Me.btnActualizar = New System.Windows.Forms.Button()
-        Me.cbCategoria = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InventarioID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cantidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,6 +37,12 @@ Partial Class Inventario
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UltimaActualizacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductoIDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Bd1 = New CmpInventario.BD()
+        Me.btnActualizar = New System.Windows.Forms.Button()
+        Me.cbCategoria = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cmsInventario.SuspendLayout()
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,10 +68,11 @@ Partial Class Inventario
         '
         'btnNuevo
         '
+        Me.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnNuevo.Location = New System.Drawing.Point(20, 16)
         Me.btnNuevo.Name = "btnNuevo"
         Me.btnNuevo.Size = New System.Drawing.Size(75, 23)
-        Me.btnNuevo.TabIndex = 16
+        Me.btnNuevo.TabIndex = 1
         Me.btnNuevo.Text = "Nuevo"
         Me.btnNuevo.UseVisualStyleBackColor = True
         '
@@ -81,6 +82,9 @@ Partial Class Inventario
         Me.dgvInventario.AllowUserToDeleteRows = False
         Me.dgvInventario.AllowUserToResizeColumns = False
         Me.dgvInventario.AllowUserToResizeRows = False
+        Me.dgvInventario.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvInventario.AutoGenerateColumns = False
         Me.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -92,60 +96,7 @@ Partial Class Inventario
         Me.dgvInventario.Name = "dgvInventario"
         Me.dgvInventario.RowHeadersVisible = False
         Me.dgvInventario.Size = New System.Drawing.Size(655, 303)
-        Me.dgvInventario.TabIndex = 13
-        '
-        'Bd1
-        '
-        Me.Bd1.DataSetName = "BD"
-        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'btnActualizar
-        '
-        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
-        Me.btnActualizar.BackgroundImage = Global.AppInventario.My.Resources.Resources.Refresh_icon
-        Me.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnActualizar.Location = New System.Drawing.Point(101, 13)
-        Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(34, 29)
-        Me.btnActualizar.TabIndex = 15
-        Me.btnActualizar.UseVisualStyleBackColor = False
-        '
-        'cbCategoria
-        '
-        Me.cbCategoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbCategoria.DataSource = Me.Bd1
-        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
-        Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(201, 16)
-        Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
-        Me.cbCategoria.TabIndex = 17
-        Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(494, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Buscar:"
-        '
-        'txtBuscarInventario
-        '
-        Me.txtBuscarInventario.Location = New System.Drawing.Point(543, 16)
-        Me.txtBuscarInventario.Name = "txtBuscarInventario"
-        Me.txtBuscarInventario.Size = New System.Drawing.Size(132, 20)
-        Me.txtBuscarInventario.TabIndex = 18
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(141, 19)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 13)
-        Me.Label2.TabIndex = 20
-        Me.Label2.Text = "Categoria:"
+        Me.dgvInventario.TabIndex = 5
         '
         'NombreDataGridViewTextBoxColumn
         '
@@ -204,6 +155,63 @@ Partial Class Inventario
         Me.ProductoIDDataGridViewTextBoxColumn.Name = "ProductoIDDataGridViewTextBoxColumn"
         Me.ProductoIDDataGridViewTextBoxColumn.ReadOnly = True
         Me.ProductoIDDataGridViewTextBoxColumn.Visible = False
+        '
+        'Bd1
+        '
+        Me.Bd1.DataSetName = "BD"
+        Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.Transparent
+        Me.btnActualizar.BackgroundImage = Global.AppInventario.My.Resources.Resources.Refresh_icon
+        Me.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnActualizar.Location = New System.Drawing.Point(101, 13)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(34, 29)
+        Me.btnActualizar.TabIndex = 2
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
+        'cbCategoria
+        '
+        Me.cbCategoria.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cbCategoria.DataSource = Me.Bd1
+        Me.cbCategoria.DisplayMember = "Categorias.Nombre"
+        Me.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbCategoria.FormattingEnabled = True
+        Me.cbCategoria.Location = New System.Drawing.Point(201, 16)
+        Me.cbCategoria.Name = "cbCategoria"
+        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
+        Me.cbCategoria.TabIndex = 3
+        Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(494, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Buscar:"
+        '
+        'txtBuscarInventario
+        '
+        Me.txtBuscarInventario.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscarInventario.Location = New System.Drawing.Point(543, 19)
+        Me.txtBuscarInventario.Name = "txtBuscarInventario"
+        Me.txtBuscarInventario.Size = New System.Drawing.Size(132, 20)
+        Me.txtBuscarInventario.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(141, 19)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Categoria:"
         '
         'Inventario
         '

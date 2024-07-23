@@ -51,7 +51,7 @@
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
         Try
-            NuevoProveedor.Show()
+            NuevoProveedor.ShowDialog()
         Catch ex As Exception
 
         End Try
