@@ -66,7 +66,7 @@ Public Class Menú
             fh.Dock = DockStyle.Fill
             Me.PanelContenedor.Controls.Add(fh)
             Me.PanelContenedor.Tag = fh
-            fh.Show()
+        fh.Show()
 
     End Sub
 
@@ -84,7 +84,7 @@ Public Class Menú
     End Sub
 
     Private Sub btnCompra_Click(sender As Object, e As EventArgs) Handles btnCompra.Click
-        Abrirforenpanel(New compra)
+        Compras.ShowDialog()
     End Sub
 
     Private Sub btnInventario_Click(sender As Object, e As EventArgs) Handles btnInventario.Click

@@ -23,4 +23,12 @@
         Dim adap As New BDTableAdapters.InventarioTATableAdapter
         adap.ConsultarInventario(ds, Inventario)
     End Sub
+    Public Sub AgregarCompras(Fecha As Date, ProductoID As Integer, Cantidad As Integer, PrecioCompra As Decimal, Total As Decimal)
+        Dim adap As New BDTableAdapters.ComprasTableAdapter
+        adap.AgregarCompra(Fecha, ProductoID, Cantidad, PrecioCompra, Total)
+    End Sub
+    Public Sub CargarCompras(Compras As BD.ComprasTableDataTable)
+        Dim adap As New BDTableAdapters.ComprasTableTableAdapter
+        adap.Fill(Compras)
+    End Sub
 End Class

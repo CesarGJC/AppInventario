@@ -7,6 +7,10 @@
 
         End Try
     End Sub
+    Public Sub CargarProductos1(producto As BD.ProductosDataTable)
+        Dim adap As New BDTableAdapters.ProductosTableAdapter
+        adap.Fill(producto)
+    End Sub
     Public Sub CargarCategoria(categoria As BD.CategoriasDataTable)
         Try
             Dim adap As New BDTableAdapters.CategoriasTableAdapter

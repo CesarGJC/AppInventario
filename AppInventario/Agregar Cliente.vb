@@ -5,7 +5,7 @@
             Dim ObjCli As New CmpInventario.Cliente
             If ValidarFrm() Then
                 ObjCli.AgregarCliente(txtCi.Text, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text)
-                MsgBox("Producto Registrado Correctamente")
+                MsgBox("Cliente Registrado Correctamente")
                 Me.Dispose()
             End If
 
