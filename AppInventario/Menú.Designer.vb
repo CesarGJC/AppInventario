@@ -145,16 +145,16 @@ Partial Class Menú
         'Panelmenu
         '
         Me.Panelmenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(37, Byte), Integer), CType(CType(46, Byte), Integer), CType(CType(59, Byte), Integer))
+        Me.Panelmenu.Controls.Add(Me.btnCompra)
+        Me.Panelmenu.Controls.Add(Me.Panel4)
         Me.Panelmenu.Controls.Add(Me.Panel12)
-        Me.Panelmenu.Controls.Add(Me.btnInventario)
-        Me.Panelmenu.Controls.Add(Me.btnProveedores)
-        Me.Panelmenu.Controls.Add(Me.Panel10)
         Me.Panelmenu.Controls.Add(Me.Panel9)
         Me.Panelmenu.Controls.Add(Me.btnUsuario)
+        Me.Panelmenu.Controls.Add(Me.btnInventario)
         Me.Panelmenu.Controls.Add(Me.Panel7)
+        Me.Panelmenu.Controls.Add(Me.btnProveedores)
         Me.Panelmenu.Controls.Add(Me.Panel5)
-        Me.Panelmenu.Controls.Add(Me.Panel4)
-        Me.Panelmenu.Controls.Add(Me.btnCompra)
+        Me.Panelmenu.Controls.Add(Me.Panel10)
         Me.Panelmenu.Controls.Add(Me.btnCliente)
         Me.Panelmenu.Controls.Add(Me.Panel1)
         Me.Panelmenu.Controls.Add(Me.btnReporte)
@@ -170,7 +170,7 @@ Partial Class Menú
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.Red
-        Me.Panel12.Location = New System.Drawing.Point(0, 282)
+        Me.Panel12.Location = New System.Drawing.Point(-2, 229)
         Me.Panel12.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel12.Name = "Panel12"
         Me.Panel12.Size = New System.Drawing.Size(4, 41)
@@ -187,7 +187,7 @@ Partial Class Menú
         Me.btnInventario.ForeColor = System.Drawing.Color.White
         Me.btnInventario.Image = CType(resources.GetObject("btnInventario.Image"), System.Drawing.Image)
         Me.btnInventario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInventario.Location = New System.Drawing.Point(8, 237)
+        Me.btnInventario.Location = New System.Drawing.Point(6, 184)
         Me.btnInventario.Margin = New System.Windows.Forms.Padding(2)
         Me.btnInventario.Name = "btnInventario"
         Me.btnInventario.Size = New System.Drawing.Size(159, 41)
@@ -207,7 +207,7 @@ Partial Class Menú
         Me.btnProveedores.ForeColor = System.Drawing.Color.White
         Me.btnProveedores.Image = CType(resources.GetObject("btnProveedores.Image"), System.Drawing.Image)
         Me.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProveedores.Location = New System.Drawing.Point(2, 282)
+        Me.btnProveedores.Location = New System.Drawing.Point(0, 229)
         Me.btnProveedores.Margin = New System.Windows.Forms.Padding(2)
         Me.btnProveedores.Name = "btnProveedores"
         Me.btnProveedores.Size = New System.Drawing.Size(165, 41)
@@ -220,7 +220,7 @@ Partial Class Menú
         '
         Me.Panel10.BackColor = System.Drawing.Color.Red
         Me.Panel10.Controls.Add(Me.Panel11)
-        Me.Panel10.Location = New System.Drawing.Point(0, 237)
+        Me.Panel10.Location = New System.Drawing.Point(-2, 184)
         Me.Panel10.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel10.Name = "Panel10"
         Me.Panel10.Size = New System.Drawing.Size(4, 41)
@@ -305,7 +305,7 @@ Partial Class Menú
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.Red
-        Me.Panel4.Location = New System.Drawing.Point(0, 192)
+        Me.Panel4.Location = New System.Drawing.Point(0, 274)
         Me.Panel4.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(4, 41)
@@ -322,7 +322,7 @@ Partial Class Menú
         Me.btnCompra.ForeColor = System.Drawing.Color.White
         Me.btnCompra.Image = CType(resources.GetObject("btnCompra.Image"), System.Drawing.Image)
         Me.btnCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCompra.Location = New System.Drawing.Point(2, 192)
+        Me.btnCompra.Location = New System.Drawing.Point(2, 274)
         Me.btnCompra.Margin = New System.Windows.Forms.Padding(2)
         Me.btnCompra.Name = "btnCompra"
         Me.btnCompra.Size = New System.Drawing.Size(165, 41)

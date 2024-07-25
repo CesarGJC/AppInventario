@@ -22,13 +22,13 @@ Partial Class Seleccionar_Producto
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Seleccionar_Producto))
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbCategoria = New System.Windows.Forms.ComboBox()
         Me.Bd1 = New CmpInventario.BD()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dgvProducto = New System.Windows.Forms.DataGridView()
-        Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.ProductoID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoriaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,6 +38,7 @@ Partial Class Seleccionar_Producto
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PrecioDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescripcionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -89,6 +90,14 @@ Partial Class Seleccionar_Producto
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvProducto.AutoGenerateColumns = False
         Me.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProducto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoID, Me.CategoriaID, Me.NombreDataGridViewTextBoxColumn, Me.Marca, Me.Proveedor, Me.Categoria, Me.Direccion, Me.PrecioDataGridViewTextBoxColumn, Me.DescripcionDataGridViewTextBoxColumn})
         Me.dgvProducto.DataMember = "ProductoTA"
@@ -99,15 +108,6 @@ Partial Class Seleccionar_Producto
         Me.dgvProducto.RowHeadersVisible = False
         Me.dgvProducto.Size = New System.Drawing.Size(655, 303)
         Me.dgvProducto.TabIndex = 27
-        '
-        'txtBuscarProducto
-        '
-        Me.txtBuscarProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtBuscarProducto.Location = New System.Drawing.Point(507, 27)
-        Me.txtBuscarProducto.Name = "txtBuscarProducto"
-        Me.txtBuscarProducto.Size = New System.Drawing.Size(170, 20)
-        Me.txtBuscarProducto.TabIndex = 25
         '
         'ProductoID
         '
@@ -173,6 +173,15 @@ Partial Class Seleccionar_Producto
         Me.DescripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion"
         Me.DescripcionDataGridViewTextBoxColumn.Name = "DescripcionDataGridViewTextBoxColumn"
         Me.DescripcionDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'txtBuscarProducto
+        '
+        Me.txtBuscarProducto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscarProducto.Location = New System.Drawing.Point(507, 27)
+        Me.txtBuscarProducto.Name = "txtBuscarProducto"
+        Me.txtBuscarProducto.Size = New System.Drawing.Size(170, 20)
+        Me.txtBuscarProducto.TabIndex = 25
         '
         'Seleccionar_Producto
         '

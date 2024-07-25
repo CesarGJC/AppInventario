@@ -22,7 +22,9 @@ Partial Class Compras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtProveedor = New System.Windows.Forms.TextBox()
         Me.txtProducto = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -54,6 +56,7 @@ Partial Class Compras
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtProveedor)
         Me.GroupBox1.Controls.Add(Me.txtProducto)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -75,6 +78,17 @@ Partial Class Compras
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Compra"
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(16, 299)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(110, 39)
+        Me.Button1.TabIndex = 18
+        Me.Button1.Text = "Cancelar"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'txtProveedor
         '
@@ -114,11 +128,11 @@ Partial Class Compras
         '
         Me.btnRealizarCompra.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnRealizarCompra.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRealizarCompra.Location = New System.Drawing.Point(16, 285)
+        Me.btnRealizarCompra.Location = New System.Drawing.Point(132, 299)
         Me.btnRealizarCompra.Name = "btnRealizarCompra"
-        Me.btnRealizarCompra.Size = New System.Drawing.Size(226, 39)
+        Me.btnRealizarCompra.Size = New System.Drawing.Size(110, 39)
         Me.btnRealizarCompra.TabIndex = 14
-        Me.btnRealizarCompra.Text = "Realizar Compra"
+        Me.btnRealizarCompra.Text = "Aceptar"
         Me.btnRealizarCompra.UseVisualStyleBackColor = True
         '
         'btnActualizar
@@ -212,6 +226,14 @@ Partial Class Compras
         Me.dgvCompras.AllowUserToAddRows = False
         Me.dgvCompras.AllowUserToDeleteRows = False
         Me.dgvCompras.AutoGenerateColumns = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCompras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCompras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.TotalCompraDataGridViewTextBoxColumn, Me.ProveedorDataGridViewTextBoxColumn, Me.FechaDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn})
         Me.dgvCompras.DataMember = "ComprasTable"
@@ -323,4 +345,5 @@ Partial Class Compras
     Friend WithEvents ProveedorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class
