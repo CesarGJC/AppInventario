@@ -94,4 +94,6 @@ Public Class Menú
     Private Sub btnProveedores_Click(sender As Object, e As EventArgs) Handles btnProveedores.Click
         Abrirforenpanel(New Proveedores)
     End Sub
+
+
 End Class
