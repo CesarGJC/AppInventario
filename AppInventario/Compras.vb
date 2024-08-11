@@ -11,7 +11,7 @@ Public Class Compras
             Dim ObjComp1 As New CmpInventario.Inventario
             ObjComp1.AgregarCompras(dtpFecha.Value, ProductoID, txtCantidad.Text, txtPrecioCompra.Text, txtTotalCompra.Text)
             MsgBox("Compra Registrado Correctamente", vbOKOnly, "Compras")
-            Dim connectionString As String = "Data Source=CESARGJC-LAP;Initial Catalog=BDinventario;Integrated Security=True" ' Define tu cadena de conexión
+            Dim connectionString As String = "Data Source=(local);Initial Catalog=BDinventario;Integrated Security=True" ' Define tu cadena de conexión
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
@@ -65,6 +65,11 @@ Public Class Compras
         Try
             Dim ObjComp As New CmpInventario.Inventario
             ObjComp.CargarCompras(Bd1.ComprasTable)
+            txtProveedor.Clear()
+            txtProducto.Clear()
+            txtCantidad.Clear()
+            txtPrecioCompra.Clear()
+            txtTotalCompra.Clear()
         Catch ex As Exception
 
         End Try
@@ -91,5 +96,9 @@ Public Class Compras
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        ReporteCompra.ShowDialog()
     End Sub
 End Class

@@ -44,6 +44,7 @@ Partial Class Inventario
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.cmsInventario.SuspendLayout()
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -230,11 +231,22 @@ Partial Class Inventario
         Me.Label2.TabIndex = 20
         Me.Label2.Text = "Categoria:"
         '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(385, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Reporte"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtBuscarInventario)
@@ -273,4 +285,5 @@ Partial Class Inventario
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn
     Friend WithEvents UltimaActualizacion As DataGridViewTextBoxColumn
     Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

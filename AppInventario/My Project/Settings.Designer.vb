@@ -57,11 +57,10 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=CESARGJC-LAP;Initial Catalog=dbinventario;Integrated Security=True;En"& _ 
-            "crypt=False")>  _
-        Public ReadOnly Property dbinventarioConnectionString() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=(local);Initial Catalog=BDinventario;Integrated Security=True")>  _
+        Public ReadOnly Property BDinventarioConnectionString() As String
             Get
-                Return CType(Me("dbinventarioConnectionString"),String)
+                Return CType(Me("BDinventarioConnectionString"),String)
             End Get
         End Property
     End Class

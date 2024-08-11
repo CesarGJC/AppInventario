@@ -22,7 +22,7 @@ Partial Class Compras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtProveedor = New System.Windows.Forms.TextBox()
@@ -49,6 +49,7 @@ Partial Class Compras
         Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoriaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Bd1 = New CmpInventario.BD()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvCompras, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,6 +57,7 @@ Partial Class Compras
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.txtProveedor)
         Me.GroupBox1.Controls.Add(Me.txtProducto)
@@ -119,7 +121,7 @@ Partial Class Compras
         '
         Me.btnSeleccionarProducto.Location = New System.Drawing.Point(16, 20)
         Me.btnSeleccionarProducto.Name = "btnSeleccionarProducto"
-        Me.btnSeleccionarProducto.Size = New System.Drawing.Size(148, 23)
+        Me.btnSeleccionarProducto.Size = New System.Drawing.Size(120, 23)
         Me.btnSeleccionarProducto.TabIndex = 15
         Me.btnSeleccionarProducto.Text = "Seleccionar Producto"
         Me.btnSeleccionarProducto.UseVisualStyleBackColor = True
@@ -226,19 +228,19 @@ Partial Class Compras
         Me.dgvCompras.AllowUserToAddRows = False
         Me.dgvCompras.AllowUserToDeleteRows = False
         Me.dgvCompras.AutoGenerateColumns = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCompras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCompras.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCompras.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.CantidadDataGridViewTextBoxColumn, Me.PrecioDataGridViewTextBoxColumn, Me.TotalCompraDataGridViewTextBoxColumn, Me.ProveedorDataGridViewTextBoxColumn, Me.FechaDataGridViewTextBoxColumn, Me.CategoriaDataGridViewTextBoxColumn})
         Me.dgvCompras.DataMember = "ComprasTable"
         Me.dgvCompras.DataSource = Me.Bd1
-        Me.dgvCompras.Location = New System.Drawing.Point(277, 12)
+        Me.dgvCompras.Location = New System.Drawing.Point(260, 12)
         Me.dgvCompras.Name = "dgvCompras"
         Me.dgvCompras.ReadOnly = True
         Me.dgvCompras.RowHeadersVisible = False
@@ -299,6 +301,15 @@ Partial Class Compras
         Me.Bd1.DataSetName = "BD"
         Me.Bd1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(139, 20)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(63, 23)
+        Me.Button2.TabIndex = 19
+        Me.Button2.Text = "Reporte"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Compras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -346,4 +357,5 @@ Partial Class Compras
     Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CategoriaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

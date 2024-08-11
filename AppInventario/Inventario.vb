@@ -1,4 +1,5 @@
-﻿Public Class Inventario
+﻿Imports System.Data.SqlClient
+Public Class Inventario
     Dim InventarioID1 As Integer
     Dim ProductoId1 As Integer
     Dim Nombre1 As String
@@ -11,10 +12,34 @@
 
         End Try
     End Sub
+    Public Sub VerificarInventario()
+        Dim connectionString As String = "Data Source=(local);Initial Catalog=BDinventario;Integrated Security=True"
+        Using connection As New SqlConnection(connectionString)
+            connection.Open()
 
+            Dim query As String = "
+            SELECT p.Nombre, i.Cantidad 
+            FROM Inventario i
+            JOIN Productos p ON i.ProductoID = p.ProductoID
+            WHERE i.Cantidad <= 5"
+
+            Using command As New SqlCommand(query, connection)
+                Using reader As SqlDataReader = command.ExecuteReader()
+                    If reader.HasRows Then
+                        Dim aviso As String = "Producto con poco Stock" & vbCrLf
+                        While reader.Read()
+                            aviso &= "Producto: " & reader("Nombre").ToString() & " - Cantidad: " & reader("Cantidad").ToString() & vbCrLf
+                        End While
+                        MessageBox.Show(aviso, "Aviso de Inventario Bajo", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End Using
+            End Using
+        End Using
+    End Sub
     Private Sub Inventario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Try
+            VerificarInventario()
             Dim ObjInv As New CmpInventario.Inventario
             ObjInv.CargarInventario(Bd1.InventarioTA)
             Dim ObjPro1 As New CmpInventario.Producto
@@ -84,5 +109,9 @@
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ReporteInventario.ShowDialog()
     End Sub
 End Class

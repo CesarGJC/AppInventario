@@ -44,6 +44,7 @@ Partial Class Productos
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsEliminar.SuspendLayout()
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,9 +120,9 @@ Partial Class Productos
         Me.cbCategoria.DisplayMember = "Categorias.Nombre"
         Me.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(240, 18)
+        Me.cbCategoria.Location = New System.Drawing.Point(215, 18)
         Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
+        Me.cbCategoria.Size = New System.Drawing.Size(134, 21)
         Me.cbCategoria.TabIndex = 3
         Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
         '
@@ -224,17 +225,28 @@ Partial Class Productos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(179, 22)
+        Me.Label2.Location = New System.Drawing.Point(154, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "Categoria:"
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(365, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Reporte"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.cbCategoria)
@@ -279,4 +291,5 @@ Partial Class Productos
     Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Proveedor As DataGridViewTextBoxColumn
     Friend WithEvents Direccion As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class
