@@ -23,6 +23,7 @@ Partial Class Productos
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarProducto = New System.Windows.Forms.TextBox()
         Me.btnNuevo = New System.Windows.Forms.Button()
@@ -43,6 +44,7 @@ Partial Class Productos
         Me.Proveedor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Direccion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.cmsEliminar.SuspendLayout()
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,9 +120,9 @@ Partial Class Productos
         Me.cbCategoria.DisplayMember = "Categorias.Nombre"
         Me.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbCategoria.FormattingEnabled = True
-        Me.cbCategoria.Location = New System.Drawing.Point(240, 18)
+        Me.cbCategoria.Location = New System.Drawing.Point(215, 18)
         Me.cbCategoria.Name = "cbCategoria"
-        Me.cbCategoria.Size = New System.Drawing.Size(142, 21)
+        Me.cbCategoria.Size = New System.Drawing.Size(134, 21)
         Me.cbCategoria.TabIndex = 3
         Me.cbCategoria.ValueMember = "Categorias.CategoriaID"
         '
@@ -135,6 +137,14 @@ Partial Class Productos
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvProducto.AutoGenerateColumns = False
         Me.dgvProducto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvProducto.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProducto.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ProductoID, Me.CategoriaID, Me.DataGridViewTextBoxColumn1, Me.Categoria, Me.PrecioDataGridViewTextBoxColumn, Me.Marca, Me.DescripcionDataGridViewTextBoxColumn, Me.Proveedor, Me.Direccion})
         Me.dgvProducto.ContextMenuStrip = Me.cmsEliminar
@@ -142,6 +152,7 @@ Partial Class Productos
         Me.dgvProducto.DataSource = Me.Bd1
         Me.dgvProducto.Location = New System.Drawing.Point(20, 48)
         Me.dgvProducto.Name = "dgvProducto"
+        Me.dgvProducto.ReadOnly = True
         Me.dgvProducto.RowHeadersVisible = False
         Me.dgvProducto.Size = New System.Drawing.Size(655, 303)
         Me.dgvProducto.TabIndex = 5
@@ -188,6 +199,7 @@ Partial Class Productos
         Me.Marca.DataPropertyName = "Marca"
         Me.Marca.HeaderText = "Marca"
         Me.Marca.Name = "Marca"
+        Me.Marca.ReadOnly = True
         '
         'DescripcionDataGridViewTextBoxColumn
         '
@@ -213,17 +225,28 @@ Partial Class Productos
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(179, 22)
+        Me.Label2.Location = New System.Drawing.Point(154, 22)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(55, 13)
         Me.Label2.TabIndex = 21
         Me.Label2.Text = "Categoria:"
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(365, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Reporte"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Productos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.cbCategoria)
@@ -235,7 +258,7 @@ Partial Class Productos
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Productos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "ProductoUI"
+        Me.Text = "Productos"
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.cmsEliminar.ResumeLayout(False)
         CType(Me.dgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
@@ -268,4 +291,5 @@ Partial Class Productos
     Friend WithEvents DescripcionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Proveedor As DataGridViewTextBoxColumn
     Friend WithEvents Direccion As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

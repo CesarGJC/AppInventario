@@ -23,6 +23,7 @@ Partial Class Inventario
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmsInventario = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,6 +44,7 @@ Partial Class Inventario
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtBuscarInventario = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.cmsInventario.SuspendLayout()
         CType(Me.dgvInventario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +89,14 @@ Partial Class Inventario
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvInventario.AutoGenerateColumns = False
         Me.dgvInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvInventario.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvInventario.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NombreDataGridViewTextBoxColumn, Me.InventarioID, Me.Cantidad, Me.Categoria, Me.Proveedor, Me.Marca, Me.Descripcion, Me.UltimaActualizacion, Me.ProductoIDDataGridViewTextBoxColumn})
         Me.dgvInventario.ContextMenuStrip = Me.cmsInventario
@@ -94,6 +104,7 @@ Partial Class Inventario
         Me.dgvInventario.DataSource = Me.Bd1
         Me.dgvInventario.Location = New System.Drawing.Point(20, 48)
         Me.dgvInventario.Name = "dgvInventario"
+        Me.dgvInventario.ReadOnly = True
         Me.dgvInventario.RowHeadersVisible = False
         Me.dgvInventario.Size = New System.Drawing.Size(655, 303)
         Me.dgvInventario.TabIndex = 5
@@ -103,6 +114,7 @@ Partial Class Inventario
         Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
         '
         'InventarioID
         '
@@ -117,36 +129,42 @@ Partial Class Inventario
         Me.Cantidad.DataPropertyName = "Cantidad"
         Me.Cantidad.HeaderText = "Cantidad"
         Me.Cantidad.Name = "Cantidad"
+        Me.Cantidad.ReadOnly = True
         '
         'Categoria
         '
         Me.Categoria.DataPropertyName = "Categoria"
         Me.Categoria.HeaderText = "Categoria"
         Me.Categoria.Name = "Categoria"
+        Me.Categoria.ReadOnly = True
         '
         'Proveedor
         '
         Me.Proveedor.DataPropertyName = "Proveedor"
         Me.Proveedor.HeaderText = "Proveedor"
         Me.Proveedor.Name = "Proveedor"
+        Me.Proveedor.ReadOnly = True
         '
         'Marca
         '
         Me.Marca.DataPropertyName = "Marca"
         Me.Marca.HeaderText = "Marca"
         Me.Marca.Name = "Marca"
+        Me.Marca.ReadOnly = True
         '
         'Descripcion
         '
         Me.Descripcion.DataPropertyName = "Descripcion"
         Me.Descripcion.HeaderText = "Descripcion"
         Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.ReadOnly = True
         '
         'UltimaActualizacion
         '
         Me.UltimaActualizacion.DataPropertyName = "UltimaActualizacion"
         Me.UltimaActualizacion.HeaderText = "UltimaActualizacion"
         Me.UltimaActualizacion.Name = "UltimaActualizacion"
+        Me.UltimaActualizacion.ReadOnly = True
         '
         'ProductoIDDataGridViewTextBoxColumn
         '
@@ -213,11 +231,22 @@ Partial Class Inventario
         Me.Label2.TabIndex = 20
         Me.Label2.Text = "Categoria:"
         '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(385, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Reporte"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Inventario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtBuscarInventario)
@@ -256,4 +285,5 @@ Partial Class Inventario
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn
     Friend WithEvents UltimaActualizacion As DataGridViewTextBoxColumn
     Friend WithEvents ProductoIDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

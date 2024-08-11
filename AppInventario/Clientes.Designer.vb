@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Clientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,13 @@ Partial Class Clientes
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cmsCliente = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Bd1 = New CmpInventario.BD()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -38,6 +39,7 @@ Partial Class Clientes
         Me.DireccionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.cmsCliente.SuspendLayout()
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,19 +49,19 @@ Partial Class Clientes
         '
         Me.cmsCliente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.cmsCliente.Name = "ContextMenuStrip1"
-        Me.cmsCliente.Size = New System.Drawing.Size(181, 70)
-        '
-        'EliminarToolStripMenuItem
-        '
-        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.EliminarToolStripMenuItem.Text = "Eliminar"
+        Me.cmsCliente.Size = New System.Drawing.Size(118, 48)
         '
         'EditarToolStripMenuItem
         '
         Me.EditarToolStripMenuItem.Name = "EditarToolStripMenuItem"
-        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.EditarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
         Me.EditarToolStripMenuItem.Text = "Editar"
+        '
+        'EliminarToolStripMenuItem
+        '
+        Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+        Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'Bd1
         '
@@ -117,6 +119,14 @@ Partial Class Clientes
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvClientes.AutoGenerateColumns = False
         Me.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvClientes.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvClientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.CIDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.ApellidoDataGridViewTextBoxColumn, Me.DireccionDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn})
         Me.dgvClientes.ContextMenuStrip = Me.cmsCliente
@@ -124,6 +134,7 @@ Partial Class Clientes
         Me.dgvClientes.DataSource = Me.Bd1
         Me.dgvClientes.Location = New System.Drawing.Point(20, 48)
         Me.dgvClientes.Name = "dgvClientes"
+        Me.dgvClientes.ReadOnly = True
         Me.dgvClientes.RowHeadersVisible = False
         Me.dgvClientes.Size = New System.Drawing.Size(655, 303)
         Me.dgvClientes.TabIndex = 4
@@ -133,42 +144,59 @@ Partial Class Clientes
         Me.CIDataGridViewTextBoxColumn.DataPropertyName = "CI"
         Me.CIDataGridViewTextBoxColumn.HeaderText = "CI"
         Me.CIDataGridViewTextBoxColumn.Name = "CIDataGridViewTextBoxColumn"
+        Me.CIDataGridViewTextBoxColumn.ReadOnly = True
         '
         'NombreDataGridViewTextBoxColumn
         '
         Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
         Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
+        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ApellidoDataGridViewTextBoxColumn
         '
         Me.ApellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido"
         Me.ApellidoDataGridViewTextBoxColumn.HeaderText = "Apellido"
         Me.ApellidoDataGridViewTextBoxColumn.Name = "ApellidoDataGridViewTextBoxColumn"
+        Me.ApellidoDataGridViewTextBoxColumn.ReadOnly = True
         '
         'DireccionDataGridViewTextBoxColumn
         '
         Me.DireccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion"
         Me.DireccionDataGridViewTextBoxColumn.HeaderText = "Direccion"
         Me.DireccionDataGridViewTextBoxColumn.Name = "DireccionDataGridViewTextBoxColumn"
+        Me.DireccionDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TelefonoDataGridViewTextBoxColumn
         '
         Me.TelefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono"
         Me.TelefonoDataGridViewTextBoxColumn.HeaderText = "Telefono"
         Me.TelefonoDataGridViewTextBoxColumn.Name = "TelefonoDataGridViewTextBoxColumn"
+        Me.TelefonoDataGridViewTextBoxColumn.ReadOnly = True
         '
         'EmailDataGridViewTextBoxColumn
         '
         Me.EmailDataGridViewTextBoxColumn.DataPropertyName = "Email"
         Me.EmailDataGridViewTextBoxColumn.HeaderText = "Email"
         Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
+        Me.EmailDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'Button1
+        '
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.Location = New System.Drawing.Point(258, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Reporte"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 381)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dgvClientes)
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnNuevo)
@@ -178,7 +206,7 @@ Partial Class Clientes
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StockUI"
+        Me.Text = "Clientes"
         Me.cmsCliente.ResumeLayout(False)
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
@@ -201,4 +229,5 @@ Partial Class Clientes
     Friend WithEvents DireccionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

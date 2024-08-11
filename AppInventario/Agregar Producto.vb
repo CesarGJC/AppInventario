@@ -18,7 +18,7 @@
         Dim objPro As New CmpInventario.Producto
         Try
             objPro.AgregarProducto(txtNombre.Text, txtDescripcion.Text, Decimal.Parse(txtPrecio.Text), txtMarca.Text, Categoria, Proveedor)
-            MsgBox("Producto Registrado Correctamente")
+            MsgBox("Producto Registrado Correctamente", vbOKOnly, "Registrar Producto")
             Dispose()
 
         Catch ex As Exception

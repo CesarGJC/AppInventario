@@ -75,9 +75,9 @@ Partial Class nuevoProducto
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(36, 80)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(139, 20)
+        Me.Label2.Size = New System.Drawing.Size(126, 20)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Precio de Compra:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label2.Text = "Precio de Venta:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'bntGuardar
         '
@@ -222,7 +222,7 @@ Partial Class nuevoProducto
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "nuevoProducto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "nuevoProducto"
+        Me.Text = "Agregar Producto"
         Me.TopMost = True
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

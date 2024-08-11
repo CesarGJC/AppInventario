@@ -171,7 +171,7 @@ Partial Class EditarInventario
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "EditarInventario"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "EditarInventario"
+        Me.Text = "Editar Inventario"
         Me.TopMost = True
         CType(Me.Bd1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
