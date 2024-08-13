@@ -301,10 +301,10 @@ Partial Class Menú
         Me.btnProveedores.ForeColor = System.Drawing.Color.White
         Me.btnProveedores.Image = CType(resources.GetObject("btnProveedores.Image"), System.Drawing.Image)
         Me.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnProveedores.Location = New System.Drawing.Point(6, 229)
+        Me.btnProveedores.Location = New System.Drawing.Point(2, 229)
         Me.btnProveedores.Margin = New System.Windows.Forms.Padding(2)
         Me.btnProveedores.Name = "btnProveedores"
-        Me.btnProveedores.Size = New System.Drawing.Size(165, 41)
+        Me.btnProveedores.Size = New System.Drawing.Size(161, 41)
         Me.btnProveedores.TabIndex = 10
         Me.btnProveedores.Text = "Proveedores"
         Me.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText

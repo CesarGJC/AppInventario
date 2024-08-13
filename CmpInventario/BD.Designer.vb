@@ -7596,7 +7596,8 @@ Namespace BDTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._commandCollection(5) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[Productos] WHERE ProductoID=@ProductoID"
+            Me._commandCollection(5).CommandText = "DELETE FROM [dbo].[Inventario]"&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ProductoID = @ProductoID;"&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(10)&"DELETE FROM [dbo]"& _ 
+                ".[Productos]"&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE ProductoID = @ProductoID;"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductoID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductoID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
