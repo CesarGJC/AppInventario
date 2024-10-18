@@ -60,7 +60,14 @@
 
         End Try
     End Sub
+    Public Sub Refresh1()
+        Try
+            Dim ObjCli As New CmpInventario.Cliente
+            ObjCli.CargarCliente(Bd1.Clientes)
+        Catch ex As Exception
 
+        End Try
+    End Sub
     Private Sub EditarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EditarToolStripMenuItem.Click
         Dim f As New EditarCliente
         Carnet1 = dgvClientes.Item("CIDataGridViewTextBoxColumn", dgvClientes.CurrentRow.Index).Value

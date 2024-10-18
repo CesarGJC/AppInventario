@@ -6,6 +6,7 @@
             If ValidarFrm() Then
                 ObjCli.AgregarCliente(txtCi.Text, txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtEmail.Text)
                 MsgBox("Cliente Registrado Correctamente")
+                Clientes.Refresh1()
                 Me.Dispose()
             End If
 

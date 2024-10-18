@@ -507,6 +507,7 @@ Partial Class Menú
         Me.Name = "Menú"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menú"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panelcabera.ResumeLayout(False)
         Me.Panelmenu.ResumeLayout(False)
         Me.Panel7.ResumeLayout(False)
